@@ -78,7 +78,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Customer.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="Product.cpp" />
+    <ClCompile Include="Receipt.cpp" />
+    <ClCompile Include="Seller.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Customer.h" />
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="Product.h" />
+    <ClInclude Include="Receipt.h" />
+    <ClInclude Include="Reciept.h" />
+    <ClInclude Include="Seller.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
