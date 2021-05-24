@@ -12,12 +12,12 @@ private:
 	vector <Product> cart;
 
 public :
-	Customer(int id, string name, string email, string address, string phone);
+	Customer(string name, string email, string address, string phone);
 	string get_Address();
-	string get_phone_numper();
+	string get_phone_number();
 	void Add_to_cart(Product);
 	void remove_from_cart(Product);
 	bool search_by_name(string, vector<Product>);
-	void display_all_products(vector<Product>, string cat);
+	void display_category_products(vector<Product>, string);
 };
 

@@ -1,5 +1,5 @@
 #include "Seller.h"
-
+#include "Admin.h"
 
 Seller::Seller()
 {
@@ -14,26 +14,26 @@ Seller::Seller(int id, string name, string email)
 }
 
 
-//---------- Geters	--------------------
+//---------- Getters	--------------------
 
-//@returnt the person id  AKA (Seller ID)
+//@return the person id  AKA (Seller ID)
 int Seller::getId()
 {
 	return per_id;
 }
-//@returnt the person Name  AKA (Seller Name)
+//@return the person Name  AKA (Seller Name)
 string Seller::getName()
 {
 	return per_name;
 }
-//@returnt the person Email  AKA (Seller Email)
+//@return the person Email  AKA (Seller Email)
 string Seller::getEmail()
 {
 	return per_email;
 }
 
 
-//----------------- Seters -------------------
+//----------------- Setters -------------------
 
 //set the person id  AKA (Seller ID)
 void Seller::setId(int id_val)
@@ -57,6 +57,7 @@ void Seller::setEmail(string Email_val)
 // add the new product to the list of all products and to the list of the seller products
 void Seller::addPriduct(vector<Product> all_products, Product new_Product)
 {
+	//call Add_to_requested_products function() in Admin class() 
 	all_products.push_back(new_Product);
 	seller_products.push_back(new_Product);
 }
