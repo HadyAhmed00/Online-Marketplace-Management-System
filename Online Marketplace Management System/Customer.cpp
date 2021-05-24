@@ -1,5 +1,8 @@
 #include "Customer.h"
 static int ID = 100;
+Customer::Customer(){
+
+}
 Customer::Customer( string name, string email, string address, string phone)
 {
 	ID++;

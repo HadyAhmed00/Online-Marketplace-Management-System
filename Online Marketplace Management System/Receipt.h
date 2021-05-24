@@ -14,8 +14,9 @@ private:
 	Customer cust;
 
 public:
-	Receipt(float total_price, float shipment_price);
-	Receipt(float total_price);
+	
+	Receipt(Customer, float total_price, float shipment_price);
+	Receipt(Customer, float total_price);
 
 	int get_id();
 	float get_total_price();

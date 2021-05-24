@@ -1,16 +1,14 @@
 #include "Seller.h"
 #include "Admin.h"
 
-Seller::Seller()
-{
-}
+static int ID = 1000;
 
-
-Seller::Seller(int id, string name, string email)
+Seller::Seller( string name, string email)
 {
-	per_id = id;
+	per_id = ID;
 	per_name = name;
 	per_email = email;
+	ID++;
 }
 
 

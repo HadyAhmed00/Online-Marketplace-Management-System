@@ -16,6 +16,7 @@ private:
 	vector <product_struct> cart;
 
 public :
+	Customer();
 	Customer(string name, string email, string address, string phone);
 	string get_Address();
 	string get_phone_number();

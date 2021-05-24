@@ -1,19 +1,9 @@
-﻿Build started 5/24/2021 5:50:02 PM.
-     1>Project "C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         E:\New folder\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
-       Link:
-         E:\New folder\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.lib" /MACHINE:X86 Debug\Admin.obj
-         Debug\Customer.obj
-         Debug\main.obj
-         Debug\Person.obj
-         Debug\Product.obj
-         Debug\Receipt.obj
-         Debug\Seller.obj
-         Online Marketplace Management System.vcxproj -> C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
-     1>Done Building Project "C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" (Build target(s)).
+﻿Build started 5/24/2021 7:24:27 PM.
+     1>Project "C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         Online Marketplace Management System.vcxproj -> C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
+     1>Done Building Project "C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.52
+Time Elapsed 00:00:00.59

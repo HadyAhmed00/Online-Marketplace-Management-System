@@ -2,11 +2,14 @@
 #include <vector>
 #include "Customer.h"
 #include "Product.h"
+#include "Seller.h"	
+
 using namespace std;
 void main()
 {
 	vector <Customer> customers; //all customers in system
 	vector <Product> products; //all products in system
+	vector <Seller> sellers; //all sellers in system
 	int choice;   //this variable is entered by the user to choose his navigation
 	cout << "Online Marketplace Management System\n";
 	cout << "***********Welcome to Our Marketplace! :)*************\n";

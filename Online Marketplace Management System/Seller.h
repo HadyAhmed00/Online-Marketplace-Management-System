@@ -23,8 +23,8 @@ private:
 	vector <Product> seller_products;
 	
 public:
-	Seller();
-	Seller(int,string,string);
+
+	Seller(string ,string);
 
 	int getId();
 	string getName();
