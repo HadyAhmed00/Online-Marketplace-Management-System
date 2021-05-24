@@ -55,10 +55,10 @@ void Seller::setEmail(string Email_val)
 //-------- Seller functions ------------
 
 // add the new product to the list of all products and to the list of the seller products
-void Seller::addPriduct(vector<Product> all_products, Product new_Product)
+void Seller::addPriduct(Admin admin,Product new_Product)
 {
 	//call Add_to_requested_products function() in Admin class() 
-	all_products.push_back(new_Product);
+	admin.Add_to_requested_products(new_Product);
 	seller_products.push_back(new_Product);
 }
 

@@ -1,7 +1,5 @@
-﻿  Admin.cpp
-  Customer.cpp
-  Person.cpp
-  Seller.cpp
+﻿  Customer.cpp
+  Receipt.cpp
   main.cpp
   Generating Code...
   Online Marketplace Management System.vcxproj -> C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe

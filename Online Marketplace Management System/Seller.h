@@ -4,6 +4,7 @@
 #include <vector>
 #include "Person.h"
 #include "Product.h"
+#include "Admin.h"
 
 using namespace std;
 
@@ -28,12 +29,11 @@ public:
 	int getId();
 	string getName();
 	string getEmail();
-
 	void setId(int);
 	void setName(string);
 	void setEmail(string);
 
-	void addPriduct(vector<Product> , Product);
+	void addPriduct(Admin,Product);
 	vector<Product> getSellerProducts();
 	~Seller();
 };

@@ -22,9 +22,13 @@ string Customer::get_phone_number()
 }
 
 //add to cart function: add product to customer cart
-void Customer::Add_to_cart(Product product)
+void Customer::Add_to_cart(Product product,int quantity)
 {
-	cart.push_back(product);
+	product_struct temp;
+	temp.pro = product;
+	temp.Quantity = quantity;
+	cart.push_back(temp);
+	
 }
 
 // search for a product by entering its name

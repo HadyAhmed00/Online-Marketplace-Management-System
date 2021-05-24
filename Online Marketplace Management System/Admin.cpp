@@ -15,8 +15,8 @@ void Admin::Add_to_requested_products(Product newproduct) {
 //	int choice;
 //	while (!requested_products.empty()) {
 //		cout << requested_products.front().name << endl;
-//		cout << "Press-->1 to accpet the product\n";
-//		cout << "Press-->2 toreject the product\n";
+//		cout << "Press-->1 to accept the product\n";
+//		cout << "Press-->2 to reject the product\n";
 //		do {
 //			cout << "Enter your choice: ";cin >> choice;
 //		} while (choice != 1 && choice != 2);
