@@ -15,7 +15,8 @@ void main()
 	cout << "***********Welcome to Our Marketplace! :)*************\n";
 	cout << "Press-->1 To Login \n";
 	cout << "Press-->2 For Registration \n";
-	cout << "hadi";
+	cout << "hadi\n";
+	cout << "Im in\n";
 	do {
 		cout << "Enter your Choice: ";cin >> choice;
 	} while (choice != 1 && choice != 2);

@@ -1,9 +1,2 @@
-﻿Build started 5/24/2021 7:24:27 PM.
-     1>Project "C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         Online Marketplace Management System.vcxproj -> C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
-     1>Done Building Project "C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.59
+﻿  main.cpp
+  Online Marketplace Management System.vcxproj -> C:\Users\hyper\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
