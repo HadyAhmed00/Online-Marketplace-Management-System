@@ -9,7 +9,5 @@ protected:
 	int per_id;
 	string per_name;
 	string per_email;
-
-	
 };
 

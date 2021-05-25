@@ -1,9 +1,2 @@
-﻿Build started 5/26/2021 11:53:07 AM.
-     1>Project "C:\Users\dell\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         Online Marketplace Management System.vcxproj -> C:\Users\dell\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
-     1>Done Building Project "C:\Users\dell\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.19
+﻿  Customer.cpp
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(30): error C2512: 'product_struct' : no appropriate default constructor available
