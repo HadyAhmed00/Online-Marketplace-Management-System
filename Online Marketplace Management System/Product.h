@@ -8,6 +8,7 @@ private:
 	float price;
 	string name, category;
 public:
+	Product();
 	Product(int seller_id,int quantity, float price, string name ,string category);
 	string get_name();
 	string get_category();
@@ -15,6 +16,6 @@ public:
 	int get_id();
 	int get_quantity();
 	int get_sellerId();
-	void product_info(Product product);
+   void product_info(Product product);
 };
 

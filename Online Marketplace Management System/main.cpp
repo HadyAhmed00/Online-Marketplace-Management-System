@@ -16,11 +16,10 @@ void main()
 	cout << "***********Welcome to Our Marketplace! :)*************\n";
 	cout << "Press-->1 To Login \n";
 	cout << "Press-->2 For Registration \n";
-<<<<<<< HEAD
-=======
+
 
 	cout << "somthing randam\n";
->>>>>>> 8b8fa21cd4a6ceeea6d09456ed1597881d51a3b8
+
 	do {
 		cout << "Enter your Choice: ";cin >> choice;
 	} while (choice != 1 && choice != 2);

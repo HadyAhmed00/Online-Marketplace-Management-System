@@ -1,32 +1,26 @@
-<<<<<<< HEAD
-﻿  Customer.cpp
-c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(30): error C2512: 'product_struct' : no appropriate default constructor available
-=======
-﻿Build started 5/25/2021 1:25:48 PM.
-     1>Project "C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" on node 2 (Build target(s)).
+﻿Build started 5/25/2021 4:49:53 PM.
+     1>Project "C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Admin.cpp Customer.cpp Person.cpp Product.cpp Receipt.cpp Seller.cpp main.cpp
+         E:\New folder\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Admin.cpp Customer.cpp Product.cpp Receipt.cpp Seller.cpp main.cpp
+         Product.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
          main.cpp
          Seller.cpp
          Receipt.cpp
-         Product.cpp
-         Person.cpp
          Customer.cpp
          Admin.cpp
-         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.lib" /MACHINE:X86 Debug\Admin.obj
+         E:\New folder\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.lib" /MACHINE:X86 Debug\Admin.obj
          Debug\Customer.obj
          Debug\main.obj
          Debug\Person.obj
          Debug\Product.obj
          Debug\Receipt.obj
          Debug\Seller.obj
-         LINK : C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe not found or not built by the last incremental link; performing full link
-         Online Marketplace Management System.vcxproj -> C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
-     1>Done Building Project "C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" (Build target(s)).
+         Online Marketplace Management System.vcxproj -> C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
+     1>Done Building Project "C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:06.66
->>>>>>> 8b8fa21cd4a6ceeea6d09456ed1597881d51a3b8
+Time Elapsed 00:00:01.43

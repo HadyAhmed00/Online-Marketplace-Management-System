@@ -1,6 +1,9 @@
 #include "Product.h"
 #include<string>
 static int ID = 10000;
+Product::Product()
+{
+}
 Product::Product(int seller_id,int quantity, float price, string name, string category)
 {
 	ID++;
