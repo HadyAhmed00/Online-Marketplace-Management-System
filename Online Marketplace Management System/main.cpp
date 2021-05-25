@@ -7,6 +7,7 @@
 using namespace std;
 void main()
 {
+	cout << "hady 1.24";
 	vector <Customer> customers; //all customers in system
 	vector <Product> products; //all products in system
 	vector <Seller> sellers; //all sellers in system
