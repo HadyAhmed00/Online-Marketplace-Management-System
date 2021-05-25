@@ -35,26 +35,34 @@ void Customer::Add_to_cart(Product product,int quantity)
 }
 
 // search for a product by entering its name
-//bool Customer::search_by_name(string Name, vector<Product>arr) {
-//	bool isFound = false;
-//	int index;
-//	for (int i = 0; i < arr.size(); i++)
-//	{
-		//if (Name == arr[i].name)
-		//{
-	//	isFound = true;
-	//	index = i;
-	//	//Waiting for product class to implement display category function
-	//	break;
-	//}
-	//else {
-	//	continue;
-	//}
-//		
-//	} 
+bool Customer::search_by_name(string Name, vector<Product>arr) {
+	bool isFound = false;
+	int index;
+	for (int i = 0; i < arr.size(); i++)
+	{
+		if (Name == arr[i].get_name())
+		{
+		isFound = true;
+		index = i;
+		break;
+	}
+	else {
+		isFound = false;
+		continue;
+	}
+		
+	} 
+	if (isFound)
+	{
+		arr[index].product_info();
+		return true;
+	}
+	else
+	{
+		cout << "product is not found\n";
+	}
 
-
-//}
+}
 //remove from cart: remove product from customer cart
 //void Customer::remove_from_cart(Product product)
 //{

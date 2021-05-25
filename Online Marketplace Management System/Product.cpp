@@ -45,7 +45,7 @@ int Product::get_sellerId()
 	return seller_id;
 }
 
-void Product::product_info(Product product)
+void Product::product_info()
 {
-	cout <<this->get_name()<< "\tt product id: "<< this->get_id()<<"\tt price: "<< this->get_price()<<" $\tt category: "<< this->get_category();
+	cout << "product Name: "<<this->get_name() << "\t product id: " << this->get_id() << "\t price: " << this->get_price() << " $\t category: " << this->get_category();
 }

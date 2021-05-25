@@ -7,10 +7,13 @@
 using namespace std;
 void main()
 {
-	cout << "hady 1.24";
+
 	vector <Customer> customers; //all customers in system
 	vector <Product> products; //all products in system
 	vector <Seller> sellers; //all sellers in system
+	Product p(1, 5, 15, "phone", "mobile");
+	p.product_info();
+	cout << endl;
 	int choice;   //this variable is entered by the user to choose his navigation
 	cout << "Online Marketplace Management System\n";
 	cout << "***********Welcome to Our Marketplace! :)*************\n";

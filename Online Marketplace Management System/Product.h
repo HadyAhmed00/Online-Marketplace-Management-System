@@ -16,6 +16,6 @@ public:
 	int get_id();
 	int get_quantity();
 	int get_sellerId();
-   void product_info(Product product);
+   void product_info();
 };
 
