@@ -2,7 +2,8 @@
 #include <vector>
 #include "Customer.h"
 #include "Product.h"
-#include "Seller.h"	
+#include "Seller.h"
+#include <string>
 
 using namespace std;
 void main()
@@ -15,7 +16,6 @@ void main()
 	Product p2(5, 5, 15, "android", "b");
 	Product p3(5, 5, 15, "mak", "a");
 	Product p4(5, 5, 15, "lenovo", "c");
-	
 	
 	/*int choice;   //this variable is entered by the user to choose his navigation
 	cout << "Online Marketplace Management System\n";

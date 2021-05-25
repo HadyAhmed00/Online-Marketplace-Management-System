@@ -5,6 +5,7 @@
 #include "Person.h"
 #include "Product.h"
 #include "Admin.h"
+#include <string>
 
 using namespace std;
 
@@ -35,6 +36,7 @@ public:
 
 	void addPriduct(Admin,Product);
 	vector<Product> getSellerProducts();
+	void display_Seller_Products();
 	~Seller();
 };
 

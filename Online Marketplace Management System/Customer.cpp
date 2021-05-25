@@ -45,14 +45,15 @@ bool Customer::search_by_name(string Name, vector<Product>arr) {
 	{
 		if (Name == arr[i].get_name())
 		{
-		isFound = true;
-		index = i;
-		break;
-	}
-	else {
-		isFound = false;
-		continue;
-	}
+			isFound = true;
+			index = i;
+			break;
+		}
+		else 
+		{
+			isFound = false;
+			continue;
+		}
 		
 	} 
 	if (isFound)
@@ -73,20 +74,24 @@ void Customer::remove_from_cart(Product &product)
 	int index;
 	for (int i = 0; i < cart.size(); i++)
 	{
-		if (product.get_id() == cart[i].pro.get_id()) {
+		if (product.get_id() == cart[i].pro.get_id()) 
+		{
 			isFound = true;
 			index = i;
+			break;
 		}
 		else
 		{
 			continue;
 		}
 	}
-	if (isFound) {
+	if (isFound) 
+	{
 		product.set_quantity(product.get_quantity() + cart[index].Quantity);
 		cart.erase(cart.begin()+index);
 	}
-	else {
+	else 
+	{
 		cout << "This product is not found" << endl;
 	}
 }
@@ -99,12 +104,14 @@ void Customer::display_cart_products()
 	}
 }
 
-void Customer::display_category_products(vector <Product> products,string cat) {
+void Customer::display_category_products(vector <Product> products,string cat)
+{
 	bool isfound = false;
 	int index;
 	for (int i = 0; i < products.size(); i++)
 	{
-		if (cat == products[i].get_category()) {
+		if (cat == products[i].get_category())
+		{
 			products[i].product_info();
 			cout << endl;
 			continue;

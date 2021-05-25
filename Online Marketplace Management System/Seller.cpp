@@ -65,6 +65,16 @@ vector<Product> Seller::getSellerProducts()
 {
 	return	seller_products;
 }
+
+void Seller::display_Seller_Products()
+{
+	cout << "Your Products is :\n______________________________";
+	cout << "ID \t\tProduct Name \t \t Quntaty\n";
+	for (int i = 0; i < seller_products.size(); i++)
+	{
+		cout << seller_products[i].get_id() << " \t\t" << seller_products[i].get_name() << " \t\t" << seller_products[i].get_quantity() << "\n";
+	}
+}
 Seller::~Seller()
 {
 }
