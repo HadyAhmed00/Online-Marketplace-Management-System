@@ -30,11 +30,32 @@ string Customer::get_phone_number()
 //add to cart function: add product to customer cart
 void Customer::Add_to_cart(Product &product,int quantity)
 {
-	product_struct temp;
-	temp.pro = product;
-	temp.Quantity = quantity;
-	cart.push_back(temp);
-	product.set_quantity(product.get_quantity()-quantity);
+	bool found = false;
+	int index;
+	for (int i = 0; i < cart.size(); i++)
+	{
+		if (product.get_id == cart[i].pro.get_id)
+		{
+			found = true;
+			index = i;
+			break;
+		}
+		else
+			found = false;
+	}
+	if (found)
+	{
+		cart[index].Quantity += quantity;
+		product.set_quantity(product.get_quantity() - quantity);
+	}
+	else
+	{
+		product_struct temp;
+		temp.pro = product;
+		temp.Quantity = quantity;
+		cart.push_back(temp);
+		product.set_quantity(product.get_quantity() - quantity);
+	}
 }
 
 // search for a product by entering its name
