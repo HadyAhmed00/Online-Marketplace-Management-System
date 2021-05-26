@@ -47,6 +47,7 @@ void Customer::Add_to_cart(Product &product,int quantity)
 	{
 		cart[index].Quantity += quantity;
 		product.set_quantity(product.get_quantity() - quantity);
+		cout << "this product is already exist so the product quantity has been increased\n";
 	}
 	else
 	{
@@ -55,6 +56,7 @@ void Customer::Add_to_cart(Product &product,int quantity)
 		temp.Quantity = quantity;
 		cart.push_back(temp);
 		product.set_quantity(product.get_quantity() - quantity);
+		cout << "the product has been added to cart\n";
 	}
 }
 
@@ -80,10 +82,12 @@ bool Customer::search_by_name(string Name, vector<Product>arr) {
 	if (isFound)
 	{
 		arr[index].product_info();
+		cout << endl;
 		return true;
 	}
 	else
 	{
+		return false;
 		cout << "product is not found\n";
 	}
 
@@ -110,10 +114,11 @@ void Customer::remove_from_cart(Product &product)
 	{
 		product.set_quantity(product.get_quantity() + cart[index].Quantity);
 		cart.erase(cart.begin()+index);
+		cout << "the product " << cart[index].pro.get_name << " has been removed\n";
 	}
 	else 
 	{
-		cout << "This product is not found" << endl;
+		cout << "This product"<<cart[index].pro.get_name<< " is not found" << endl;
 	}
 }
 //display all elements in cart
