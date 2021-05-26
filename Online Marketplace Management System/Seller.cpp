@@ -33,11 +33,6 @@ string Seller::getEmail()
 
 //----------------- Setters -------------------
 
-//set the person id  AKA (Seller ID)
-void Seller::setId(int id_val)
-{
-	per_id = id_val;
-}
 //set the person Name  AKA (Seller Name)
 void Seller::setName(string name_val)
 {
@@ -57,22 +52,30 @@ void Seller::addPriduct(Admin admin,Product new_Product)
 {
 	//call Add_to_requested_products function() in Admin class() 
 	admin.Add_to_requested_products(new_Product);
-	seller_products.push_back(new_Product);
 }
 
 //return the seller product list 
-vector<Product> Seller::getSellerProducts()
+vector<Product> Seller::getSellerProducts(vector<Product> allProducts,int sId)
 {
-	return	seller_products;
+	vector<Product> tmp;
+	for (int i = 0; i < allProducts.size(); i++)
+	{
+		if (allProducts[i].get_sellerId()==sId)
+		{
+			tmp.push_back(allProducts[i]);
+		}
+	}
+	return tmp;
 }
 
-void Seller::display_Seller_Products()
+void Seller::display_Seller_Products(vector<Product> allProducts,int sId)
 {
-	cout << "Your Products is :\n______________________________";
+	vector<Product> tmp = getSellerProducts(allProducts, sId);
+	cout << "Your Products is :\n______________________________\n";
 	cout << "ID \t\tProduct Name \t \t Quntaty\n";
-	for (int i = 0; i < seller_products.size(); i++)
+	for (int i = 0; i < tmp.size(); i++)
 	{
-		cout << seller_products[i].get_id() << " \t\t" << seller_products[i].get_name() << " \t\t" << seller_products[i].get_quantity() << "\n";
+		cout << tmp[i].get_id() << " \t\t" << tmp[i].get_name() << " \t\t" << tmp[i].get_quantity() << "\n";
 	}
 }
 Seller::~Seller()

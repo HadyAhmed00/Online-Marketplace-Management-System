@@ -20,8 +20,7 @@ using namespace std;
 class Seller : public Person
 {
 private:
-	// The list of the products that seller sele
-	vector <Product> seller_products;
+	
 	
 public:
 
@@ -30,13 +29,13 @@ public:
 	int getId();
 	string getName();
 	string getEmail();
-	void setId(int);
+	
 	void setName(string);
 	void setEmail(string);
 
 	void addPriduct(Admin,Product);
-	vector<Product> getSellerProducts();
-	void display_Seller_Products();
+	vector<Product> getSellerProducts(vector<Product> , int );
+	void display_Seller_Products(vector<Product>, int);
 	~Seller();
 };
 

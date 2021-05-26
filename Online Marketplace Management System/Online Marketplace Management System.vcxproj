@@ -85,6 +85,7 @@
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="Receipt.cpp" />
     <ClCompile Include="Seller.cpp" />
+    <ClCompile Include="Validation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
@@ -94,6 +95,7 @@
     <ClInclude Include="Receipt.h" />
     <ClInclude Include="Reciept.h" />
     <ClInclude Include="Seller.h" />
+    <ClInclude Include="Validation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
