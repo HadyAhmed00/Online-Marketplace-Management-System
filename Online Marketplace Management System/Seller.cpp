@@ -56,7 +56,7 @@ void Seller::seller_menu()
 }
 
 // add the new product to the list of all products and to the list of the seller products
-void Seller::addPriduct(Admin admin,Product new_Product)
+void Seller::addPriduct(Admin &admin,Product new_Product)
 {
 	//call Add_to_requested_products function() in Admin class() 
 	admin.Add_to_requested_products(new_Product);

@@ -1,5 +1,5 @@
 #include "Admin.h"
-#include <iostream>
+
 using namespace std;
 Admin::Admin(string name,string email) {
 	per_id = 100000;
@@ -11,10 +11,10 @@ void Admin::Add_to_requested_products(Product newproduct) {
 	requested_products.push(newproduct);
 }
 
-void Admin::Accept_or_Reject(vector <Product>all_products) {
+void Admin::Accept_or_Reject(vector <Product>&all_products) {
 	int choice;
 	while (!requested_products.empty()) {
-		cout << requested_products.front().get_name << endl;
+		cout << requested_products.front().get_name() << endl;
 		cout << "Press-->1 to accept the product\n";
 		cout << "Press-->2 to reject the product\n";
 		do {
