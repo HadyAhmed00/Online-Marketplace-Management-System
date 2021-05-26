@@ -47,6 +47,14 @@ void Seller::setEmail(string Email_val)
 
 //-------- Seller functions ------------
 
+void Seller::seller_menu()
+{
+	cout << "************** Seller Menu ****************" << endl;
+	cout << "Profit is " << profit << endl;
+	cout << "Press-->1 To Add Product" << endl;
+	cout << "Press-->2 To browse Products" << endl;
+}
+
 // add the new product to the list of all products and to the list of the seller products
 void Seller::addPriduct(Admin admin,Product new_Product)
 {

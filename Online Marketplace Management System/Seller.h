@@ -20,7 +20,7 @@ using namespace std;
 class Seller : public Person
 {
 private:
-	
+	float profit;
 	
 public:
 
@@ -33,6 +33,7 @@ public:
 	void setName(string);
 	void setEmail(string);
 
+	void seller_menu();
 	void addPriduct(Admin,Product);
 	vector<Product> getSellerProducts(vector<Product> , int );
 	void display_Seller_Products(vector<Product>, int);
