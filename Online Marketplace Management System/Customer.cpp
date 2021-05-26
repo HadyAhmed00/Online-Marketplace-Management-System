@@ -34,7 +34,7 @@ void Customer::Add_to_cart(Product &product,int quantity)
 	int index;
 	for (int i = 0; i < cart.size(); i++)
 	{
-		if (product.get_id == cart[i].pro.get_id)
+		if (product.get_id() == cart[i].pro.get_id())
 		{
 			found = true;
 			index = i;
@@ -114,11 +114,11 @@ void Customer::remove_from_cart(Product &product)
 	{
 		product.set_quantity(product.get_quantity() + cart[index].Quantity);
 		cart.erase(cart.begin()+index);
-		cout << "the product " << cart[index].pro.get_name << " has been removed\n";
+		cout << "the product " << cart[index].pro.get_name() << " has been removed\n";
 	}
 	else 
 	{
-		cout << "This product"<<cart[index].pro.get_name<< " is not found" << endl;
+		cout << "This product"<<cart[index].pro.get_name()<< " is not found" << endl;
 	}
 }
 //display all elements in cart
