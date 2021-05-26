@@ -9,9 +9,11 @@ class Validation
 {
 public:
 	Validation();
-	bool Email_check(string );
-	string passwordValidation();
-	string emailValidation();
+	static bool Email_check(string);
+
+	static string passwordValidation();
+
+	static string emailValidation();
 	~Validation();
 };
 
