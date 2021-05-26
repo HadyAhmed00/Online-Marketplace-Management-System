@@ -50,6 +50,15 @@ void Product::set_quantity(int q)
 	quantity = q;
 }
 
+void Product::set_name(string name)
+{
+	this->name = name;
+}
+
+void Product::set_category(string category)
+{
+	this->category = category ;
+}
 void Product::product_info()
 {
 	cout << "product Name: " << this->get_name() << "\t product id: " << this->get_id() << "\t price: " << this->get_price() << " $\t category: " << this->get_category() <<"\t quantity: "<< this->get_quantity()<<endl;

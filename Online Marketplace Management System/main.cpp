@@ -6,6 +6,9 @@
 #include "Validation.h"
 #include <string>
 
+vector <Customer> customers; //all customers in system
+vector <Product> products; //all products in system
+vector <Seller> sellers; //all sellers in system
 using namespace std;
 void main()
 {
@@ -13,15 +16,13 @@ void main()
 	
 	Admin admin("HFE", "hfe@gmail.com");
 	Validation validate;
-	vector <Customer> customers; //all customers in system
-	vector <Product> products; //all products in system
-	vector <Seller> sellers; //all sellers in system
 	Product p1(1, 5, 15, "phone", "a");
 	Product p2(1000, 5, 15, "android", "b");
 	Product p3(1000, 5, 15, "mak", "a");
 	Product p4(5, 5, 15, "lenovo", "c");
-	s.addPriduct(admin,p1);
-	admin.Accept_or_Reject(products);
+	s.addPriduct(admin);
+	
+	//admin.Accept_or_Reject(products);
 	for (int i = 0; i < products.size(); i++)
 	{
 		cout << products[i].get_name() << endl;

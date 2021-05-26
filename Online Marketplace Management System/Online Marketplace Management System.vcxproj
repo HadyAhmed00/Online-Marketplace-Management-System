@@ -93,7 +93,6 @@
     <ClInclude Include="Person.h" />
     <ClInclude Include="Product.h" />
     <ClInclude Include="Receipt.h" />
-    <ClInclude Include="Reciept.h" />
     <ClInclude Include="Seller.h" />
     <ClInclude Include="Validation.h" />
   </ItemGroup>
