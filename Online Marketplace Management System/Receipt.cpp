@@ -7,7 +7,7 @@ Receipt::Receipt(Customer c, float total_price, float shipment_price)
 	this->shipment_price = shipment_price;
 }
 
-Receipt::Receipt(Customer c,float total_price)
+Receipt::Receipt(Customer c, float total_price)
 {
 	cust = c;
 	this->total_price = total_price;

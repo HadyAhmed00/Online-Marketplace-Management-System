@@ -4,62 +4,64 @@ static int ID = 10000;
 Product::Product()
 {
 }
-Product::Product(int seller_id,int quantity, float price, string name, string category)
+Product::Product(int seller_id, int quantity, float price, string name, string category)
 {
-	ID++;
-	this->id = ID;
-	this->quantity=quantity;
-	this->seller_id = seller_id;
-	this->price = price;
-	this->category = category;
-	this->name = name;
+    ID++;
+    this->id = ID;
+    this->quantity = quantity;
+    this->seller_id = seller_id;
+    this->price = price;
+    this->category = category;
+    this->name = name;
 }
 
 string Product::get_name()
 {
-	return name;
+    return name;
 }
 
 string Product::get_category()
 {
-	return category;
+    return category;
 }
 
 float Product::get_price()
 {
-	return price;
+    return price;
 }
 
 int Product::get_id()
 {
-	return id;
+    return id;
 }
 
 int Product::get_quantity()
 {
-	return quantity;
+    return quantity;
 }
 
 int Product::get_sellerId()
 {
-	return seller_id;
+    return seller_id;
 }
 
 void Product::set_quantity(int q)
 {
-	quantity = q;
+    quantity = q;
 }
 
 void Product::set_name(string name)
 {
-	this->name = name;
+    this->name = name;
 }
 
-void Product::set_category(string category)
+void Product::set_categry(string category)
 {
-	this->category = category ;
+    this->category = category;
 }
+
 void Product::product_info()
 {
-	cout << "product Name: " << this->get_name() << "\t product id: " << this->get_id() << "\t price: " << this->get_price() << " $\t category: " << this->get_category() <<"\t quantity: "<< this->get_quantity()<<endl;
+    cout << "product Name: " << this->get_name() << "\t product id: " << this->get_id() << "\t price: " << this->get_price() << " $\t category: " << this->get_category() << "\t quantity: " << this->get_quantity() << endl;
 }
+

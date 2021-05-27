@@ -1,28 +1,9 @@
-﻿Build started 5/26/2021 10:20:05 PM.
-     1>Project "C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Admin.cpp Seller.cpp main.cpp
-         Admin.cpp
-         Generating Code...
-         Compiling...
-         main.cpp
-     1>c:\users\hady ahmed\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(26): warning C4018: '<' : signed/unsigned mismatch
-         Seller.cpp
-     1>c:\users\hady ahmed\documents\github\online-marketplace-management-system\online marketplace management system\seller.cpp(150): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\hady ahmed\documents\github\online-marketplace-management-system\online marketplace management system\seller.cpp(165): warning C4018: '<' : signed/unsigned mismatch
-         Generating Code...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.lib" /MACHINE:X86 Debug\Admin.obj
-         Debug\Customer.obj
-         Debug\main.obj
-         Debug\Person.obj
-         Debug\Product.obj
-         Debug\Receipt.obj
-         Debug\Seller.obj
-         Debug\Validation.obj
-         Online Marketplace Management System.vcxproj -> C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
-     1>Done Building Project "C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:03.52
+﻿  main.cpp
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(70): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(72): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(125): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(127): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(143): warning C4101: 'setID' : unreferenced local variable
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(214): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(235): warning C4018: '<' : signed/unsigned mismatch
+  Online Marketplace Management System.vcxproj -> C:\Users\hyper\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe

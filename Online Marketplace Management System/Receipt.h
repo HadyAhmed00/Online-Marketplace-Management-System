@@ -14,7 +14,7 @@ private:
 	Customer cust;
 
 public:
-	
+
 	Receipt(Customer, float total_price, float shipment_price);
 	Receipt(Customer, float total_price);
 
@@ -23,4 +23,3 @@ public:
 	float get_shipment_price();
 
 };
-
