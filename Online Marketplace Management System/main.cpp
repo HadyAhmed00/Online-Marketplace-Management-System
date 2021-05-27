@@ -81,23 +81,30 @@ int main()
     cout << "Online Marketplace Management System\n";
     cout << "***********Welcome to Our Marketplace! :)*************\n";
     int N_num;
-
-    control(per, customers, sellers);
-    cout << "please press 1 to continue\n";
-    cout << "please press 2 to exit\n";
-    cin >> N_num;
-    if (N_num == 1)
-    {
+    while (true) {
         control(per, customers, sellers);
+        
+        cout << "please press 1 to continue\n";
+        cout << "please press 2 to exit\n";
+        cin >> N_num;
+        if (N_num == 1)
+        {
+            true;
+        }
+        else if (N_num == 2)
+        {
+            false;
+        }
+        else
+        {
+            cout << "invalid\n";
+        }
     }
-    else if (N_num == 2)
-    {
-        return 0;
-    }
-    else
-    {
-        cout << "invalid\n";
-    }
+    
+
+   
+    
+    
     system("pause");
     return 0;
 
@@ -219,6 +226,7 @@ void login(Person per, vector <Customer>& customers, vector <Seller>& sellers)
             if (person_email == sellers[i].getEmail() && person_password == sellers[i].get_password())
             {
                 cout << "\nhello , " << sellers[i].get_name() << endl;
+                sellers[i].seller_menu();
                 check = true;
                 i = 0; //why put i = 0
                 break;

@@ -94,6 +94,7 @@ void Seller::seller_menu()
 	cout << "Profit is " << profit << endl;
 	cout << "Press-->1 To Add Product" << endl;
 	cout << "Press-->2 To browse Products" << endl;
+	cout << "Press-->3 To Log Out" << endl;
 	cin >> choice;
 	switch (choice)
 	{
@@ -103,8 +104,12 @@ void Seller::seller_menu()
 	case 2:
 		cout << "not now yet";
 		break;
+	case 3:
+		//control function or Pop up "do you want to continue?"
+		break;
 	default:
-		cout << "you are a mather fucker pich";
+		cout << "Incorrect entry..Please try again!!!\n";
+		seller_menu();
 		break;
 	}
 
