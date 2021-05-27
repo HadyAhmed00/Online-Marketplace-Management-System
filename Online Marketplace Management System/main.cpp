@@ -14,7 +14,7 @@ string password() {
     char pass[50];
     int num = 0;
     cout << "Enter the password: \n";
-    while (pass[num - 1] != '\r')
+    while (pass[num - 1] != '\r')// what does \r mean
     {
         pass[num] = _getch();
         if (pass[num - 1] != '\r')
@@ -83,8 +83,8 @@ int main()
     int N_num;
 
     control(per, customers, sellers);
-    cout << "please press 1 for continue\n";
-    cout << "please press 2 for exit\n";
+    cout << "please press 1 to continue\n";
+    cout << "please press 2 to exit\n";
     cin >> N_num;
     if (N_num == 1)
     {
@@ -111,10 +111,12 @@ int main()
 void control(Person per, vector <Customer>& customers, vector <Seller>& sellers)
 {
     //Person p;
-    int choice;   //this variable is entered by the user to choose his navigation
+    int choice;   //this variable is entered by the user to choose his navigation 
+
     cout << "please enter number :\n";
     cout << "1-Login\t" << "2-Registration\n";
     cin >> choice;
+
     if (choice == 1)
     {
         login(per, customers, sellers);
@@ -131,24 +133,20 @@ void control(Person per, vector <Customer>& customers, vector <Seller>& sellers)
     {
         cout << " please enter the correct number ....\n";
         control(per, customers, sellers);
-
     }
 }
 
 //regestration function
 void Registration(Person per, vector <Customer>& customers, vector <Seller>& sellers)
 {
-
-
     int number, setID;
     string setName, setPass, setAdd, setEmail, setPhone;
-
     cout << "please press 1 for seller\n";
     cout << "please press 2 for customer\n";
     cin >> number;
+    
     if (number == 1)
     {
-
         per.set_id(sellers.size() + 101);
         cout << "your ID is :  " << per.get_id() << endl;
         // ID_s++;
@@ -158,6 +156,11 @@ void Registration(Person per, vector <Customer>& customers, vector <Seller>& sel
         per.set_id(customers.size() + 1001); ;
         cout << "your ID is :  " << per.get_id() << endl;
         //   ID_c++;
+    }
+    else
+    {
+        cout << " please enter the correct number ....\n";
+        Registration(per, customers, sellers);
     }
     cout << "Enter your Name :  \n";
    // cin >> setName;
@@ -217,15 +220,15 @@ void login(Person per, vector <Customer>& customers, vector <Seller>& sellers)
             {
                 cout << "\nhello , " << sellers[i].get_name() << endl;
                 check = true;
-                i = 0;
+                i = 0; //why put i = 0
                 break;
             }
-            check = false;
+            check = false; //why put check = false
 
         }
         if (check == false)
         {
-            cout << "\ninvalide your Email or your Password \nPlease try again\n";
+            cout << "\nYour Email or Password is invalid \nPlease try again\n";
             login(per, customers, sellers);
             // break;
         }
@@ -246,7 +249,7 @@ void login(Person per, vector <Customer>& customers, vector <Seller>& sellers)
         }
         if (check == false)
         {
-            cout << "\ninvalide your Email or your Password \nPlease try again\n";
+            cout << "\nYour Email or your Password is invalid \nPlease try again\n";
             login(per, customers, sellers);
             // break;
         }
