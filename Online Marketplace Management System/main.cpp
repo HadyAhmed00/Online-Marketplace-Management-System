@@ -82,27 +82,32 @@ int main()
 				customers[i].get_address() << "\t" << 
 				customers[i].get_phoneNum() << endl;
 
+   
+
     cout << "\n\n\n";
     cout << "Online Marketplace Management System\n";
     cout << "***********Welcome to Our Marketplace! :)*************\n";
     int N_num;
+    bool isValid=true;
     while (true) {
-        control(per, customers, sellers);
-        
+        if (isValid) {
+            control(per, customers, sellers);
+        }
         cout << "please press 1 to continue\n";
         cout << "please press 2 to exit\n";
         cin >> N_num;
         if (N_num == 1)
         {
-            true;
+            isValid=true;
         }
         else if (N_num == 2)
         {
-            false;
+            return 0;
         }
         else
         {
-            cout << "invalid\n";
+            isValid = false;
+            cout << "Invalid\n";
         }
     }
     system("pause");
@@ -164,7 +169,7 @@ void control(Person per, vector <Customer>& customers, vector <Seller>& sellers)
     }
     else
     {
-        cout << " please enter the correct number ....\n";
+        cout << "please enter the correct number ....\n";
         control(per, customers, sellers);
     }
 }
@@ -210,11 +215,11 @@ void Registration(Person per, vector <Customer>& customers, vector <Seller>& sel
     cin.ignore();
     getline(cin, setEmail);
     per.set_email(setEmail);
-    cout << "Enter your Phone number :  \n";
+    cout << "Enter your Phone Number :  \n";
     cin.ignore();
     getline(cin, setPhone);
     per.set_phoneNum(setPhone);
-    cout << "Enter your Adress :  \n";
+    cout << "Enter your Address :  \n";
     cin.ignore();
     getline(cin, setAdd);
     per.set_address(setAdd);
@@ -284,6 +289,7 @@ void login(Person per, vector <Customer>& customers, vector <Seller>& sellers)
 				person_password == customers[i].get_password())
             {
                 cout << "\nhello, " << customers[i].get_name() << endl;
+                customers[i].customer_menu();
                 check = true;
                 i = 0;
                 break;

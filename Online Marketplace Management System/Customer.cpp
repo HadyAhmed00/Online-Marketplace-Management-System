@@ -53,6 +53,61 @@ void Customer::Add_to_cart(Product& product, int quantity)
     }
 }
 
+void Customer::customer_menu()
+{
+    int choice;
+    string cat = "no cat";
+    cout << "*******************Customer Menu*******************\n";
+    cout << "Press 1 to go to cart\n";
+    cout << "Press 2 to show products of Category A\n";
+    cout << "Press 3 to show products of Category B\n";
+    cout << "Press 4 to show products of Category C\n";
+    cout << "Press 5 to show products of Category D\n";
+    //cout<<"Press batee5 to search for a product by name\n";
+    cout << "Press 6 to show all products\n";
+    cout << "Press 7 to Log Out\n";
+    /*cout << "Press 8 to go back\n";*/
+    cin >> choice;
+    switch (choice) {
+    case 1:
+        display_cart_products();
+        break;
+    case 2:
+        cout << "Category A\n";
+        cat = "catA";
+        //display_category_products(products_array,cat);
+        break;
+    case 3:
+        cout << "Category B\n";
+        cat = "catB";
+        //display_category_products(products_array,cat);
+        break;
+    case 4:
+        cout << "Category C\n";
+        cat = "catC";
+        //display_category_products(products_array,cat);
+        break;
+    case 5:
+        cout << "Category D\n";
+        cat = "catD";
+        //display_category_products(products_array,cat);
+        break;
+    case 6:
+        //call all products
+        //it takes products array list and its category
+        //then calls product_info in a for loop
+        break;
+    case 7:
+        cout << "Logging out.......\n";
+        break;
+    default:
+        cout << "Incorrect entry..Please try again!!!\n";
+        customer_menu();
+        break;
+    }
+    
+}
+
 // search for a product by entering its name
 bool Customer::search_by_name(string Name, vector<Product>arr) {
     bool isFound = false;
@@ -117,10 +172,32 @@ void Customer::remove_from_cart(Product& product)
 //display all elements in cart
 void Customer::display_cart_products()
 {
-    for (int i = 0; i < cart.size(); i++)
-    {
-        cout << cart[i].pro.get_name() << "\t" << cart[i].Quantity << endl;
+    int choice;
+    if (cart.size() == 0) {
+        cout << "Your cart is empty now \n";
     }
+    else {
+        for (int i = 0; i < cart.size(); i++)
+        {
+            cout << cart[i].pro.get_name() << "\t" << cart[i].Quantity << endl;
+        }
+    }
+    cout << "Press-->1 to go back\n";
+    cout << "Press-->2 to Log Out\n";
+    cin >> choice;
+    switch (choice) {
+    case 1:
+        customer_menu();
+        break;
+    case 2:
+        cout << "Logging out.........\n";
+        break;
+    default:
+        cout << "Invalid Entry...please try again!\n";
+        display_cart_products();
+    }
+
+   
 }
 
 void Customer::display_category_products(vector <Product> products, string cat)
@@ -142,3 +219,5 @@ void Customer::display_category_products(vector <Product> products, string cat)
     }
 
 }
+
+

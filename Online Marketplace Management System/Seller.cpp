@@ -127,13 +127,13 @@ void Seller::addPriduct(Admin& admin)
 	cout << "************** Add Product form ********************\n";
 	cout << "Enter Porduct name: ";
 	getline(cin, name);
-	cout << "enter the product Price:";
+	cout << "Enter The Product Price:";
 	cin >> price;
-	cout << "Enter teh producnt Quntataty:";
+	cout << "Enter The Product Quantity:";
 	cin >> q;
 	do
 	{
-		cout << "choses The Product Category :- \n";
+		cout << "Choose The Product Category :- \n";
 		cout << "1 --> Category A\n";
 		cout << "2 --> Category B\n";
 		cout << "3 --> Category C\n";
@@ -167,7 +167,7 @@ void Seller::addPriduct(Admin& admin)
 		}
 		default:
 		{
-			cout << "incalid choice try again";
+			cout << "Invalid Choice!!....try again!!";
 
 			done = false; break;
 		}
