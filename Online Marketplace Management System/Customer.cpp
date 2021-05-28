@@ -49,7 +49,7 @@ void Customer::Add_to_cart(Product& product, int quantity)
         temp.Quantity = quantity;
         cart.push_back(temp);
         product.set_quantity(product.get_quantity() - quantity);
-        cout << "the product has been added to cart\n";
+        cout << "the product has been added to cart \n";
     }
 }
 

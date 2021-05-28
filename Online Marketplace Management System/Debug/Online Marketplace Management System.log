@@ -1,8 +1,9 @@
-﻿  Customer.cpp
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(28,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(115,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(148,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(180,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(207,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(206,9): warning C4101: 'index': unreferenced local variable
-  Online Marketplace Management System.vcxproj -> C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
+﻿Build started 5/28/2021 6:22:42 PM.
+     1>Project "C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         Online Marketplace Management System.vcxproj -> C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
+     1>Done Building Project "C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.00
