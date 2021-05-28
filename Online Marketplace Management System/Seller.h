@@ -29,12 +29,12 @@ public:
 	
 	Seller(string, string,string);
 
-	int getId();
+	/*int getId();
 	string getName();
 	string getEmail();
 	void setId(int);
 	void setName(string);
-	void setEmail(string);
+	void setEmail(string);*/
 
 	/*//void addProduct(Admin,Product);
 	void addProduct(Admin admin, Product new_Product);

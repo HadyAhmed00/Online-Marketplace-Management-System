@@ -2,6 +2,7 @@
 
 using namespace std;
 Admin::Admin(string name, string email) {
+    per_password = "Admin1";
     per_id = 100000;
     per_name = name;
     per_email = email;

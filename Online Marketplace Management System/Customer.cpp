@@ -63,9 +63,9 @@ void Customer::customer_menu()
     cout << "Press 3 to show products of Category B\n";
     cout << "Press 4 to show products of Category C\n";
     cout << "Press 5 to show products of Category D\n";
-    //cout<<"Press batee5 to search for a product by name\n";
     cout << "Press 6 to show all products\n";
-    cout << "Press 7 to Log Out\n";
+    cout << "Press 7 to search for a product by name\n";
+    cout << "Press 8 to Log Out\n";
     /*cout << "Press 8 to go back\n";*/
     cin >> choice;
     switch (choice) {
@@ -98,6 +98,9 @@ void Customer::customer_menu()
         //then calls product_info in a for loop
         break;
     case 7:
+        //search_by_name();
+        break;
+    case 8:
         cout << "Logging out.......\n";
         break;
     default:

@@ -18,7 +18,7 @@ vector <Seller> sellers; //all sellers in system
 string password();
 void control(Person, vector <Customer>&, vector <Seller>&);
 void Registration();
-void login(Person, vector <Customer>&, vector <Seller>&);
+void login();
 
 int main()
 {
@@ -115,7 +115,7 @@ string password() {
 	char pass[50];
 	int num = 0;
 	cout << "Enter the password: \n";
-	while (pass[num - 1] != '\r')// what does \r mean
+	while (pass[num - 1] != '\r')
 	{
 		pass[num] = _getch();
 		if (pass[num - 1] != '\r')
@@ -139,7 +139,7 @@ void control(Person per, vector <Customer>& customers, vector <Seller>& sellers)
     cin >> choice;
     if (choice == 1)
     {
-        login(per, customers, sellers);
+        login();
     }
     else if (choice == 2)
     {
@@ -189,18 +189,23 @@ void Registration()
 		if (number == 2)
 		{
 			cout << "Enter your Phone Number :  \n";
-			cin.ignore();
 			getline(cin, setPhone);
-
 			cout << "Enter your Address :  \n";
-			cin.ignore();
 			getline(cin, setAdd);
 			Customer tmpCustomer(setName, setEmail, setAdd, setPhone, setPass); //temparaory create for customer
+            cout << "************************************\n";
+            cout << "Your ID is: " << tmpCustomer.get_id() << endl;
+            cout << "\n\n\n";
+            cout << "************************************\n";
 			customers.push_back(tmpCustomer);
 		}
 		else if (number == 1)
 		{
 			Seller tmpSeller(setName, setEmail,setPass);//temparaory creat for seller
+            cout << "************************************\n";
+            cout << "Your ID is: " << tmpSeller.get_id() << endl;
+            cout << "\n\n\n";
+            cout << "************************************\n";
 			sellers.push_back(tmpSeller);
 		}
 	}
@@ -212,7 +217,7 @@ void Registration()
 }
 
 //login functiom
-void login(Person per, vector <Customer>& customers, vector <Seller>& sellers)
+void login()
 {
     bool check = false;
     int person_id;
@@ -228,21 +233,20 @@ void login(Person per, vector <Customer>& customers, vector <Seller>& sellers)
     {
         for (int i = 0; i < sellers.size(); i++)
         {
-            if (person_email == sellers[i].getEmail() && 
+            if (person_email == sellers[i].get_email() && 
 				person_password == sellers[i].get_password())
             {
                 cout << "\nhello , " << sellers[i].get_name() << endl;
                 sellers[i].seller_menu();
                 check = true;
-                i = 0; //why put i = 0
                 break;
             }
-            check = false; //why put check = false
+            
         }
         if (check == false)
         {
             cout << "\nYour Email or Password is invalid \nPlease try again\n";
-            login(per, customers, sellers);
+            login();
             // break;
         }
     }
@@ -256,17 +260,19 @@ void login(Person per, vector <Customer>& customers, vector <Seller>& sellers)
                 cout << "\nhello, " << customers[i].get_name() << endl;
                 customers[i].customer_menu();
                 check = true;
-                i = 0;
                 break;
             }
-            check = false;
+    
         }
         if (check == false)
         {
             cout << "\nYour Email or your Password is invalid \nPlease try again\n";
-            login(per, customers, sellers);
+            login();
             // break;
         }
+    }
+    else if (person_id == 100000 && person_password == "Admin1") {
+        //
     }
 
 }
