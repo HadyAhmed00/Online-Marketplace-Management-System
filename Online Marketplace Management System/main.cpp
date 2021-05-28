@@ -17,7 +17,7 @@ vector <Seller> sellers; //all sellers in system
 //-------------------------function declaration --------------------
 string password();
 void control(Person, vector <Customer>&, vector <Seller>&);
-void Registration(Person, vector <Customer>&, vector <Seller>&);
+void Registration();
 void login(Person, vector <Customer>&, vector <Seller>&);
 
 int main()
@@ -51,17 +51,11 @@ int main()
 
     //the information for the first seller
     Seller s1("Seller1", //Name
-			  "pass3",  //password
-			  "Seller1@gmail.com",  //Email
-			  "phone3",      // NO NEED TO THIS IN SELLER
-			  "Seller1 adress"); //NO NEED TO THIS IN SELLER
+			  "Seller1@gmail.com","pass3"); //NO NEED TO THIS IN SELLER
 
     //the information for the second seller
     Seller s2("Seller2",  //Name
-			  "pass4", 	 //password
-			  "Seller2@gmail.com",   //Email
-			  "phone4",			// NO NEED TO THIS IN SELLER
-			  "Seller2 adress");	//NO NEED TO THIS IN SELLER
+			  "Seller2@gmail.com","pass4");	//NO NEED TO THIS IN SELLER
     //save the data
     sellers.push_back(s1);
     sellers.push_back(s2);
@@ -149,7 +143,7 @@ void control(Person per, vector <Customer>& customers, vector <Seller>& sellers)
     }
     else if (choice == 2)
     {
-        Registration(per, customers, sellers);
+        Registration();
 
         for (int i = 0; i < sellers.size(); i++)
             cout << sellers[i].get_name() << "\t\t" << 
@@ -175,75 +169,46 @@ void control(Person per, vector <Customer>& customers, vector <Seller>& sellers)
 }
 
 //regestration function
-void Registration(Person per, vector <Customer>& customers, vector <Seller>& sellers)
+void Registration()
 {
-    int number, setID;
-    string setName, setPass, setAdd, setEmail, setPhone;
-    cout << "please press 1 for seller\n";
-    cout << "please press 2 for customer\n";
-    cin >> number;
-    
-    if (number == 1)
-    {
-        per.set_id(sellers.size() + 101);
-        cout << "your ID is :  " << per.get_id() << endl;
-        // ID_s++;
-    }
-    else if (number == 2)
-    {
-        per.set_id(customers.size() + 1001); ;
-        cout << "your ID is :  " << per.get_id() << endl;
-        //   ID_c++;
-    }
-    else
-    {
-        cout << " please enter the correct number ....\n";
-        Registration(per, customers, sellers);
-    }
-    cout << "Enter your Name :  \n";
-   // cin >> setName;
-    cin.ignore();
-    getline(cin, setName);
-    per.set_name(setName);
+	int number;
+	string setName, setPass, setAdd, setEmail, setPhone;
+	cout << "please press 1 for seller\n";
+	cout << "please press 2 for customer\n";
+	cin >> number;
+	if (number == 1 || number == 2)
+	{
+		cout << "Enter your Name :  \n";
+		cin.ignore();
+		getline(cin, setName);
 
-    /* cout << "Enter your password :  \n";
-     cin >> per.per_password;*/
-    setPass = password();
-    per.set_password(setPass);
+		setPass = Validation::passwordValidation();
 
-    cout << "\nEnter your Email :  \n";
-    cin.ignore();
-    getline(cin, setEmail);
-    per.set_email(setEmail);
-    cout << "Enter your Phone Number :  \n";
-    cin.ignore();
-    getline(cin, setPhone);
-    per.set_phoneNum(setPhone);
-    cout << "Enter your Address :  \n";
-    cin.ignore();
-    getline(cin, setAdd);
-    per.set_address(setAdd);
+		setEmail = Validation::emailValidation();
 
-    if (number == 2)
-    {
-        Customer c(per.get_name(),
-				   per.get_email(), 
-				   per.get_address(), 
-				   per.get_phoneNum(), 
-				   per.get_password()); //temparaory save for customer
+		if (number == 2)
+		{
+			cout << "Enter your Phone Number :  \n";
+			cin.ignore();
+			getline(cin, setPhone);
 
-        customers.push_back(c);
-    }
-    else if (number == 1)
-    {
-        Seller s(per.get_name(),
-				 per.get_password(), 
-				 per.get_email(),
-				 per.get_phoneNum(), 
-				 per.get_address());//temparaory save for seller
-
-        sellers.push_back(s);
-    }
+			cout << "Enter your Address :  \n";
+			cin.ignore();
+			getline(cin, setAdd);
+			Customer tmpCustomer(setName, setEmail, setAdd, setPhone, setPass); //temparaory create for customer
+			customers.push_back(tmpCustomer);
+		}
+		else if (number == 1)
+		{
+			Seller tmpSeller(setName, setEmail,setPass);//temparaory creat for seller
+			sellers.push_back(tmpSeller);
+		}
+	}
+	else
+	{
+		cout << "invaled input\n";
+		Registration();
+	}
 }
 
 //login functiom

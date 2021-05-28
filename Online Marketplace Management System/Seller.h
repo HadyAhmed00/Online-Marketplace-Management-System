@@ -26,8 +26,8 @@ private:
 public:
 	Seller();
 	//Seller(string name, string password, string Email, string phone_number, string address);
-	Seller(string name, string password, string Email, string phone_number, string address);
-	Seller(string, string);
+	
+	Seller(string, string,string);
 
 	int getId();
 	string getName();

@@ -90,17 +90,18 @@ string Validation::emailValidation() {
 		if (Email_check(email))
 		{
 			cout << "Your Email-Id is valid" << endl;
+			return email;
 		}
 		else
 		{
 			cout << "Your Email-Id is invalid" << endl;
-			return email;
+			
 		}
 
 
 
 	} while (!Email_check(email));
-	return 0;
+
 
 
 

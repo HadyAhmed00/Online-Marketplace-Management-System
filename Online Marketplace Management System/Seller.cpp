@@ -5,24 +5,16 @@ Seller::Seller()
 {
 }
 
-Seller::Seller(string name, string password, string Email, string phone_number, string address)
+
+
+Seller::Seller(string name, string email,string pass)
 {
 	ID++;
-	per_id = ID;
-	per_name = name;
-	per_email = Email;
-	per_password = password;
-	this->address = address;
-	this->phone_number = phone_number;
-}
-
-
-Seller::Seller(string name, string email)
-{
 	per_id = ID;
 	per_name = name;
 	per_email = email;
-	ID++;
+	per_password = pass;
+	
 }
 
 
