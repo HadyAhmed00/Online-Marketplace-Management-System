@@ -23,7 +23,7 @@ public:
     void customer_menu();
     void remove_from_cart(int);
     void search_by_name();
-    void display_category_products( string);
+    void display_category_products(string);
     void display_cart_products();
 	void show_all_products();
 };

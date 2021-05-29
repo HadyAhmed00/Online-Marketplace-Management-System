@@ -89,8 +89,8 @@ int main()
 	customers[0].remove_from_cart(p3);*/
 
     cout << "\n\n\n";
-    cout << "Online Marketplace Management System\n";
-    cout << "***********Welcome to Our Marketplace! :)*************\n";
+    cout << "\t\t\t\t\tOnline Marketplace Management System\n";
+    cout << "\t\t**************************Welcome to Our Marketplace! :)**************************\n";
     int N_num;
     bool isValid=true;
     while (true) {
