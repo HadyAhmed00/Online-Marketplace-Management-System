@@ -1,8 +1,4 @@
 #include "Validation.h"
-
-
-
-
 Validation::Validation()
 {
 }
@@ -14,100 +10,93 @@ bool Validation::Email_check(string email)
 string Validation::passwordValidation() {
 	bool upper_case = false; //saves the result if upper-case characters were found.
 	bool lower_case = false; //same for lower-case
-	bool number_case = false; //...
-	bool special_char = false;
+	bool number_case = false; //same for number-case
+	bool special_char = false; // same for special-char
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	string pass;
 
-
-
 	regex upper_case_expression{ "[A-Z]+" }; //here is the very simple expression for upper_case search
-	regex lower_case_expression{ "[a-z]+" }; //for lower-case
-	regex number_expression{ "[0-9]+" }; //...
-	regex special_char_expression{ "[@!?]+" };
-
-
-
-
-
-
+	regex lower_case_expression{ "[a-z]+" }; //here is the very simple expression for lower_case search
+	regex number_expression{ "[0-9]+" }; //here is the very simple expression for number search
+	regex special_char_expression{ "[@!?]+" };//here is the very simple expression for special_char search
 
 	bool done = false; //let's assume we're not done
-
-
-
-	do { //do ask-for-password as long were not done
-
+	do
+	{ //do ask-for-password as long were not done
+		SetConsoleTextAttribute(hConsole, 5);
 		cout << "Note:1-Your password must be at least 9 characters\n" <<
 			"    2-Must contain at least one special character('#','&','@',..etc)\n" <<
 			"    3-Must contain at least one uppercase character \n" <<
 			"    4-Must contain at least one number    \n";
-
+		SetConsoleTextAttribute(hConsole, 15);
 		cout << "Type in a valid password: ";
+
 		getline(cin, pass); //get input
-
-
-
 		if (pass.length() <= 8) { //too short!
-			cout << "Invalid password! Try again . . .\n\n";
+			SetConsoleTextAttribute(hConsole, 4);
+			cout << "Invalid password too short!! Try again . . .\n";
+			SetConsoleTextAttribute(hConsole, 15);
 		}
-		else {
-
-
-
+		else
+		{
 			upper_case = regex_search(pass, upper_case_expression); //save the result, if the expression was found.
 			lower_case = regex_search(pass, lower_case_expression); //....
 			number_case = regex_search(pass, number_expression);
 			special_char = regex_search(pass, special_char_expression);
 
-
-
 			//like: sum_of_positive_results = 1 + 0 + 1 + 1 (true/false as an integer)
 			int sum_of_positive_results = upper_case + lower_case + number_case + special_char;
-
-
-
 			if (sum_of_positive_results < 3) { //not enough booleans were true!
-				cout << "Invalid password! Try again . . .\n\n";
+				SetConsoleTextAttribute(hConsole, 4);
+				cout << "Invalid password! Because:\n";
+				if (!upper_case)
+				{
+					cout << "\t***Your password dont have a uper case\n";
+				}
+				if (!lower_case)
+				{
+					cout << "\t***Your password dont have a lower case\n";
+				}
+				if (!number_case)
+				{
+					cout << "\t***Your password dont have a number case\n";
+				}
+				if (!special_char)
+				{
+					cout << "\t***Your password dont have a special char\n";
+				}
 			}
 			else { //otherwise it's valid!
+				SetConsoleTextAttribute(hConsole, 10);
 				cout << "That's a valid Password!" << endl;
+				SetConsoleTextAttribute(hConsole, 15);
 				done = true;
 				return pass;
 			}
 		}
-
-
-
 	} while (!done);
 }
-string Validation::emailValidation() {
+string Validation::emailValidation()
+{
 	string email;
-
-
-
-
-	cout << "Enter your Email-Id:" << endl;
-	do
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	while (true)
 	{
+		cout << "Enter your Email-Id:" << endl;
 		getline(cin, email);
 		if (Email_check(email))
 		{
 			cout << "Your Email-Id is valid" << endl;
 			return email;
+			break;
 		}
 		else
 		{
+			SetConsoleTextAttribute(hConsole, 5);
 			cout << "Your Email-Id is invalid" << endl;
-			
+			SetConsoleTextAttribute(hConsole, 15);
 		}
-
-
-
-	} while (!Email_check(email));
-
-
-
-
+	}
 }
 Validation::~Validation()
 {

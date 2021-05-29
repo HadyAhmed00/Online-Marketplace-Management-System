@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <regex>
-
+#include <windows.h> 
 
 
 using namespace std;

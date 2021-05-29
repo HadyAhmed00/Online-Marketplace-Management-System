@@ -51,7 +51,7 @@ void Customer::Add_to_cart(Product& product)
 		{
 			cart[index].Quantity += quantity;
 			product.set_quantity(product.get_quantity() - quantity);
-			cout << "This product already exists in your cart so the product quantity has been increased\n";
+			cout << "Now you have " << cart[index].Quantity << " " << product.get_name() << "s\n";
 		}
 		else
 		{
@@ -148,9 +148,21 @@ void Customer::search_by_name() {
 	cout << "\nPlease enter product name: \n\n";
 	cin.ignore();
 	getline(cin, Name);
+	
+	//char arr[] = Name ;
+	for (int x = 0; x < Name.length(); x++)
+		Name[x]= tolower(Name[x]);
+	
+	
     for (int i = 0; i < products.size(); i++)
     {
-        if (Name == products[i].get_name())
+		for (int x = 0; x < products[i].get_name().length(); x++)
+		{
+
+			products[i].get_name()[x] = tolower(products[i].get_name()[x]);
+		}
+
+		if (Name== products[i].get_name())
         {
             isFound = true;
             index = i;
@@ -314,11 +326,12 @@ void Customer::display_cart_products()
 		}
     }
     else {
-        for (int i = 0; i < cart.size(); i++)
-        {
-            cout << i+1<<"-  "<<"product name: "<<cart[i].pro.get_name() << "\t\t quantity:  " << cart[i].Quantity << endl;
+		for (int i = 0; i < cart.size(); i++)
+		{
+			cout << i + 1 << "-  " << "product name: " << cart[i].pro.get_name() << "\t\t quantity:  " << cart[i].Quantity << endl;
 			cout << "\n--------------------------------------------------------------------------------------------------------";
 			cout << endl;
+		}
 			cout << "Press-->1 to search for a product to add it to your cart\n";
 			cout << "Press-->2 to remove products from your cart\n";
 			cout << "Press-->3 to go back\n";
@@ -347,8 +360,6 @@ void Customer::display_cart_products()
 				system("pause");
 				display_cart_products();
 			}
-			
-        }
     }
 	///*cout << "Press-->1 to add products to your cart\n";*/
 	//cout << "Press-->1 to remove products from your cart\n";
@@ -438,12 +449,13 @@ void Customer::show_all_products()
 {
 	system("cls");
 	int choice;
+	bool isFound = false;
 	int displayed_numbers=1;
 	for (int i = 0; i < products.size(); i++)
 	{
 		if (products[i].get_quantity() != 0) {
 			cout << endl;
-			cout << displayed_numbers << "- ";
+			cout << i+1 << "- ";
 			products[i].product_info();
 			cout << "\n--------------------------------------------------------------------------------------------------------";
 			cout << endl;
@@ -458,9 +470,22 @@ void Customer::show_all_products()
 	cin >> choice;
 	switch (choice) {
 	case 1:
-		cout << "\nPlease enter the product number to add it to your cart\n";
+		cout << "\nPlease enter the product ID to add it to your cart\n";
 		cin >> choice;
-		Add_to_cart(products[choice - 1]);
+		for (int i = 0; i < products.size(); i++)
+		{
+			if (products[i].get_id() == choice) {
+				Add_to_cart(products[i]);
+				cout << "\"" << products[i].get_name() << "\"" << " has been added to your cart successfully \n";
+				isFound = true;
+				break;
+			}
+		}
+		if (isFound == false) {
+			cout << "The product ID your have entered is not found\n";
+			system("pause");
+			show_all_products();
+		}
 		break;
 	case 2:
 		customer_menu();

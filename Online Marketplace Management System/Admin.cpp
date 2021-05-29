@@ -11,6 +11,8 @@ Admin::Admin(string name, string email) {
 
 void Admin::Add_to_requested_products(Product newproduct) {
     requested_products.push(newproduct);
+	cout << "Waiting for admin approval......\n\n";
+	cout << "******\n";
 }
 
 void Admin::Accept_or_Reject(vector <Product>& all_products) {

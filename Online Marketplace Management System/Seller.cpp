@@ -26,7 +26,7 @@ void Seller::seller_menu(Admin & a,vector<Product> allproducts)
 	cout << "************** Seller Menu ****************" << endl;
 	cout << "Profit is " << profit << endl;
 	cout << "Press-->1 To Add Product" << endl;
-	cout << "Press-->2 To browse Products" << endl;
+	cout << "Press-->2 To browse your Products" << endl;
 	cout << "Press-->3 To Log Out" << endl;
 	cin >> choice;
 	switch (choice)

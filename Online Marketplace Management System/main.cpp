@@ -110,7 +110,7 @@ int main()
         else
         {
             isValid = false;
-            cout << "Invalid\n";
+            cout << "Invilid\n";
         }
     }
 	
