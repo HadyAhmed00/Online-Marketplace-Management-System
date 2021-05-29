@@ -24,11 +24,10 @@ void login();
 
 int main()
 {
-	
-    Product p1(1, 5, 15, "phone", "A");
-    Product p2(5, 5, 15, "android", "B");
-    Product p3(5, 5, 15, "mak", "B");
-    Product p4(5, 5, 15, "lenovo", "B");
+    Product p1(101, 5, 15, "phone", "A");
+    Product p2(101, 5, 15, "android", "B");
+    Product p3(102, 5, 15, "mak", "B");
+    Product p4(102, 5, 15, "lenovo", "B");
 	products.push_back(p1);
 	products.push_back(p2);
 	products.push_back(p3);
@@ -249,7 +248,7 @@ void login()
 				person_password == sellers[i].get_password())
             {
                 cout << "\nhello , " << sellers[i].get_name() << endl;
-                sellers[i].seller_menu();
+                sellers[i].seller_menu(a,products);
                 check = true;
                 break;
             }

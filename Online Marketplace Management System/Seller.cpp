@@ -18,69 +18,9 @@ Seller::Seller(string name, string email,string pass)
 	
 }
 
-
-//---------- Getters	--------------------
-
-//@return the person id  AKA (Seller ID)
-//int Seller::getId()
-//{
-//	return per_id;
-//}
-////@return the person Name  AKA (Seller Name)
-//string Seller::getName()
-//{
-//	return per_name;
-//}
-////@return the person Email  AKA (Seller Email)
-//string Seller::getEmail()
-//{
-//	return per_email;
-//}
-//
-//
-////----------------- Setters -------------------
-//
-////set the person id  AKA (Seller ID)
-//void Seller::setId(int id_val)
-//{
-//	per_id = id_val;
-//}
-////set the person Name  AKA (Seller Name)
-//void Seller::setName(string name_val)
-//{
-//	per_name = name_val;
-//}
-////set the person Email  AKA (Seller Email)
-//void Seller::setEmail(string Email_val)
-//{
-//	per_email = Email_val;
-//}
-
-
-/*//-------- Seller functions ------------
-
-// add the new product to the list of all products and to the list of the seller products
-void Seller::addProduct(Admin admin,Product new_Product)
-{
-	//call Add_to_requested_products function() in Admin class()
-	admin.Add_to_requested_products(new_Product);
-	seller_products.push_back(new_Product);
-}
-
-//return the seller product list
-vector<Product> Seller::getSellerProducts()
-{
-	return	seller_products;
-}
-Seller::~Seller()
-{
-}*/
-
-
-
 //-------- Seller functions ------------
 
-void Seller::seller_menu()
+void Seller::seller_menu(Admin & a,vector<Product> allproducts)
 {
 	int choice;
 	cout << "************** Seller Menu ****************" << endl;
@@ -92,17 +32,17 @@ void Seller::seller_menu()
 	switch (choice)
 	{
 	case 1:
-		//addPriduct();
+		addPriduct(a);
 		break;
 	case 2:
-		cout << "not now yet";
+		display_Seller_Products(allproducts,per_id);
 		break;
 	case 3:
 		//control function or Pop up "do you want to continue?"
 		break;
 	default:
 		cout << "Incorrect entry..Please try again!!!\n";
-		seller_menu();
+		seller_menu(a,allproducts);
 		break;
 	}
 
@@ -119,6 +59,7 @@ void Seller::addPriduct(Admin&admin)
 	bool done = false;
 	cout << "************** Add Product form ********************\n";
 	cout << "Enter Porduct name: ";
+	cin.ignore();
 	getline(cin, name);
 	cout << "Enter The Product Price:";
 	cin >> price;
@@ -134,50 +75,38 @@ void Seller::addPriduct(Admin&admin)
 		cin >> choic;
 		switch (choic)
 		{
-		case 1:
-		{
-			cato = "catA";
-
-			done = true; break;
-		}
-		case 2:
-		{
-			cato = "catB";
-
-			done = true; break;
-		}
-		case 3:
-		{
-			cato = "catC";
-
-			done = true; break;
-		}
-		case 4:
-		{
-			cato = "catD";
-
-			done = true; break;
-		}
-		default:
-		{
-			cout << "Invalid Choice!!....try again!!";
-
-			done = false; break;
-		}
+			case 1:
+			{
+				cato = "catA";
+				done = true; break;
+			}
+			case 2:
+			{
+				cato = "catB";
+				done = true; break;
+			}
+			case 3:
+			{
+				cato = "catC";
+				done = true; break;
+			}
+			case 4:
+			{
+				cato = "catD";
+				done = true; break;
+			}
+			default:
+			{
+				cout << "Invalid Choice!!....try again!!";
+				done = false;break;
+			}
 		}
 	} while (!done);
 
-	/*cout << "the product info thet you Enterd is :" << endl;
-   cout << "Name: " << name << endl;
-   cout << "price: " << price << endl;
-   cout << "catogary is: " << cato << endl;
-   cout << "quitity : " << q << endl;*/
    //assinge the user enterd vals to the temp
 	Product tmp(per_id, q, price, name, cato);
 	tmp.product_info();
 	admin.Add_to_requested_products(tmp);
-	/*
-	admin.Add_to_requested_products(tmp);*///call Add_to_requested_products function() in Admin class()
 }
 
 //return the seller product list
