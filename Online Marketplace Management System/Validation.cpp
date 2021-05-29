@@ -21,14 +21,17 @@ string Validation::passwordValidation() {
 	regex special_char_expression{ "[@!?]+" };//here is the very simple expression for special_char search
 
 	bool done = false; //let's assume we're not done
+	SetConsoleTextAttribute(hConsole, 5);
+	cout << "Note:1-Your password must be at least 9 characters\n" <<
+		"    2-Must contain at least one special character('#','&','@',..etc)\n" <<
+		"    3-Must contain at least one uppercase character \n" <<
+		"    4-Must contain at least one number    \n";
+	SetConsoleTextAttribute(hConsole, 15);
 	do
 	{ //do ask-for-password as long were not done
-		SetConsoleTextAttribute(hConsole, 5);
-		cout << "Note:1-Your password must be at least 9 characters\n" <<
-			"    2-Must contain at least one special character('#','&','@',..etc)\n" <<
-			"    3-Must contain at least one uppercase character \n" <<
-			"    4-Must contain at least one number    \n";
-		SetConsoleTextAttribute(hConsole, 15);
+		
+		
+		
 		cout << "Type in a valid password: ";
 
 		getline(cin, pass); //get input
@@ -65,6 +68,7 @@ string Validation::passwordValidation() {
 				{
 					cout << "\t***Your password dont have a special char\n";
 				}
+				SetConsoleTextAttribute(hConsole, 15);
 			}
 			else { //otherwise it's valid!
 				SetConsoleTextAttribute(hConsole, 10);
@@ -86,13 +90,15 @@ string Validation::emailValidation()
 		getline(cin, email);
 		if (Email_check(email))
 		{
+			SetConsoleTextAttribute(hConsole, 10);
 			cout << "Your Email-Id is valid" << endl;
+			SetConsoleTextAttribute(hConsole, 15);
 			return email;
 			break;
 		}
 		else
 		{
-			SetConsoleTextAttribute(hConsole, 5);
+			SetConsoleTextAttribute(hConsole, 4);
 			cout << "Your Email-Id is invalid" << endl;
 			SetConsoleTextAttribute(hConsole, 15);
 		}
