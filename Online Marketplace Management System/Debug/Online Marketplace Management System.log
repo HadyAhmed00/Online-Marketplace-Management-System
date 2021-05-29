@@ -1,4 +1,9 @@
-﻿  Validation.cpp
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Validation.cpp(82): warning C4715: 'Validation::passwordValidation': not all control paths return a value
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Validation.cpp(111): warning C4715: 'Validation::emailValidation': not all control paths return a value
-  Online Marketplace Management System.vcxproj -> C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
+﻿Build started 5/29/2021 1:24:47 PM.
+     1>Project "C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         Online Marketplace Management System.vcxproj -> C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
+     1>Done Building Project "C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.09
