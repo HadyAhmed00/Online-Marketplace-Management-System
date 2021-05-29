@@ -3,6 +3,7 @@
 #include <vector>
 #include "Person.h"
 #include "Product.h"
+
 #include<string>
 using namespace std;
 struct product_struct {
@@ -13,14 +14,16 @@ class Customer : public Person
 {
 private:
     vector <product_struct> cart;
+	vector <Product> products;
 
 public:
     Customer();
-    Customer(string name, string email, string address, string phone, string password);
+	Customer(string name, string email, string address, string phone, string password, vector <Product>& );
     void Add_to_cart(Product&, int);
     void customer_menu();
     void remove_from_cart(Product&);
-    bool search_by_name(string, vector<Product>);
-    void display_category_products(vector<Product>, string);
+    void search_by_name();
+    void display_category_products( string);
     void display_cart_products();
+	void show_all_products();
 };

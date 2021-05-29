@@ -5,45 +5,51 @@
 #include "Seller.h"    
 #include "Person.h"
 #include <conio.h>
+
 #include<string>
 #include"Validation.h"
+
 using namespace std;
 //------------------ global vars and vectors ------------------
 
 vector <Customer> customers; //all customers in system
 vector <Product> products; //all products in system
 vector <Seller> sellers; //all sellers in system
+Admin a("hadi","Admin@gmailcom");
 
 //-------------------------function declaration --------------------
 string password();
-void control(Person, vector <Customer>&, vector <Seller>&);
+void control();
 void Registration();
 void login();
 
 int main()
 {
     
-
-    Product p1(1, 5, 15, "phone", "a");
-    Product p2(5, 5, 15, "android", "b");
-    Product p3(5, 5, 15, "mak", "a");
-    Product p4(5, 5, 15, "lenovo", "c");
-
-    Person per;
+	
+    Product p1(1, 5, 15, "phone", "A");
+    Product p2(5, 5, 15, "android", "B");
+    Product p3(5, 5, 15, "mak", "B");
+    Product p4(5, 5, 15, "lenovo", "B");
+	products.push_back(p1);
+	products.push_back(p2);
+	products.push_back(p3);
+	products.push_back(p4);
+    
     //customers
     //the information for the first customer
     Customer c1("Customer1",			       //Name
 				"Customer1@gmail.com",		  //Email
 				"Customer1 adress",			 //adress
 				"phone1",				    //phone
-				"pass1");				   //passwod
-
+				"pass1",products);				   //passwod
+	
 	//the information for the second customer
     Customer c2("Customer2",                 //Name
 				"Customer2@gmail.com", 	    //Email
 				"Customer1 adress",		   //adress
 				"phone2", 				  //phone
-				"pass2");				 //passwod
+				"pass2",products);				 //passwod
     //save the data
     customers.push_back(c1);
     customers.push_back(c2);
@@ -76,7 +82,11 @@ int main()
 				customers[i].get_address() << "\t" << 
 				customers[i].get_phoneNum() << endl;
 
-   
+	//customers[0].Add_to_cart(p1, 2);
+	//customers[0].Add_to_cart(p2, 2);
+	//customers[0].Add_to_cart(p3, 2);
+	
+	//customers[0].remove_from_cart(p3);
 
     cout << "\n\n\n";
     cout << "Online Marketplace Management System\n";
@@ -85,7 +95,7 @@ int main()
     bool isValid=true;
     while (true) {
         if (isValid) {
-            control(per, customers, sellers);
+            control();
         }
         cout << "please press 1 to continue\n";
         cout << "please press 2 to exit\n";
@@ -104,8 +114,10 @@ int main()
             cout << "Invalid\n";
         }
     }
+	
     system("pause");
     return 0;
+
 
 }
 
@@ -130,7 +142,7 @@ string password() {
 }
 
 //for asking the user if he want to login or regist
-void control(Person per, vector <Customer>& customers, vector <Seller>& sellers)
+void control()
 {
     //Person p;
     int choice;   //this variable is entered by the user to choose his navigation 
@@ -164,7 +176,7 @@ void control(Person per, vector <Customer>& customers, vector <Seller>& sellers)
     else
     {
         cout << "please enter the correct number ....\n";
-        control(per, customers, sellers);
+        control();
     }
 }
 
@@ -192,7 +204,7 @@ void Registration()
 			getline(cin, setPhone);
 			cout << "Enter your Address :  \n";
 			getline(cin, setAdd);
-			Customer tmpCustomer(setName, setEmail, setAdd, setPhone, setPass); //temparaory create for customer
+			Customer tmpCustomer(setName, setEmail, setAdd, setPhone, setPass,products); //temparaory create for customer
             cout << "************************************\n";
             cout << "Your ID is: " << tmpCustomer.get_id() << endl;
             cout << "\n\n\n";
@@ -250,7 +262,7 @@ void login()
             // break;
         }
     }
-    else if (person_id >= 1000)
+    else if (person_id >= 1000&&person_id <10000)
     {
         for (int i = 0; i < customers.size(); i++)
         {
@@ -272,7 +284,7 @@ void login()
         }
     }
     else if (person_id == 100000 && person_password == "Admin1") {
-        //
+		a.Accept_or_Reject(products);
     }
 
 }

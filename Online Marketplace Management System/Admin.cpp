@@ -1,5 +1,6 @@
 #include "Admin.h"
 
+
 using namespace std;
 Admin::Admin(string name, string email) {
     per_password = "Admin1";
@@ -15,8 +16,10 @@ void Admin::Add_to_requested_products(Product newproduct) {
 void Admin::Accept_or_Reject(vector <Product>& all_products) {
     int choice;
     while (!requested_products.empty()) {
+		cout << "\t\t\t\t\t************ Admin page ************\t\n\n";
         cout << requested_products.front().get_name() << endl;
-        cout << "Press-->1 to accept the product\n";
+		cout << "------------------------------------------------------------------------------------------------------------\n";
+        cout << "Press-->1 to accept the product\n\n";
         cout << "Press-->2 to reject the product\n";
         do {
             cout << "Enter your choice: "; cin >> choice;
@@ -31,7 +34,7 @@ void Admin::Accept_or_Reject(vector <Product>& all_products) {
         }
 
     }
-    cout << "There is no other requested product\n" << endl;
+    cout << "\n\n\nThere is no other requested product\n" << endl;
     //hana5od ra2y elnas kollaha law eladmin ye3mel 7aga tanya
 
 }

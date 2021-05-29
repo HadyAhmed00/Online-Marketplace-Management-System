@@ -1,4 +1,5 @@
 #include "Seller.h"
+
 static int ID = 100;
 
 Seller::Seller()
@@ -108,7 +109,7 @@ void Seller::seller_menu()
 }
 
 // add the new product to the list of all products and to the list of the seller products
-void Seller::addPriduct(Admin& admin)
+void Seller::addPriduct(Admin&admin)
 {
 	string name = "unNamed";
 	string cato = "no cat";

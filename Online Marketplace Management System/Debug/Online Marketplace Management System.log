@@ -1,17 +1,20 @@
-﻿  Admin.cpp
-  Customer.cpp
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(28,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(118,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(151,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(183,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(210,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(209,9): warning C4101: 'index': unreferenced local variable
-  main.cpp
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(63,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(71,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(148,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(156,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(234,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(255,27): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  Online Marketplace Management System.vcxproj -> C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
+﻿Build started 5/29/2021 6:36:55 AM.
+     1>Project "C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         E:\New folder\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Admin.cpp
+         Admin.cpp
+       Link:
+         E:\New folder\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.lib" /MACHINE:X86 Debug\Admin.obj
+         Debug\Customer.obj
+         Debug\main.obj
+         Debug\Person.obj
+         Debug\Product.obj
+         Debug\Receipt.obj
+         Debug\Seller.obj
+         Debug\Validation.obj
+         Online Marketplace Management System.vcxproj -> C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
+     1>Done Building Project "C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.68
