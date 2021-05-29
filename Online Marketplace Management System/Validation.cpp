@@ -37,7 +37,10 @@ string Validation::passwordValidation() {
 
 	do { //do ask-for-password as long were not done
 
-
+		cout << "Note:1-Your password must be at least 9 characters\n" <<
+			"    2-Must contain at least one special character('#','&','@',..etc)\n" <<
+			"    3-Must contain at least one uppercase character \n" <<
+			"    4-Must contain at least one number    \n";
 
 		cout << "Type in a valid password: ";
 		getline(cin, pass); //get input

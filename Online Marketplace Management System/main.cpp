@@ -34,7 +34,7 @@ int main()
 	products.push_back(p3);
 	products.push_back(p4);
 	cout << products.size();
-	products.erase(products.begin() + 3);
+	/*products.erase(products.begin() + 3);*/
 	cout << products.size();
     //customers
     //the information for the first customer
