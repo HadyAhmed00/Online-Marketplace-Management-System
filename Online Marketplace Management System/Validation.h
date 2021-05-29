@@ -18,7 +18,7 @@ public:
 
 
 	static string passwordValidation();
-
+	static int isNumber();
 
 
 	static string emailValidation();

@@ -80,6 +80,32 @@ string Validation::passwordValidation() {
 		}
 	} while (!done);
 }
+int Validation::isNumber()
+{
+	string input;
+	bool done=false;
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	regex number_expression{ "[0-9]+" }; //here is the very simple expression for number search
+	do
+	{
+		/*cin.ignore();*/
+		getline(cin, input);
+		if (regex_match(input, number_expression)) {
+			done = true;
+			return stoi(input);
+			break;
+		}
+		else
+		{
+			done = false;
+			SetConsoleTextAttribute(hConsole, 4);
+			cout << "Invalid entry...Try again\n\n";
+			SetConsoleTextAttribute(hConsole, 15);
+		}
+	} while (!done); 
+	
+	
+}
 string Validation::emailValidation()
 {
 	string email;

@@ -39,6 +39,7 @@ void Seller::seller_menu(Admin & a,vector<Product> allproducts)
 		break;
 	case 3:
 		//control function or Pop up "do you want to continue?"
+		cout << "Logging out.....\n";
 		break;
 	default:
 		cout << "Incorrect entry..Please try again!!!\n";
@@ -126,11 +127,11 @@ vector<Product> Seller::getSellerProducts(vector<Product> allProducts, int sId)
 void Seller::display_Seller_Products(vector<Product> allProducts, int sId)
 {
 	vector<Product> tmp = getSellerProducts(allProducts, sId);
-	cout << "Your Products is :\n______________________________\n";
-	cout << "ID \t\tProduct Name \t \t Quntaty\n";
+	cout << "----------------------------------\n";
 	for (int i = 0; i < tmp.size(); i++)
 	{
-		cout << tmp[i].get_id() << " \t\t" << tmp[i].get_name() << " \t\t" << tmp[i].get_quantity() << "\n";
+		/*cout << tmp[i].get_id() << " \t\t" << tmp[i].get_name() << " \t\t" << tmp[i].get_quantity() << "\n";*/
+		tmp[i].product_info();
 	}
 }
 

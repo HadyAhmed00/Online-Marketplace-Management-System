@@ -110,7 +110,7 @@ int main()
         else
         {
             isValid = false;
-            cout << "Invilid\n";
+            cout << "Invalid\n";
         }
     }
 	
@@ -144,15 +144,15 @@ string password() {
 void control()
 {
     //Person p;
-    int choice;   //this variable is entered by the user to choose his navigation 
+    string choice;   //this variable is entered by the user to choose his navigation 
     cout << "please enter number :\n";
     cout << "1-Login\t" << "2-Registration\n";
-    cin >> choice;
-    if (choice == 1)
+    getline(cin, choice);
+    if (choice == "1")
     {
         login();
     }
-    else if (choice == 2)
+    else if (choice == "2")
     {
         Registration();
 
@@ -235,10 +235,11 @@ void login()
     //string setEmail;
     string person_email;
     string person_password;
-    cout << "Enter your ID :  \n";
-    cin >> person_id;
+    cout << "Enter your ID" << endl;
+    person_id = Validation::isNumber();
     cout << "Enter your Email :  \n";
-    cin >> person_email;
+    getline(cin,person_email);
+
     person_password = password();
     if (person_id >= 100 && person_id < 1000)
     {
@@ -256,7 +257,7 @@ void login()
         }
         if (check == false)
         {
-            cout << "\nYour Email or Password is invalid \nPlease try again\n";
+            cout << "\nYour Email or Password is Invalid \nPlease try again\n";
             login();
             // break;
         }

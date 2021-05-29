@@ -28,6 +28,7 @@ void Customer::Add_to_cart(Product& product)
 	int choice;
 	int quantity;
 	cout << "please enter quantity: "; cin >> quantity;
+	cin.ignore();
 	if (quantity > product.get_quantity())
 	{
 		cout << "Sorry this quantity is unavailable right now\n";
@@ -68,6 +69,7 @@ void Customer::Add_to_cart(Product& product)
 	cout << "Press-->3 to go to customer menu\n";
 	cout << "Press-->4 to Log Out\n";
 	cin >> choice;
+	cin.ignore();
 	switch (choice) {
 	case 1:
 		Add_to_cart(product);
@@ -105,6 +107,7 @@ void Customer::customer_menu()
     cout << "Press 7 to search for a product by its name\n\n";
     cout << "Press 8 to Log Out\n\n";
     cin >> choice;
+	cin.ignore();
     switch (choice) {
     case 1:
         display_cart_products();
@@ -187,6 +190,7 @@ void Customer::search_by_name() {
 		cout << "Press-->4 to Log Out\n";
 
 		cin >> choice;
+		cin.ignore();
 		switch (choice) {
 		case 1:
 			Add_to_cart(products[index]);
@@ -216,6 +220,7 @@ void Customer::search_by_name() {
 		cout << "Press-->3 to Log Out\n";
 
 		cin >> choice;
+		cin.ignore();
 		switch (choice) {
 		case 1:
 			search_by_name();
@@ -282,6 +287,7 @@ void Customer::remove_from_cart(int ind)
 	cout << "Press-->2 to go back\n";
 	cout << "Press-->3 to Log Out\n";
 	cin >> choice;
+	cin.ignore();
 	switch (choice) {
 	case 1:
 		remove_from_cart(ind);
@@ -309,6 +315,7 @@ void Customer::display_cart_products()
 		cout << "Press-->3 to Log Out\n";
 
 		cin >> choice;
+		cin.ignore();
 		switch (choice) {
 		case 1:
 			search_by_name();
@@ -338,6 +345,7 @@ void Customer::display_cart_products()
 			cout << "Press-->4 to Log Out\n";
 
 			cin >> choice;
+			cin.ignore();
 			switch (choice) {
 			case 1:
 				search_by_name();
@@ -346,6 +354,7 @@ void Customer::display_cart_products()
 				cout << "\nPlease enter the product number to remove it\n";
 				int n;
 				cin >> n;
+				cin.ignore();
 				n = n - 1;
 				remove_from_cart(n);
 				break;
@@ -425,10 +434,12 @@ void Customer::display_category_products( string cat)
 	cout << "Press-->3 to Log Out\n";
 	
 	cin >> choice;
+	cin.ignore();
 	switch (choice) {
 	case 1:
 		cout << "\nPlease enter the product number to add it to your cart\n";
 		cin >> choice;
+		cin.ignore();
 		Add_to_cart(products[choice]);
 		break;
 	case 2:
@@ -468,10 +479,12 @@ void Customer::show_all_products()
 	cout << "Press-->3 to Log Out\n";
 	
 	cin >> choice;
+	cin.ignore();
 	switch (choice) {
 	case 1:
 		cout << "\nPlease enter the product ID to add it to your cart\n";
 		cin >> choice;
+		cin.ignore();
 		for (int i = 0; i < products.size(); i++)
 		{
 			if (products[i].get_id() == choice) {
@@ -500,3 +513,8 @@ void Customer::show_all_products()
 		show_all_products();
 	}
 }
+
+//Customer::~Customer()
+//{
+//	cin.ignore();
+//}
