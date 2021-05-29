@@ -22,38 +22,47 @@ Customer::Customer(string name, string email, string address, string phone, stri
 
 
 //add to cart function: add product to customer cart
-void Customer::Add_to_cart(Product& product, int quantity)
+void Customer::Add_to_cart(Product& product)
 {
 	system("cls");
 	int choice;
-    bool found = false;
-    int index;
-    for (int i = 0; i < cart.size(); i++)
-    {
-        if (product.get_id() == cart[i].pro.get_id())
-        {
-            found = true;
-            index = i;
-            break;
-        }
-        else
-            found = false;
-    }
-    if (found)
-    {
-        cart[index].Quantity += quantity;
-        product.set_quantity(product.get_quantity() - quantity);
-        cout << "this product is already exist so the product quantity has been increased\n";
-    }
-    else
-    {
-        product_struct temp;
-        temp.pro = product;
-        temp.Quantity = quantity;
-        cart.push_back(temp);
-        product.set_quantity(product.get_quantity() - quantity);
-        cout << "the product has been added to cart \n";
-    }
+	int quantity;
+	cout << "please enter quantity: "; cin >> quantity;
+	if (quantity > product.get_quantity())
+	{
+		cout << "sorry you can't take this quantity\n";
+	}
+	else
+	{
+		bool found = false;
+		int index;
+		for (int i = 0; i < cart.size(); i++)
+		{
+			if (product.get_id() == cart[i].pro.get_id())
+			{
+				found = true;
+				index = i;
+				break;
+			}
+			else
+				found = false;
+		}
+		if (found)
+		{
+			cart[index].Quantity += quantity;
+			product.set_quantity(product.get_quantity() - quantity);
+			cout << "this product is already exist so the product quantity has been increased\n";
+		}
+		else
+		{
+			product_struct temp;
+			temp.pro = product;
+			temp.Quantity = quantity;
+			cart.push_back(temp);
+			product.set_quantity(product.get_quantity() - quantity);
+			cout << "the product has been added to cart \n";
+		}
+	}
 	cout << "Press-->1 to go to customer menu\n";
 	cout << "Press-->2 to Log Out\n";
 	cin >> choice;
@@ -172,8 +181,7 @@ void Customer::search_by_name() {
 		cout << "Logging out.........\n";
 		break;
 	case 3:
-		cout << "enter quanteity: "; cin >> choice;
-		Add_to_cart(products[index], choice);
+		Add_to_cart(products[index]);
 		break;
 	default:
 		cout << "Invalid Entry...please try again!\n";
@@ -182,34 +190,39 @@ void Customer::search_by_name() {
 
 }
 //remove from cart: remove product from customer cart
-void Customer::remove_from_cart(Product& product)
+void Customer::remove_from_cart(int ind)
 {
     bool isFound = false;
     int index;
-    for (int i = 0; i < cart.size(); i++)
-    {
-        if (product.get_id() == cart[i].pro.get_id())
-        {
-            isFound = true;
-            index = i;
-            break;
-        }
-        else
-        {
-            continue;
-        }
-    }
-    if (isFound)
-    {
-        product.set_quantity(product.get_quantity() + cart[index].Quantity);
-        cart.erase((cart.begin() + index));
-
-        cout << "the product " << cart[index].pro.get_name() << " has been removed\n";
-    }
-    else
-    {
-        cout << "This product" << cart[index].pro.get_name() << " is not found" << endl;
-    }
+	int id;
+	id = cart[ind].pro.get_id();
+    
+	for (int i = 0; i < products.size(); i++)
+	{
+		if (id == products[i].get_id())
+		{
+			products[i].set_quantity(products[i].get_quantity() + cart[ind].Quantity);
+			cout << "\nproduct has been removed from your cart\n";
+			break;
+		}
+	}
+	cart.erase((cart.begin() + ind));
+	cout << "\n\n";
+	int choice;
+	cout << "Press-->1 to go back\n";
+	cout << "Press-->2 to Log Out\n";
+	cin >> choice;
+	switch (choice) {
+	case 1:
+		customer_menu();
+		break;
+	case 2:
+		cout << "Logging out.........\n";
+		break;
+	default:
+		cout << "Invalid Entry...please try again!\n";
+		display_cart_products();
+	}
 }
 //display all elements in cart
 void Customer::display_cart_products()
@@ -242,8 +255,10 @@ void Customer::display_cart_products()
         break;
 	case 3:
 		cout << "\nplease enter the product numper to remove it\n";
-		cin >> choice;
-		remove_from_cart(cart[choice-1].pro);
+		int n;
+		cin >> n;
+		n=n-1;
+		remove_from_cart(n);
 		break;
     default:
         cout << "Invalid Entry...please try again!\n";
@@ -257,7 +272,6 @@ void Customer::display_category_products( string cat)
 {
 	system("cls");
 	int choice;
-	int quantity;
     bool isfound = false;
     int index;
 	cout << "\n\n";
@@ -292,8 +306,7 @@ void Customer::display_category_products( string cat)
 	case 3:
 		cout << "\nplease enter the product numper to Add it\n";
 		cin >> choice;
-		cout << "enter the quantity: "; cin >> quantity;
-		Add_to_cart(products[choice], quantity);
+		Add_to_cart(products[choice]);
 		break;
 	default:
 		cout << "Invalid Entry...please try again!\n";
@@ -306,7 +319,6 @@ void Customer::show_all_products()
 {
 	system("cls");
 	int choice;
-	int quantity;
 	for (int i = 0; i < products.size(); i++)
 	{
 		cout << endl;
@@ -329,8 +341,7 @@ void Customer::show_all_products()
 	case 3:
 		cout << "\nplease enter the product numper to Add it\n";
 		cin >> choice;
-		cout << "enter the quantity: "; cin >> quantity;
-		Add_to_cart(products[choice - 1], quantity);
+		Add_to_cart(products[choice - 1]);
 		break;
 	default:
 		cout << "Invalid Entry...please try again!\n";

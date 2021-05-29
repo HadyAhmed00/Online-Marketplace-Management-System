@@ -19,9 +19,9 @@ private:
 public:
     Customer();
 	Customer(string name, string email, string address, string phone, string password, vector <Product>& );
-    void Add_to_cart(Product&, int);
+    void Add_to_cart(Product&);
     void customer_menu();
-    void remove_from_cart(Product&);
+    void remove_from_cart(int);
     void search_by_name();
     void display_category_products( string);
     void display_cart_products();

@@ -1,8 +1,17 @@
-﻿Build started 5/29/2021 6:36:55 AM.
+﻿Build started 5/29/2021 8:35:47 AM.
      1>Project "C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         E:\New folder\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Admin.cpp
-         Admin.cpp
+         E:\New folder\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Customer.cpp
+         Customer.cpp
+     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(39): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(87): warning C4101: 'quantity' : unreferenced local variable
+     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(144): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(200): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(196): warning C4101: 'index' : unreferenced local variable
+     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(236): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(279): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(276): warning C4101: 'index' : unreferenced local variable
+     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(322): warning C4018: '<' : signed/unsigned mismatch
        Link:
          E:\New folder\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.lib" /MACHINE:X86 Debug\Admin.obj
          Debug\Customer.obj
@@ -17,4 +26,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.68
+Time Elapsed 00:00:01.90

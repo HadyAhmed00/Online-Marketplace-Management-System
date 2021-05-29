@@ -5,7 +5,6 @@
 #include "Seller.h"    
 #include "Person.h"
 #include <conio.h>
-
 #include<string>
 #include"Validation.h"
 
@@ -25,7 +24,6 @@ void login();
 
 int main()
 {
-    
 	
     Product p1(1, 5, 15, "phone", "A");
     Product p2(5, 5, 15, "android", "B");
@@ -35,7 +33,9 @@ int main()
 	products.push_back(p2);
 	products.push_back(p3);
 	products.push_back(p4);
-    
+	cout << products.size();
+	products.erase(products.begin() + 3);
+	cout << products.size();
     //customers
     //the information for the first customer
     Customer c1("Customer1",			       //Name
@@ -82,11 +82,11 @@ int main()
 				customers[i].get_address() << "\t" << 
 				customers[i].get_phoneNum() << endl;
 
-	//customers[0].Add_to_cart(p1, 2);
-	//customers[0].Add_to_cart(p2, 2);
-	//customers[0].Add_to_cart(p3, 2);
+	/*customers[0].Add_to_cart(p1, 2);
+	customers[0].Add_to_cart(p2, 2);
+	customers[0].Add_to_cart(p3, 2);
 	
-	//customers[0].remove_from_cart(p3);
+	customers[0].remove_from_cart(p3);*/
 
     cout << "\n\n\n";
     cout << "Online Marketplace Management System\n";
