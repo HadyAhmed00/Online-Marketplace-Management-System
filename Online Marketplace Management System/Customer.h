@@ -3,6 +3,7 @@
 #include <vector>
 #include "Person.h"
 #include "Product.h"
+#include <windows.h>
 
 #include<string>
 using namespace std;
@@ -14,7 +15,7 @@ class Customer : public Person
 {
 private:
     vector <product_struct> cart;
-
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 public:
     Customer();
 	Customer(string name, string email, string address, string phone, string password );

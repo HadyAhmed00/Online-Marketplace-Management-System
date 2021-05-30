@@ -6,6 +6,7 @@
 #include "Person.h"
 #include <conio.h>
 #include<string>
+#include <windows.h>
 #include"Validation.h"
 
 using namespace std;
@@ -15,6 +16,7 @@ vector <Customer> customers; //all customers in system
  vector <Product> products; //all products in system
 vector <Seller> sellers; //all sellers in system
 Admin admin("hadi","Admin2021@gmailcom");
+HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 //-------------------------function declaration --------------------
 string password();
@@ -90,7 +92,7 @@ int main()
     cout << "\n\n\n";
     cout << "\t\t\t\t\tOnline Marketplace Management System\n";
     cout << "\t\t***************************Welcome to Our Marketplace! :)**************************\n";
-    int N_num;
+    string N_num;
     bool isValid=true;
     while (true) {
         if (isValid) {
@@ -98,19 +100,21 @@ int main()
         }
         cout << "please press 1 to continue\n";
         cout << "please press 2 to exit\n";
-        cin >> N_num;
-        if (N_num == 1)
+        getline(cin,N_num);
+        if (N_num == "1")
         {
             isValid=true;
         }
-        else if (N_num == 2)
+        else if (N_num == "2")
         {
             return 0;
         }
         else
         {
             isValid = false;
-            cout << "Invalid\n";
+            SetConsoleTextAttribute(hConsole, 4);
+            cout << "Invalid entry\n";
+            SetConsoleTextAttribute(hConsole, 15);
         }
     }
 	
@@ -174,7 +178,9 @@ void control()
     }
     else
     {
-        cout << "please enter the correct number ....\n";
+        SetConsoleTextAttribute(hConsole, 4);
+        cout << "Please enter the correct number ....\n";
+        SetConsoleTextAttribute(hConsole, 15);
         control();
     }
 }
@@ -182,22 +188,22 @@ void control()
 //regestration function
 void Registration()
 {
-	int number;
+	string number;
 	string setName, setPass, setAdd, setEmail, setPhone;
 	cout << "please press 1 for seller\n";
 	cout << "please press 2 for customer\n";
-	cin >> number;
-	if (number == 1 || number == 2)
+    getline(cin, number);
+	if (number == "1" || number == "2")
 	{
 		cout << "Enter your Name :  \n";
 		cin.ignore();
 		getline(cin, setName);
-
+        setEmail = Validation::emailValidation();
 		setPass = Validation::passwordValidation();
 
-		setEmail = Validation::emailValidation();
+		
 
-		if (number == 2)
+		if (number == "2")
 		{
 			cout << "Enter your Phone Number :  \n";
 			getline(cin, setPhone);
@@ -210,7 +216,7 @@ void Registration()
             cout << "************************************\n";
 			customers.push_back(tmpCustomer);
 		}
-		else if (number == 1)
+		else if (number == "1")
 		{
 			Seller tmpSeller(setName, setEmail,setPass);//temparaory creat for seller
             cout << "************************************\n";
@@ -222,7 +228,9 @@ void Registration()
 	}
 	else
 	{
-		cout << "invaled input\n";
+        SetConsoleTextAttribute(hConsole, 4);
+		cout << "Invalid input\n";
+        SetConsoleTextAttribute(hConsole, 15);
 		Registration();
 	}
 }
@@ -248,7 +256,9 @@ void login()
             if (person_email == sellers[i].get_email() && 
 				person_password == sellers[i].get_password())
             {
-                cout << "\nhello , " << sellers[i].get_name() << endl;
+                SetConsoleTextAttribute(hConsole, 1);
+                cout << "\nHello , " << sellers[i].get_name() << endl;
+                SetConsoleTextAttribute(hConsole, 15);
                 sellers[i].seller_menu(admin,products);
                 check = true;
                 break;
@@ -257,7 +267,9 @@ void login()
         }
         if (check == false)
         {
+            SetConsoleTextAttribute(hConsole, 4);
             cout << "\nYour Email or Password is Invalid \nPlease try again\n";
+            SetConsoleTextAttribute(hConsole, 15);
             login();
             // break;
         }
@@ -269,7 +281,9 @@ void login()
             if (person_email == customers[i].get_email() && 
 				person_password == customers[i].get_password())
             {
-                cout << "\nhello, " << customers[i].get_name() << endl;
+                SetConsoleTextAttribute(hConsole, 4);
+                cout << "\nHello, " << customers[i].get_name() << endl;
+                SetConsoleTextAttribute(hConsole, 15);
 				customers[i].customer_menu(products);
                 check = true;
                 break;
@@ -278,13 +292,20 @@ void login()
         }
         if (check == false)
         {
+            SetConsoleTextAttribute(hConsole, 4);
             cout << "\nYour Email or your Password is invalid \nPlease try again\n";
+            SetConsoleTextAttribute(hConsole, 15);
             login();
             // break;
         }
     }
-	else if (person_id == admin.get_id() && person_email==admin.get_email() && person_password ==admin.get_password()) {
+	else if (person_id == admin.get_id() && /*person_email==admin.get_email() &&*/ person_password ==admin.get_password()) {
 		admin.Accept_or_Reject(products);
+    }
+    else {
+        SetConsoleTextAttribute(hConsole, 4);
+        cout << "\n\nThe ID you have entered is not found \n\n";
+        SetConsoleTextAttribute(hConsole, 15);
     }
 
 }

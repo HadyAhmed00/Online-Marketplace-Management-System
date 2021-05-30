@@ -30,7 +30,9 @@ void Customer::Add_to_cart(Product& product,vector<Product>&products)
 	cin.ignore();
 	if (quantity > product.get_quantity())
 	{
+		SetConsoleTextAttribute(hConsole, 4);
 		cout << "Sorry this quantity is unavailable right now\n";
+		SetConsoleTextAttribute(hConsole, 15);
 	}
 	else
 	{
@@ -51,7 +53,9 @@ void Customer::Add_to_cart(Product& product,vector<Product>&products)
 		{
 			cart[index].Quantity += quantity;
 			product.set_quantity(product.get_quantity() - quantity);
+			SetConsoleTextAttribute(hConsole, 10);
 			cout << "Now you have " << cart[index].Quantity << " " << product.get_name() << "s\n";
+			SetConsoleTextAttribute(hConsole, 15);
 		}
 		else
 		{
@@ -60,7 +64,9 @@ void Customer::Add_to_cart(Product& product,vector<Product>&products)
 			temp.Quantity = quantity;
 			cart.push_back(temp);
 			product.set_quantity(product.get_quantity() - quantity);
+			SetConsoleTextAttribute(hConsole, 10);
 			cout << "\""<<product.get_name()<<"\""<<" has been added to your cart successfully \n\n";
+			SetConsoleTextAttribute(hConsole, 15);
 		}
 	}
 	cout << "Press-->1 to add more quantity of this product\n";
@@ -83,7 +89,9 @@ void Customer::Add_to_cart(Product& product,vector<Product>&products)
 		cout << "Logging out.........\n";
 		break;
 	default:
+		SetConsoleTextAttribute(hConsole, 4);
 		cout << "Invalid Entry...please try again!\n";
+		SetConsoleTextAttribute(hConsole, 15);
 		system("pause");
 		show_all_products(products);
 	}
@@ -133,7 +141,9 @@ void Customer::customer_menu(vector<Product>&products)
         cout << "Logging out.......\n";
         break;
     default:
+		SetConsoleTextAttribute(hConsole, 4);
         cout << "Incorrect entry..Please try again!!!\n";
+		SetConsoleTextAttribute(hConsole, 15);
 		system("pause");
 		customer_menu(products);
         break;
@@ -204,14 +214,18 @@ void Customer::search_by_name(vector<Product>&products) {
 			cout << "Logging out.........\n";
 			break;
 		default:
+			SetConsoleTextAttribute(hConsole, 4);
 			cout << "Invalid Entry...please try again!\n";
+			SetConsoleTextAttribute(hConsole, 15);
 			display_cart_products(products);
 		}
         
     }
     else
     {
+		SetConsoleTextAttribute(hConsole, 4);
         cout << "Product is not found\n";
+		SetConsoleTextAttribute(hConsole, 15);
 		cout << "\n\n";
 		int choice;
 		cout << "Press-->1 to stay on this page\n";
@@ -231,35 +245,13 @@ void Customer::search_by_name(vector<Product>&products) {
 			cout << "Logging out.........\n";
 			break;
 		default:
+			SetConsoleTextAttribute(hConsole, 4);
 			cout << "Invalid Entry...please try again!\n";
+			SetConsoleTextAttribute(hConsole, 15);
 			display_cart_products(products);
 		}
     }
-	/*cout << "\n\n";
-	int choice;
-	cout << "Press-->1 to Add this product to cart\n";
-	cout << "Press-->2 to stay on this page\n";
-	cout << "Press-->3 to go back\n";
-	cout << "Press-->4 to Log Out\n";
 	
-	cin >> choice;
-	switch (choice) {
-	case 1:
-		Add_to_cart(products[index]);
-		break;
-	case 2:
-		search_by_name();
-		break;
-	case 3:
-		customer_menu();
-		break;
-	case 4:
-		cout << "Logging out.........\n";
-		break;
-	default:
-		cout << "Invalid Entry...please try again!\n";
-		display_cart_products();
-	}*/
 
 }
 //remove from cart: remove product from customer cart
@@ -298,7 +290,9 @@ void Customer::remove_from_cart(int ind, vector<Product>&products)
 		cout << "Logging out.........\n";
 		break;
 	default:
+		SetConsoleTextAttribute(hConsole, 4);
 		cout << "Invalid Entry...please try again!\n";
+		SetConsoleTextAttribute(hConsole, 15);
 		display_cart_products(products);
 	}
 }
@@ -310,7 +304,9 @@ void Customer::display_cart_products(vector<Product>&products)
 	bool isfound=false;
 	int n;
     if (cart.size() == 0) {
+		SetConsoleTextAttribute(hConsole, 1);
         cout << "Your cart is empty now \n\n\n";
+		SetConsoleTextAttribute(hConsole, 15);
 		cout << "Press-->1 to search for a product to add it to your cart\n";
 		cout << "Press-->2 to go back\n";
 		cout << "Press-->3 to Log Out\n";
@@ -328,7 +324,9 @@ void Customer::display_cart_products(vector<Product>&products)
 			cout << "Logging out.........\n";
 			break;
 		default:
+			SetConsoleTextAttribute(hConsole, 4);
 			cout << "Invalid Entry...please try again!\n";
+			SetConsoleTextAttribute(hConsole, 15);
 			system("pause");
 			display_cart_products(products);
 		}
@@ -352,20 +350,24 @@ void Customer::display_cart_products(vector<Product>&products)
 				search_by_name(products);
 				break;
 			case 2:
-				cout << "\nPlease enter the product id to remove it\n";
+				cout << "\nPlease enter the product ID to remove it\n";
 				cin >> n;
 				cin.ignore();
 				for (int i = 0; i < cart.size(); i++)
 				{
 					if (cart[i].pro.get_id() == n) {
 						remove_from_cart(i, products);
-						cout  << "the product has been removed from your cart successfully \n";
+						SetConsoleTextAttribute(hConsole, 10);
+						cout << "the product has been removed from your cart successfully \n";
+						SetConsoleTextAttribute(hConsole, 15);
 						isfound = true;
 						break;
 					}
 				}
 				if (isfound == false) {
+					SetConsoleTextAttribute(hConsole, 4);
 					cout << "The product ID your have entered is not found\n";
+					SetConsoleTextAttribute(hConsole, 15);
 					system("pause");
 					display_cart_products(products);
 				}
@@ -377,7 +379,9 @@ void Customer::display_cart_products(vector<Product>&products)
 				cout << "Logging out.........\n";
 				break;
 			default:
+				SetConsoleTextAttribute(hConsole, 4);
 				cout << "Invalid Entry...please try again!\n";
+				SetConsoleTextAttribute(hConsole, 15);
 				system("pause");
 				display_cart_products(products);
 			}
@@ -441,7 +445,9 @@ void Customer::display_category_products(string cat, vector<Product>&products)
 	if (isfound==false)
 
 		{
+		SetConsoleTextAttribute(hConsole, 4);
 		cout << "There are no available products of this category right now :(\n\n";
+		SetConsoleTextAttribute(hConsole, 15);
 	}
 	cout << "Press-->1 to Add product to cart\n";
 	cout << "Press-->2 to go back\n";
@@ -451,20 +457,24 @@ void Customer::display_category_products(string cat, vector<Product>&products)
 	cin.ignore();
 	switch (choice) {
 	case 1:
-		cout << "\nPlease enter the product id to add it to your cart\n";
+		cout << "\nPlease enter the product ID to add it to your cart\n";
 		cin >> choice;
 		cin.ignore();
 		for (int i = 0; i < products.size(); i++)
 		{
 			if (products[i].get_id() == choice) {
 				Add_to_cart(products[i], products);
+				SetConsoleTextAttribute(hConsole, 10);
 				cout << "\"" << products[i].get_name() << "\"" << " has been added to your cart successfully \n";
+				SetConsoleTextAttribute(hConsole, 15);
 				isfound = true;
 				break;
 			}
 		}
 		if (isfound == false) {
+			SetConsoleTextAttribute(hConsole, 4);
 			cout << "The product ID your have entered is not found\n";
+			SetConsoleTextAttribute(hConsole, 15);
 			system("pause");
 			show_all_products(products);
 		}
@@ -477,7 +487,9 @@ void Customer::display_category_products(string cat, vector<Product>&products)
 		cout << "Logging out.........\n";
 		break;
 	default:
+		SetConsoleTextAttribute(hConsole, 4);
 		cout << "Invalid Entry...please try again!\n";
+		SetConsoleTextAttribute(hConsole, 15);
 		system("pause");
 		display_category_products(cat,products);
 	}
@@ -517,13 +529,17 @@ void Customer::show_all_products(vector<Product>&products)
 		{
 			if (products[i].get_id() == choice) {
 				Add_to_cart(products[i], products);
+				SetConsoleTextAttribute(hConsole, 10);
 				cout << "\"" << products[i].get_name() << "\"" << " has been added to your cart successfully \n";
+				SetConsoleTextAttribute(hConsole, 15);
 				isFound = true;
 				break;
 			}
 		}
 		if (isFound == false) {
+			SetConsoleTextAttribute(hConsole, 4);
 			cout << "The product ID your have entered is not found\n";
+			SetConsoleTextAttribute(hConsole, 15);
 			system("pause");
 			show_all_products(products);
 		}
@@ -536,7 +552,9 @@ void Customer::show_all_products(vector<Product>&products)
 		break;
 	
 	default:
+		SetConsoleTextAttribute(hConsole, 4);
 		cout << "Invalid Entry...please try again!\n";
+		SetConsoleTextAttribute(hConsole, 15);
 		system("pause");
 		show_all_products(products);
 	}
