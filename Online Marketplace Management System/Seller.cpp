@@ -20,6 +20,16 @@ Seller::Seller(string name, string email,string pass)
 
 //-------- Seller functions ------------
 
+float Seller::get_profit()
+{
+	return profit;
+}
+
+void Seller::set_profit(float pro)
+{
+	profit += pro;
+}
+
 void Seller::seller_menu(Admin & a,vector<Product> allproducts)
 {
 	string choice;

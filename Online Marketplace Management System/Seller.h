@@ -26,7 +26,8 @@ private:
 public:
 	Seller();
 	//Seller(string name, string password, string Email, string phone_number, string address);
-	
+	float get_profit();
+	void set_profit(float);
 	Seller(string, string,string);
 	void seller_menu(Admin&,vector<Product>);
 	void addPriduct(Admin&, vector<Product>);

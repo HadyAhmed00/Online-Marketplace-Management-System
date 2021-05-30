@@ -4,6 +4,7 @@
 #include <string>
 using namespace std;
 static int ID = 1000;
+string choice;
 Customer::Customer() {
 
 }
@@ -24,13 +25,13 @@ Customer::Customer(string name, string email, string address, string phone, stri
 
 
 //add to cart function: add product to customer cart
-void Customer::Add_to_cart(Product& product,vector<Product>&products)
+void Customer::Add_to_cart(Product& product, vector<Product>&products, vector<Seller>&sellers)
 {
-	system("cls");
 	int choice;
 	int quantity;
-	cout << "please enter quantity: "; cin >> quantity;
-	cin.ignore();
+	
+	cout << "please enter quantity: ";
+	quantity = Validation::isNumber();
 	if (quantity > product.get_quantity())
 	{
 		SetConsoleTextAttribute(hConsole, 4);
@@ -49,8 +50,7 @@ void Customer::Add_to_cart(Product& product,vector<Product>&products)
 				index = i;
 				break;
 			}
-			else
-				found = false;
+			
 		}
 		if (found)
 		{
@@ -76,17 +76,16 @@ void Customer::Add_to_cart(Product& product,vector<Product>&products)
 	cout << "Press-->2 to search for another product\n";
 	cout << "Press-->3 to go to customer menu\n";
 	cout << "Press-->4 to Log Out\n";
-	cin >> choice;
-	cin.ignore();
+	choice = Validation::isNumber();
 	switch (choice) {
 	case 1:
-		Add_to_cart(product, products);
+		Add_to_cart(product, products, sellers);
 		break;
 	case 2:
-		search_by_name(products);
+		search_by_name(products, sellers);
 		break;
 	case 3:
-		customer_menu(products);
+		customer_menu(products, sellers);
 		break;
 	case 4:
 		cout << "Logging out.........\n";
@@ -96,12 +95,12 @@ void Customer::Add_to_cart(Product& product,vector<Product>&products)
 		cout << "Invalid Entry...please try again!\n";
 		SetConsoleTextAttribute(hConsole, 15);
 		system("pause");
-		show_all_products(products);
+		show_all_products(products, sellers);
 	}
 	
 }
 
-void Customer::customer_menu(vector<Product>&products)
+void Customer::customer_menu(vector<Product>&products,vector<Seller>&sellers)
 {
 	system("cls");
     int choice;
@@ -120,25 +119,25 @@ void Customer::customer_menu(vector<Product>&products)
 	cin.ignore();
     switch (choice) {
     case 1:
-		display_cart_products(products);
+		display_cart_products(products, sellers);
         break;
     case 2:
-		display_category_products("A", products);
+		display_category_products("A", products, sellers);
         break;
     case 3:
-		display_category_products("B", products);
+		display_category_products("B", products, sellers);
         break;
     case 4:
-		display_category_products("C",products);
+		display_category_products("C", products, sellers);
         break;
     case 5:
-		display_category_products("D", products);
+		display_category_products("D", products, sellers);
         break;
     case 6:
-		show_all_products(products);
+		show_all_products(products, sellers);
         break;
     case 7:
-		search_by_name(products);
+		search_by_name(products, sellers);
         break;
     case 8:
         cout << "Logging out.......\n";
@@ -148,25 +147,25 @@ void Customer::customer_menu(vector<Product>&products)
         cout << "Incorrect entry..Please try again!!!\n";
 		SetConsoleTextAttribute(hConsole, 15);
 		system("pause");
-		customer_menu(products);
+		customer_menu(products, sellers);
         break;
     }
     
 }
 
 // search for a product by entering its name
-void Customer::search_by_name(vector<Product>&products) {
+void Customer::search_by_name(vector<Product>&products, vector<Seller>&sellers) {
 	system("cls");
     bool isFound = false;
     int index;
 	string Name;
 	cout << "\nPlease enter product name: \n\n";
-	cin.ignore();
+	//cin.ignore();
 	getline(cin, Name);
 	
 	//char arr[] = Name ;
 	for (int x = 0; x < Name.length(); x++)
-		Name[x]= tolower(Name[x]);
+		Name[x] = tolower(Name[x]);
 	
 	
     for (int i = 0; i < products.size(); i++)
@@ -205,13 +204,13 @@ void Customer::search_by_name(vector<Product>&products) {
 		cin.ignore();
 		switch (choice) {
 		case 1:
-			Add_to_cart(products[index], products);
+			Add_to_cart(products[index], products, sellers);
 			break;
 		case 2:
-			search_by_name(products);
+			search_by_name(products, sellers);
 			break;
 		case 3:
-			customer_menu(products);
+			customer_menu(products, sellers);
 			break;
 		case 4:
 			cout << "Logging out.........\n";
@@ -220,7 +219,7 @@ void Customer::search_by_name(vector<Product>&products) {
 			SetConsoleTextAttribute(hConsole, 4);
 			cout << "Invalid Entry...please try again!\n";
 			SetConsoleTextAttribute(hConsole, 15);
-			display_cart_products(products);
+			display_cart_products(products, sellers);
 		}
         
     }
@@ -239,10 +238,10 @@ void Customer::search_by_name(vector<Product>&products) {
 		cin.ignore();
 		switch (choice) {
 		case 1:
-			search_by_name(products);
+			search_by_name(products, sellers);
 			break;
 		case 2:
-			customer_menu(products);
+			customer_menu(products, sellers);
 			break;
 		case 3:
 			cout << "Logging out.........\n";
@@ -251,15 +250,17 @@ void Customer::search_by_name(vector<Product>&products) {
 			SetConsoleTextAttribute(hConsole, 4);
 			cout << "Invalid Entry...please try again!\n";
 			SetConsoleTextAttribute(hConsole, 15);
-			display_cart_products(products);
+			display_cart_products(products, sellers);
 		}
     }
 	
 
 }
 //remove from cart: remove product from customer cart
-void Customer::remove_from_cart(int ind, vector<Product>&products)
+void Customer::remove_from_cart(int ind, vector<Product>&products, vector<Seller>&sellers)
 {
+	int quantity;
+	cout << "please enter quantity: "; cin >> quantity;
     bool isFound = false;
     int index;
 	int id;
@@ -269,12 +270,20 @@ void Customer::remove_from_cart(int ind, vector<Product>&products)
 	{
 		if (id == products[i].get_id())
 		{
-			products[i].set_quantity(products[i].get_quantity() + cart[ind].Quantity);
+			products[i].set_quantity(products[i].get_quantity() + quantity);
 			cout << "\nproduct has been removed from your cart\n";
+			
 			break;
 		}
 	}
-	cart.erase((cart.begin() + ind));
+	if (cart[ind].Quantity == quantity)
+	{
+		cart.erase((cart.begin() + ind));
+	}
+	else
+	{
+		cart[ind].Quantity -= quantity;
+	}
 	cout << "\n\n";
 	int choice;
 	cout << "Press-->1 to stay on this page\n";
@@ -284,10 +293,10 @@ void Customer::remove_from_cart(int ind, vector<Product>&products)
 	cin.ignore();
 	switch (choice) {
 	case 1:
-		remove_from_cart(ind, products);
+		remove_from_cart(ind, products, sellers);
 		break;
 	case 2:
-		customer_menu(products);
+		customer_menu(products, sellers);
 		break;
 	case 3:
 		cout << "Logging out.........\n";
@@ -296,11 +305,11 @@ void Customer::remove_from_cart(int ind, vector<Product>&products)
 		SetConsoleTextAttribute(hConsole, 4);
 		cout << "Invalid Entry...please try again!\n";
 		SetConsoleTextAttribute(hConsole, 15);
-		display_cart_products(products);
+		display_cart_products(products, sellers);
 	}
 }
 //display all elements in cart
-void Customer::display_cart_products(vector<Product>&products)
+void Customer::display_cart_products(vector<Product>&products,vector<Seller>&sellers)
 {
 	system("cls");
     int choice;
@@ -318,10 +327,10 @@ void Customer::display_cart_products(vector<Product>&products)
 		cin.ignore();
 		switch (choice) {
 		case 1:
-			search_by_name(products);
+			search_by_name(products, sellers);
 			break;
 		case 2:
-			customer_menu(products);
+			customer_menu(products, sellers);
 			break;
 		case 3:
 			cout << "Logging out.........\n";
@@ -331,13 +340,13 @@ void Customer::display_cart_products(vector<Product>&products)
 			cout << "Invalid Entry...please try again!\n";
 			SetConsoleTextAttribute(hConsole, 15);
 			system("pause");
-			display_cart_products(products);
+			display_cart_products(products, sellers);
 		}
     }
     else {
 		for (int i = 0; i < cart.size(); i++)
 		{
-			cout << i + 1 << "-  " << "product name: " << cart[i].pro.get_name() <<"\t\tprice: "<< cart[i].pro.get_price()<<" EGP" << "\t\t quantity:  " << cart[i].Quantity <<"\t\ttotal: "<< cart[i].pro.get_price()* cart[i].Quantity <<" EGP" << endl;
+			cout << i + 1 << "- " << "product name: " << cart[i].pro.get_name() << "\tproduct id: "<<cart[i].pro.get_id() <<"\tprice: "<< cart[i].pro.get_price()<<" $" << "\t\t quantity:  " << cart[i].Quantity <<"\t\ttotal: "<< cart[i].pro.get_price()* cart[i].Quantity <<" $" << endl;
 			cout << "\n--------------------------------------------------------------------------------------------------------";
 			cout << endl;
 		}
@@ -345,14 +354,14 @@ void Customer::display_cart_products(vector<Product>&products)
 			cout << "Press-->2 to remove products from your cart\n";
 			cout << "Press-->3 to go back\n";
 			cout << "Press-->4 to confirm\n";
-			cout << "Press-->5 to cancel\n";
+			cout << "Press-->5 to remove all products\n";
 			cout << "Press-->6 to Log Out\n";
 
 			cin >> choice;
 			cin.ignore();
 			switch (choice) {
 			case 1:
-				search_by_name(products);
+				search_by_name(products, sellers);
 				break;
 			case 2:
 				cout << "\nPlease enter the product ID to remove it\n";
@@ -361,7 +370,7 @@ void Customer::display_cart_products(vector<Product>&products)
 				for (int i = 0; i < cart.size(); i++)
 				{
 					if (cart[i].pro.get_id() == n) {
-						remove_from_cart(i, products);
+						remove_from_cart(i, products, sellers);
 						SetConsoleTextAttribute(hConsole, 10);
 						cout << "the product has been removed from your cart successfully \n";
 						SetConsoleTextAttribute(hConsole, 15);
@@ -374,14 +383,14 @@ void Customer::display_cart_products(vector<Product>&products)
 					cout << "The product ID your have entered is not found\n";
 					SetConsoleTextAttribute(hConsole, 15);
 					system("pause");
-					display_cart_products(products);
+					display_cart_products(products, sellers);
 				}
 				break;
 			case 3:
-				customer_menu(products);
+				customer_menu(products, sellers);
 				break;
 			case 4:
-				display_Receipt();
+				display_Receipt(sellers);
 				break;
 			case 5:
 				Cancel(products);
@@ -395,7 +404,7 @@ void Customer::display_cart_products(vector<Product>&products)
 				cout << "Invalid Entry...please try again!\n";
 				SetConsoleTextAttribute(hConsole, 15);
 				system("pause");
-				display_cart_products(products);
+				display_cart_products(products, sellers);
 			}
     }
 	///*cout << "Press-->1 to add products to your cart\n";*/
@@ -427,7 +436,7 @@ void Customer::display_cart_products(vector<Product>&products)
    
 }
 
-void Customer::display_category_products(string cat, vector<Product>&products)
+void Customer::display_category_products(string cat, vector<Product>&products, vector<Seller>&sellers)
 {
 	system("cls");
 	int choice;
@@ -475,7 +484,7 @@ void Customer::display_category_products(string cat, vector<Product>&products)
 		for (int i = 0; i < products.size(); i++)
 		{
 			if (products[i].get_id() == choice) {
-				Add_to_cart(products[i], products);
+				Add_to_cart(products[i], products, sellers);
 				SetConsoleTextAttribute(hConsole, 10);
 				cout << "\"" << products[i].get_name() << "\"" << " has been added to your cart successfully \n";
 				SetConsoleTextAttribute(hConsole, 15);
@@ -488,12 +497,12 @@ void Customer::display_category_products(string cat, vector<Product>&products)
 			cout << "The product ID your have entered is not found\n";
 			SetConsoleTextAttribute(hConsole, 15);
 			system("pause");
-			show_all_products(products);
+			show_all_products(products, sellers);
 		}
 		
 		break;
 	case 2:
-		customer_menu(products);
+		customer_menu(products, sellers);
 		break;
 	case 3:
 		cout << "Logging out.........\n";
@@ -503,12 +512,12 @@ void Customer::display_category_products(string cat, vector<Product>&products)
 		cout << "Invalid Entry...please try again!\n";
 		SetConsoleTextAttribute(hConsole, 15);
 		system("pause");
-		display_category_products(cat,products);
+		display_category_products(cat, products, sellers);
 	}
 
 }
 
-void Customer::show_all_products(vector<Product>&products)
+void Customer::show_all_products(vector<Product>&products, vector<Seller>&sellers)
 {
 	system("cls");
 	int choice;
@@ -540,9 +549,9 @@ void Customer::show_all_products(vector<Product>&products)
 		for (int i = 0; i < products.size(); i++)
 		{
 			if (products[i].get_id() == choice) {
-				Add_to_cart(products[i], products);
+				Add_to_cart(products[i], products, sellers);
 				SetConsoleTextAttribute(hConsole, 10);
-				cout << "\"" << products[i].get_name() << "\"" << " has been added to your cart successfully \n";
+				//cout << "\"" << products[i].get_name() << "\"" << " has been added to your cart successfully \n";
 				SetConsoleTextAttribute(hConsole, 15);
 				isFound = true;
 				break;
@@ -553,11 +562,11 @@ void Customer::show_all_products(vector<Product>&products)
 			cout << "The product ID your have entered is not found\n";
 			SetConsoleTextAttribute(hConsole, 15);
 			system("pause");
-			show_all_products(products);
+			show_all_products(products, sellers);
 		}
 		break;
 	case 2:
-		customer_menu(products);
+		customer_menu(products, sellers);
 		break;
 	case 3:
 		cout << "Logging out.........\n";
@@ -568,16 +577,32 @@ void Customer::show_all_products(vector<Product>&products)
 		cout << "Invalid Entry...please try again!\n";
 		SetConsoleTextAttribute(hConsole, 15);
 		system("pause");
-		show_all_products(products);
+		show_all_products(products, sellers);
 	}
 }
 
-void Customer::display_Receipt()
+void Customer::display_Receipt(vector<Seller>&sellers)
 {
 	float totalPrice=0;
-	for (int i = 0; i < cart.size(); i++) {
+	
+
+	for (int i = 0; i < cart.size(); i++)
+	{
+		float profit_product = 0;
+		profit_product += cart[i].pro.get_price()*cart[i].Quantity;
+		for (int j = 0; j < sellers.size(); j++)
+		{
+			if (cart[i].pro.get_sellerId()==sellers[j].get_id())
+			{
+				sellers[j].set_profit(profit_product);
+				break;
+			}
+		}
 		totalPrice += cart[i].pro.get_price() * cart[i].Quantity;
+		
 	}
+
+	
 	Receipt receipt(*this,totalPrice);
 	cout << "\t\t\t\t\t************ Wellcome! ************\n\n\n" << "Receipt Id: " << receipt.get_id() << "\n\n";
 
@@ -587,8 +612,12 @@ void Customer::display_Receipt()
 		cout << "\n--------------------------------------------------------------------------------------------------------\n";
 		cout << endl;
 	}
-	cout << "total payment: " << totalPrice << " EGP\n";
+	cout << "total payment: " << totalPrice + receipt.get_shipment_price()<< " EGP\n";
 	cout << "Have a nice day....."<<"\n";
+	while (!cart.empty())
+	{
+		cart.pop_back();
+	}
 }
 
 void Customer::Cancel(vector<Product>& products)
@@ -614,7 +643,11 @@ void Customer::Cancel(vector<Product>& products)
 			}
 		}
 	}
-	cout << "\nproduct has been removed from your cart\n";
+	while (!cart.empty())
+	{
+		cart.pop_back();
+	}
+	cout << "\nall products has been removed from your cart\n";
 }
 
 

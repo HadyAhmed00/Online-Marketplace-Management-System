@@ -15,7 +15,7 @@ using namespace std;
 vector <Customer> customers; //all customers in system
  vector <Product> products; //all products in system
 vector <Seller> sellers; //all sellers in system
-Admin admin("hadi","Admin2021@gmailcom");
+Admin admin("hadi","Admin2021@gmail.com");
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 //-------------------------function declaration --------------------
@@ -36,7 +36,7 @@ int main()
 	products.push_back(p4);
 	cout << products.size();
 	/*products.erase(products.begin() + 3);*/
-	cout << products.size();
+	
     //customers
     //the information for the first customer
     Customer c1("Customer1",			       //Name
@@ -83,11 +83,7 @@ int main()
 				customers[i].get_address() << "\t" << 
 				customers[i].get_phoneNum() << endl;
 
-	/*customers[0].Add_to_cart(p1, 2);
-	customers[0].Add_to_cart(p2, 2);
-	customers[0].Add_to_cart(p3, 2);
 	
-	customers[0].remove_from_cart(p3);*/
 
     cout << "\n\n\n";
     cout << "\t\t\t\t\tOnline Marketplace Management System\n";
@@ -100,6 +96,7 @@ int main()
         }
         cout << "please press 1 to continue\n";
         cout << "please press 2 to exit\n";
+
         getline(cin,N_num);
         if (N_num == "1")
         {
@@ -284,7 +281,7 @@ void login()
                 SetConsoleTextAttribute(hConsole, 4);
                 cout << "\nHello, " << customers[i].get_name() << endl;
                 SetConsoleTextAttribute(hConsole, 15);
-				customers[i].customer_menu(products);
+				customers[i].customer_menu(products, sellers);
                 check = true;
                 break;
             }
@@ -299,7 +296,7 @@ void login()
             // break;
         }
     }
-	else if (person_id == admin.get_id() && /*person_email==admin.get_email() &&*/ person_password ==admin.get_password()) {
+	else if (person_id == admin.get_id() && person_email==admin.get_email() && person_password ==admin.get_password()) {
 		admin.Accept_or_Reject(products);
     }
     else {
