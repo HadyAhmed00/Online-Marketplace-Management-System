@@ -26,4 +26,7 @@ public:
 	void display_category_products(string, vector<Product>&);
     void display_cart_products(vector<Product>&);
 	void show_all_products(vector<Product>&);
+    void display_Receipt();
+    void Cancel(vector<Product>& products);
+
 };

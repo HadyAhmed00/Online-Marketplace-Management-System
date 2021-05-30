@@ -1,4 +1,5 @@
 #include "Customer.h"
+#include "Receipt.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -18,6 +19,8 @@ Customer::Customer(string name, string email, string address, string phone, stri
     this->phone_number = phone;
     per_password = password;
 }
+
+
 
 
 //add to cart function: add product to customer cart
@@ -334,14 +337,16 @@ void Customer::display_cart_products(vector<Product>&products)
     else {
 		for (int i = 0; i < cart.size(); i++)
 		{
-			cout << i + 1 << "-  " << "product name: " << cart[i].pro.get_name() << "\t\t quantity:  " << cart[i].Quantity << endl;
+			cout << i + 1 << "-  " << "product name: " << cart[i].pro.get_name() <<"\t\tprice: "<< cart[i].pro.get_price()<<" EGP" << "\t\t quantity:  " << cart[i].Quantity <<"\t\ttotal: "<< cart[i].pro.get_price()* cart[i].Quantity <<" EGP" << endl;
 			cout << "\n--------------------------------------------------------------------------------------------------------";
 			cout << endl;
 		}
 			cout << "Press-->1 to search for a product to add it to your cart\n";
 			cout << "Press-->2 to remove products from your cart\n";
 			cout << "Press-->3 to go back\n";
-			cout << "Press-->4 to Log Out\n";
+			cout << "Press-->4 to confirm\n";
+			cout << "Press-->5 to cancel\n";
+			cout << "Press-->6 to Log Out\n";
 
 			cin >> choice;
 			cin.ignore();
@@ -376,6 +381,13 @@ void Customer::display_cart_products(vector<Product>&products)
 				customer_menu(products);
 				break;
 			case 4:
+				display_Receipt();
+				break;
+			case 5:
+				Cancel(products);
+
+				break;
+			case 6:
 				cout << "Logging out.........\n";
 				break;
 			default:
@@ -559,6 +571,54 @@ void Customer::show_all_products(vector<Product>&products)
 		show_all_products(products);
 	}
 }
+
+void Customer::display_Receipt()
+{
+	float totalPrice=0;
+	for (int i = 0; i < cart.size(); i++) {
+		totalPrice += cart[i].pro.get_price() * cart[i].Quantity;
+	}
+	Receipt receipt(*this,totalPrice);
+	cout << "\t\t\t\t\t************ Wellcome! ************\n\n\n" << "Receipt Id: " << receipt.get_id() << "\n\n";
+
+	for (int i = 0; i < cart.size(); i++)
+	{
+		cout << i + 1 << "-  " << "product name: " << cart[i].pro.get_name() << "\t\tprice: " << cart[i].pro.get_price() << " EGP" << "\t\t quantity:  " << cart[i].Quantity << "\t\ttotal: " << cart[i].pro.get_price() * cart[i].Quantity << " EGP" << endl;
+		cout << "\n--------------------------------------------------------------------------------------------------------\n";
+		cout << endl;
+	}
+	cout << "total payment: " << totalPrice << " EGP\n";
+	cout << "Have a nice day....."<<"\n";
+}
+
+void Customer::Cancel(vector<Product>& products)
+{
+	//for (int i = 0; i < products.size(); i++)
+	//{
+	//	if (cart[i].pro.get_id() == products[i].get_id())
+	//	{
+	//		products[i].set_quantity(products[i].get_quantity() + cart[cart[i].pro.get_id()].Quantity);
+	//		cout << "\nproduct has been removed from your cart\n";
+	//		break;
+	//	}
+	//		
+	//	
+	//}
+	for (int j = 0; j < cart.size(); j++) {
+		for (int i = 0; i < products.size(); i++)
+		{
+			if (cart[j].pro.get_id() == products[i].get_id())
+			{
+				products[i].set_quantity(products[i].get_quantity() + cart[j].Quantity);
+				break;
+			}
+		}
+	}
+	cout << "\nproduct has been removed from your cart\n";
+}
+
+
+
 
 //Customer::~Customer()
 //{

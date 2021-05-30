@@ -1,8 +1,21 @@
-﻿  main.cpp
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(70,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(78,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(163,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(171,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(254,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(279,27): warning C4018: '<': signed/unsigned mismatch
-  Online Marketplace Management System.vcxproj -> C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
+﻿  Customer.cpp
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(44): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(108): warning C4101: 'quantity' : unreferenced local variable
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(168): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(172): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(174): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(268): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(264): warning C4101: 'index' : unreferenced local variable
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(338): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(361): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(440): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(475): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(435): warning C4101: 'index' : unreferenced local variable
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(437): warning C4101: 'quantity_check' : unreferenced local variable
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(517): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(540): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(578): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(584): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(607): warning C4018: '<' : signed/unsigned mismatch
+c:\users\hyper\documents\github\online-marketplace-management-system\online marketplace management system\customer.cpp(608): warning C4018: '<' : signed/unsigned mismatch
+  Online Marketplace Management System.vcxproj -> C:\Users\hyper\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
