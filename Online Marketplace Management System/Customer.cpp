@@ -307,6 +307,8 @@ void Customer::display_cart_products(vector<Product>&products)
 {
 	system("cls");
     int choice;
+	bool isfound=false;
+	int n;
     if (cart.size() == 0) {
         cout << "Your cart is empty now \n\n\n";
 		cout << "Press-->1 to search for a product to add it to your cart\n";
@@ -350,12 +352,23 @@ void Customer::display_cart_products(vector<Product>&products)
 				search_by_name(products);
 				break;
 			case 2:
-				cout << "\nPlease enter the product number to remove it\n";
-				int n;
+				cout << "\nPlease enter the product id to remove it\n";
 				cin >> n;
 				cin.ignore();
-				n = n - 1;
-				remove_from_cart(n,products);
+				for (int i = 0; i < cart.size(); i++)
+				{
+					if (cart[i].pro.get_id() == n) {
+						remove_from_cart(i, products);
+						cout  << "the product has been removed from your cart successfully \n";
+						isfound = true;
+						break;
+					}
+				}
+				if (isfound == false) {
+					cout << "The product ID your have entered is not found\n";
+					system("pause");
+					display_cart_products(products);
+				}
 				break;
 			case 3:
 				customer_menu(products);
@@ -404,28 +417,30 @@ void Customer::display_category_products(string cat, vector<Product>&products)
 	int choice;
     bool isfound = false;
     int index;
+	int pro_num = 1;
 	int quantity_check;
 	cout << "\n\n";
 	cout <<"\t\t\t---------- Category " << cat << " ----------\n\n";
     for (int i = 0; i < products.size(); i++)
     {
-		if (cat == products[i].get_category() && products[i].get_quantity())
+		if (cat == products[i].get_category() && products[i].get_quantity()!=0)
 		{
+			
 			/*quantity_check = products[i].get_quantity();*/
 
-			cout << "Product Number: " << i <<" ";
+			cout << "Product Number: " << pro_num <<" ";
 			products[i].product_info();
 			cout << "\n--------------------------------------------------------------------------------------------------------";
 			cout << endl;
 			cout << endl;
 			isfound = true;
+			pro_num++;
 			continue;
 		}
     }
-	if (isfound) {
+	if (isfound==false)
 
-	}
-	else {
+		{
 		cout << "There are no available products of this category right now :(\n\n";
 	}
 	cout << "Press-->1 to Add product to cart\n";
@@ -436,10 +451,24 @@ void Customer::display_category_products(string cat, vector<Product>&products)
 	cin.ignore();
 	switch (choice) {
 	case 1:
-		cout << "\nPlease enter the product number to add it to your cart\n";
+		cout << "\nPlease enter the product id to add it to your cart\n";
 		cin >> choice;
 		cin.ignore();
-		Add_to_cart(products[choice], products);
+		for (int i = 0; i < products.size(); i++)
+		{
+			if (products[i].get_id() == choice) {
+				Add_to_cart(products[i], products);
+				cout << "\"" << products[i].get_name() << "\"" << " has been added to your cart successfully \n";
+				isfound = true;
+				break;
+			}
+		}
+		if (isfound == false) {
+			cout << "The product ID your have entered is not found\n";
+			system("pause");
+			show_all_products(products);
+		}
+		
 		break;
 	case 2:
 		customer_menu(products);
@@ -465,7 +494,7 @@ void Customer::show_all_products(vector<Product>&products)
 	{
 		if (products[i].get_quantity() != 0) {
 			cout << endl;
-			cout << i+1 << "- ";
+			cout << displayed_numbers << "- ";
 			products[i].product_info();
 			cout << "\n--------------------------------------------------------------------------------------------------------";
 			cout << endl;
