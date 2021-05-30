@@ -110,6 +110,9 @@ void Customer::customer_menu(vector<Product>&products,vector<Seller>&sellers)
      
     string cat = "no cat";
     cout << "\t\t\t\t\t*******************Customer Menu*******************\n\n";
+	SetConsoleTextAttribute(hConsole, 1);
+	cout << "\n\t\t\t\t\t\t------------ Hello -------------\n\n" <<  endl;
+	SetConsoleTextAttribute(hConsole, 15);
     cout << "Press 1 to go to cart\n\n";
     cout << "Press 2 to show products of Category A\n\n";
     cout << "Press 3 to show products of Category B\n\n";
@@ -261,29 +264,39 @@ void Customer::search_by_name(vector<Product>&products, vector<Seller>&sellers) 
 void Customer::remove_from_cart(int ind, vector<Product>&products, vector<Seller>&sellers)
 {
 	int quantity;
-	cout << "please enter quantity: "; quantity = Validation::isNumber();
+	
     bool isFound = false;
     int index;
 	int id;
 	id = cart[ind].pro.get_id();
-    
-	for (int i = 0; i < products.size(); i++)
+	cout << "please enter quantity: "; quantity = Validation::isNumber();
+	if (quantity>cart[ind].Quantity)
 	{
-		if (id == products[i].get_id())
-		{
-			products[i].set_quantity(products[i].get_quantity() + quantity);
-			cout << "\nproduct has been removed from your cart\n";
-			
-			break;
-		}
-	}
-	if (cart[ind].Quantity == quantity)
-	{
-		cart.erase((cart.begin() + ind));
+		cout << "the quantity you enterd to remove is more than you have\n";
 	}
 	else
 	{
-		cart[ind].Quantity -= quantity;
+
+
+
+		for (int i = 0; i < products.size(); i++)
+		{
+			if (id == products[i].get_id())
+			{
+				products[i].set_quantity(products[i].get_quantity() + quantity);
+				cout << "\nproduct has been removed from your cart\n";
+
+				break;
+			}
+		}
+		if (cart[ind].Quantity == quantity)
+		{
+			cart.erase((cart.begin() + ind));
+		}
+		else
+		{
+			cart[ind].Quantity -= quantity;
+		}
 	}
 	cout << "\n\n";
 	 
@@ -572,7 +585,7 @@ void Customer::display_Receipt(vector<Seller>&sellers)
 
 	for (int i = 0; i < cart.size(); i++)
 	{
-		cout << i + 1 << "-  " << "product name: " << cart[i].pro.get_name() << "\t\tprice: " << cart[i].pro.get_price() << " EGP" << "\t\t quantity:  " << cart[i].Quantity << "\t\ttotal: " << cart[i].pro.get_price() * cart[i].Quantity << " EGP" << endl;
+		cout << i + 1 << "-  " << "product name: " << cart[i].pro.get_name() << "\t\tprice: " << cart[i].pro.get_price() << " $" << "\t\t quantity:  " << cart[i].Quantity << "\t\ttotal: " << cart[i].pro.get_price() * cart[i].Quantity << " $" << endl;
 		cout << "\n--------------------------------------------------------------------------------------------------------\n";
 		cout << endl;
 	}

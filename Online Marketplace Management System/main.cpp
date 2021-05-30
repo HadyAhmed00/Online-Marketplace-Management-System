@@ -17,7 +17,7 @@ vector <Customer> customers; //all customers in system
 vector <Seller> sellers; //all sellers in system
 Admin admin("hadi","Admin2021@gmail.com");
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
+int current_user_index;
 //-------------------------function declaration --------------------
 string password();
 void control();
@@ -271,9 +271,7 @@ void login()
             if (person_email == customers[i].get_email() && 
 				person_password == customers[i].get_password())
             {
-                SetConsoleTextAttribute(hConsole, 4);
-                cout << "\nHello, " << customers[i].get_name() << endl;
-                SetConsoleTextAttribute(hConsole, 15);
+				
 				customers[i].customer_menu(products, sellers);
                 check = true;
                 break;
