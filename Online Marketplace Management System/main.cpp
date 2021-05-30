@@ -232,6 +232,7 @@ void login()
 {
     bool check = false;
     int person_id;
+    int user_index;
     string person_email;
     string person_password;
     cout << "Enter your ID" << endl;
@@ -247,10 +248,11 @@ void login()
             if (person_email == sellers[i].get_email() && 
 				person_password == sellers[i].get_password())
             {
+                user_index = sellers[i].get_id();
                 SetConsoleTextAttribute(hConsole, 1);
                 cout << "\nHello , " << sellers[i].get_name() << endl;
                 SetConsoleTextAttribute(hConsole, 15);
-                sellers[i].seller_menu(admin,products);
+                sellers[i].seller_menu(admin,products,user_index);
                 check = true;
                 break;
             }

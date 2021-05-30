@@ -30,22 +30,25 @@ void Seller::set_profit(float pro)
 	profit += pro;
 }
 
-void Seller::seller_menu(Admin & a,vector<Product> allproducts)
+void Seller::seller_menu(Admin & a,vector<Product> allproducts,int user_index)
 {
 	string choice;
 	cout << "************** Seller Menu ****************" << endl;
-	cout << "Profit is " << profit << endl;
-	cout << "Press-->1 To Add Product" << endl;
-	cout << "Press-->2 To browse your Products" << endl;
-	cout << "Press-->3 To Log Out" << endl;
+	cout << "Profit is " << profit <<" $" <<endl;
+	cout << "Press-->1 To Add a new product" << endl;
+	cout << "Press-->2 to add quantity to an existing product" << endl;
+	cout << "Press-->3 To browse your Products" << endl;
+	cout << "Press-->4 To Log Out" << endl;
 	
 	getline(cin ,choice);
 
-	if(choice=="1")
-		addPriduct(a,allproducts);
+	if (choice == "1")
+		addPriduct(a, allproducts, user_index);
 	else if (choice == "2")
-		display_Seller_Products(allproducts,per_id,a);
+		add_more_quantity(allproducts,user_index,a);
 	else if (choice == "3")
+		display_Seller_Products(allproducts,per_id,a,user_index);
+	else if (choice == "4")
 		//control function or Pop up "do you want to continue?"
 		cout << "Logging out.....\n";
 	else
@@ -53,7 +56,7 @@ void Seller::seller_menu(Admin & a,vector<Product> allproducts)
 		SetConsoleTextAttribute(hConsole, 4);
 		cout << "Incorrect entry..Please try again!!!\n";
 		SetConsoleTextAttribute(hConsole, 15);
-		seller_menu(a, allproducts);
+		seller_menu(a, allproducts,user_index);
 	}
 		
 		
@@ -61,8 +64,72 @@ void Seller::seller_menu(Admin & a,vector<Product> allproducts)
 
 }
 
+void Seller::add_more_quantity(vector<Product>&products,int user_index,Admin &admin)
+{
+	int ID;
+	int quantity;
+	bool Found = false;
+	string choic;
+	bool done2 = false;
+	int index;
+	cout << "Enter the product ID you want to update its quantity\n";
+	ID = Validation::isNumber();
+	cout << "Enter the quantity you want to add\n";
+	quantity = Validation::isNumber();
+	for (int i = 0; i < products.size(); i++)
+	{
+		if (products[i].get_id()==ID&&products[i].get_sellerId()==user_index)
+		{
+			
+			Found = true;
+			index = i;
+			break;
+		}
+	}
+	if (Found)
+	{
+		products[index].set_quantity(products[index].get_quantity() + quantity);
+		SetConsoleTextAttribute(hConsole, 10);
+		cout << "The quantity has been added to the product successfully\n\n";
+		SetConsoleTextAttribute(hConsole, 15);
+	}
+	else{
+		SetConsoleTextAttribute(hConsole, 4);
+		cout << "The product ID you have entered is not found\n";
+		SetConsoleTextAttribute(hConsole, 15);
+	}
+	do
+	{
+		cout << "Press-->1 to add more quantity to the product\n";
+		cout << "Press-->2 to go back\n";
+		cout << "Press-->3 to Log Out\n";
+		getline(cin, choic);
+		if (choic == "1") {
+			done2 = true;
+			add_more_quantity(products,user_index,admin);
+		}
+		else if (choic == "2")
+		{
+			done2 = true;
+			seller_menu(admin, products, user_index);
+		}
+		else if (choic == "3")
+		{
+			done2 = true;
+			cout << "Logging out.....\n";
+		}
+		else {
+			SetConsoleTextAttribute(hConsole, 4);
+			cout << "Invalid entry....try again\n";
+			SetConsoleTextAttribute(hConsole, 15);
+			done2 = false;
+		}
+	} while (!done2);
+
+}
+
 // add the new product to the list of all products and to the list of the seller products
-void Seller::addPriduct(Admin&admin,vector<Product>allproducts)
+void Seller::addPriduct(Admin&admin,vector<Product>allproducts,int user_index)
 {
 	string name = "unNamed";
 	string cato = "no cat";
@@ -88,21 +155,21 @@ void Seller::addPriduct(Admin&admin,vector<Product>allproducts)
 		cout << "4 --> Category D\n";
 		getline(cin ,choic);
 		if (choic == "1") {
-			cato = "catA";
+			cato = "A";
 			done = true;
 		}else if (choic == "2")
 		{
-			cato = "catB";
+			cato = "B";
 			done = true; 
 		}
 		else if (choic == "3")
 		{
-			cato = "catC";
+			cato = "C";
 			done = true; 
 		}
 		else if (choic == "4")
 		{
-			cato = "catD";
+			cato = "D";
 			done = true; 
 		}
 		else
@@ -130,12 +197,12 @@ void Seller::addPriduct(Admin&admin,vector<Product>allproducts)
 		getline(cin, choic);
 		if (choic == "1") {
 			done2 = true;
-			addPriduct(admin, allproducts);
+			addPriduct(admin, allproducts,user_index);
 		}
 		else if (choic == "2")
 		{
 			done2 = true;
-			seller_menu(admin, allproducts);
+			seller_menu(admin, allproducts,user_index);
 		}
 		else if (choic == "3")
 		{
@@ -166,7 +233,7 @@ vector<Product> Seller::getSellerProducts(vector<Product> allProducts, int sId)
 	return tmp;
 }
 
-void Seller::display_Seller_Products(vector<Product> allProducts, int sId,Admin &admin)
+void Seller::display_Seller_Products(vector<Product> allProducts, int sId,Admin &admin,int user_index)
 {
 	string choice;
 	bool done = false;
@@ -185,7 +252,7 @@ void Seller::display_Seller_Products(vector<Product> allProducts, int sId,Admin 
 		getline(cin, choice);
 		if (choice == "1") {
 			done = true;
-			seller_menu(admin, allProducts);
+			seller_menu(admin, allProducts, user_index);
 		}
 		else if (choice == "2")
 		{

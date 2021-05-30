@@ -272,7 +272,9 @@ void Customer::remove_from_cart(int ind, vector<Product>&products, vector<Seller
 	cout << "please enter quantity: "; quantity = Validation::isNumber();
 	if (quantity>cart[ind].Quantity)
 	{
-		cout << "the quantity you enterd to remove is more than you have\n";
+		SetConsoleTextAttribute(hConsole, 4);
+		cout << "The quantity you have entered to remove is more than you have\n";
+		SetConsoleTextAttribute(hConsole, 15);
 	}
 	else
 	{
@@ -589,7 +591,7 @@ void Customer::display_Receipt(vector<Seller>&sellers)
 		cout << "\n--------------------------------------------------------------------------------------------------------\n";
 		cout << endl;
 	}
-	cout << "total payment: " << totalPrice + receipt.get_shipment_price()<< " EGP\n";
+	cout << "total payment: " << totalPrice + receipt.get_shipment_price()<< " $\n";
 	cout << "Have a nice day....."<<"\n";
 	while (!cart.empty())
 	{
@@ -613,5 +615,5 @@ void Customer::Cancel(vector<Product>& products)
 	{
 		cart.pop_back();
 	}
-	cout << "\nall products has been removed from your cart\n";
+	cout << "\nAll products have been removed from your cart\n";
 }
