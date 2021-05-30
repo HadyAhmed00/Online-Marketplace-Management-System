@@ -34,8 +34,6 @@ int main()
 	products.push_back(p2);
 	products.push_back(p3);
 	products.push_back(p4);
-	cout << products.size();
-	/*products.erase(products.begin() + 3);*/
 	
     //customers
     //the information for the first customer
@@ -121,7 +119,7 @@ int main()
 
 }
 
-//------------------- function Defenation --------------------
+//------------------- function Definition --------------------
 //password function
 string password() {
 	char pass[50];
@@ -141,10 +139,9 @@ string password() {
 	return s;
 }
 
-//for asking the user if he want to login or regist
+//for asking the user if he want to login or register
 void control()
 {
-    //Person p;
     string choice;   //this variable is entered by the user to choose his navigation 
     cout << "please enter number :\n";
     cout << "1-Login\t" << "2-Registration\n";
@@ -196,9 +193,7 @@ void Registration()
 		cin.ignore();
 		getline(cin, setName);
         setEmail = Validation::emailValidation();
-		setPass = Validation::passwordValidation();
-
-		
+		setPass = Validation::passwordValidation();		
 
 		if (number == "2")
 		{
@@ -237,7 +232,6 @@ void login()
 {
     bool check = false;
     int person_id;
-    //string setEmail;
     string person_email;
     string person_password;
     cout << "Enter your ID" << endl;
@@ -268,7 +262,6 @@ void login()
             cout << "\nYour Email or Password is Invalid \nPlease try again\n";
             SetConsoleTextAttribute(hConsole, 15);
             login();
-            // break;
         }
     }
     else if (person_id >= 1000&&person_id <10000)
@@ -293,7 +286,6 @@ void login()
             cout << "\nYour Email or your Password is invalid \nPlease try again\n";
             SetConsoleTextAttribute(hConsole, 15);
             login();
-            // break;
         }
     }
 	else if (person_id == admin.get_id() && person_email==admin.get_email() && person_password ==admin.get_password()) {
@@ -304,5 +296,4 @@ void login()
         cout << "\n\nThe ID you have entered is not found \n\n";
         SetConsoleTextAttribute(hConsole, 15);
     }
-
 }

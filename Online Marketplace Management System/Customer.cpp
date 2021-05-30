@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 static int ID = 1000;
-string choice;
+int choice;
 Customer::Customer() {
 
 }
@@ -22,12 +22,10 @@ Customer::Customer(string name, string email, string address, string phone, stri
 }
 
 
-
-
 //add to cart function: add product to customer cart
 void Customer::Add_to_cart(Product& product, vector<Product>&products, vector<Seller>&sellers)
 {
-	int choice;
+	 ;
 	int quantity;
 	
 	cout << "please enter quantity: ";
@@ -77,20 +75,26 @@ void Customer::Add_to_cart(Product& product, vector<Product>&products, vector<Se
 	cout << "Press-->3 to go to customer menu\n";
 	cout << "Press-->4 to Log Out\n";
 	choice = Validation::isNumber();
-	switch (choice) {
-	case 1:
+	
+	
+	if (choice == 1)
+	{
 		Add_to_cart(product, products, sellers);
-		break;
-	case 2:
+	}
+	else if (choice == 2)
+	{
 		search_by_name(products, sellers);
-		break;
-	case 3:
+	}
+	else if (choice == 3)
+	{
 		customer_menu(products, sellers);
-		break;
-	case 4:
+	}
+	else if (choice == 4)
+	{
 		cout << "Logging out.........\n";
-		break;
-	default:
+	}
+	else
+	{
 		SetConsoleTextAttribute(hConsole, 4);
 		cout << "Invalid Entry...please try again!\n";
 		SetConsoleTextAttribute(hConsole, 15);
@@ -103,8 +107,7 @@ void Customer::Add_to_cart(Product& product, vector<Product>&products, vector<Se
 void Customer::customer_menu(vector<Product>&products,vector<Seller>&sellers)
 {
 	system("cls");
-    int choice;
-	int quantity;
+     
     string cat = "no cat";
     cout << "\t\t\t\t\t*******************Customer Menu*******************\n\n";
     cout << "Press 1 to go to cart\n\n";
@@ -115,8 +118,8 @@ void Customer::customer_menu(vector<Product>&products,vector<Seller>&sellers)
     cout << "Press 6 to show all products\n\n";
     cout << "Press 7 to search for a product by its name\n\n";
     cout << "Press 8 to Log Out\n\n";
-    cin >> choice;
-	cin.ignore();
+	choice = Validation::isNumber();
+
     switch (choice) {
     case 1:
 		display_cart_products(products, sellers);
@@ -194,14 +197,13 @@ void Customer::search_by_name(vector<Product>&products, vector<Seller>&sellers) 
         products[index].product_info();
         cout << endl;
 		cout << "\n\n";
-		int choice;
+		 
 		cout << "Press-->1 to Add this product to cart\n";
 		cout << "Press-->2 to stay on this page\n";
 		cout << "Press-->3 to go back\n";
 		cout << "Press-->4 to Log Out\n";
 
-		cin >> choice;
-		cin.ignore();
+		choice = Validation::isNumber();
 		switch (choice) {
 		case 1:
 			Add_to_cart(products[index], products, sellers);
@@ -229,13 +231,12 @@ void Customer::search_by_name(vector<Product>&products, vector<Seller>&sellers) 
         cout << "Product is not found\n";
 		SetConsoleTextAttribute(hConsole, 15);
 		cout << "\n\n";
-		int choice;
+		 
 		cout << "Press-->1 to stay on this page\n";
 		cout << "Press-->2 to go back\n";
 		cout << "Press-->3 to Log Out\n";
 
-		cin >> choice;
-		cin.ignore();
+		choice = Validation::isNumber();
 		switch (choice) {
 		case 1:
 			search_by_name(products, sellers);
@@ -260,7 +261,7 @@ void Customer::search_by_name(vector<Product>&products, vector<Seller>&sellers) 
 void Customer::remove_from_cart(int ind, vector<Product>&products, vector<Seller>&sellers)
 {
 	int quantity;
-	cout << "please enter quantity: "; cin >> quantity;
+	cout << "please enter quantity: "; quantity = Validation::isNumber();
     bool isFound = false;
     int index;
 	int id;
@@ -285,12 +286,11 @@ void Customer::remove_from_cart(int ind, vector<Product>&products, vector<Seller
 		cart[ind].Quantity -= quantity;
 	}
 	cout << "\n\n";
-	int choice;
+	 
 	cout << "Press-->1 to stay on this page\n";
 	cout << "Press-->2 to go back\n";
 	cout << "Press-->3 to Log Out\n";
-	cin >> choice;
-	cin.ignore();
+	choice = Validation::isNumber();
 	switch (choice) {
 	case 1:
 		remove_from_cart(ind, products, sellers);
@@ -312,7 +312,7 @@ void Customer::remove_from_cart(int ind, vector<Product>&products, vector<Seller
 void Customer::display_cart_products(vector<Product>&products,vector<Seller>&sellers)
 {
 	system("cls");
-    int choice;
+     
 	bool isfound=false;
 	int n;
     if (cart.size() == 0) {
@@ -323,8 +323,7 @@ void Customer::display_cart_products(vector<Product>&products,vector<Seller>&sel
 		cout << "Press-->2 to go back\n";
 		cout << "Press-->3 to Log Out\n";
 
-		cin >> choice;
-		cin.ignore();
+		choice = Validation::isNumber();
 		switch (choice) {
 		case 1:
 			search_by_name(products, sellers);
@@ -357,8 +356,7 @@ void Customer::display_cart_products(vector<Product>&products,vector<Seller>&sel
 			cout << "Press-->5 to remove all products\n";
 			cout << "Press-->6 to Log Out\n";
 
-			cin >> choice;
-			cin.ignore();
+			choice = Validation::isNumber();
 			switch (choice) {
 			case 1:
 				search_by_name(products, sellers);
@@ -406,40 +404,13 @@ void Customer::display_cart_products(vector<Product>&products,vector<Seller>&sel
 				system("pause");
 				display_cart_products(products, sellers);
 			}
-    }
-	///*cout << "Press-->1 to add products to your cart\n";*/
-	//cout << "Press-->1 to remove products from your cart\n";
- //   cout << "Press-->2 to go back\n";
- //   cout << "Press-->3 to Log Out\n";
-	//
- //   cin >> choice;
- //   switch (choice) {
-	//case 1:
-	//	cout << "\nPlease enter the product number to remove it\n";
-	//	int n;
-	//	cin >> n;
-	//	n = n - 1;
-	//	remove_from_cart(n);
-	//	break;
- //   case 2:
- //       customer_menu();
- //       break;
- //   case 3:
- //       cout << "Logging out.........\n";
- //       break;
- //   default:
- //       cout << "Invalid Entry...please try again!\n";
-	//	system("pause");
- //       display_cart_products();
- //   }
-
-   
+    } 
 }
 
 void Customer::display_category_products(string cat, vector<Product>&products, vector<Seller>&sellers)
 {
 	system("cls");
-	int choice;
+	 
     bool isfound = false;
     int index;
 	int pro_num = 1;
@@ -464,8 +435,7 @@ void Customer::display_category_products(string cat, vector<Product>&products, v
 		}
     }
 	if (isfound==false)
-
-		{
+	{
 		SetConsoleTextAttribute(hConsole, 4);
 		cout << "There are no available products of this category right now :(\n\n";
 		SetConsoleTextAttribute(hConsole, 15);
@@ -474,30 +444,26 @@ void Customer::display_category_products(string cat, vector<Product>&products, v
 	cout << "Press-->2 to go back\n";
 	cout << "Press-->3 to Log Out\n";
 	
-	cin >> choice;
-	cin.ignore();
+	choice = Validation::isNumber();
+	isfound = false;
 	switch (choice) {
-	case 1:
+	case 1:		
 		cout << "\nPlease enter the product ID to add it to your cart\n";
-		cin >> choice;
-		cin.ignore();
+		choice = Validation::isNumber();
 		for (int i = 0; i < products.size(); i++)
 		{
-			if (products[i].get_id() == choice) {
+			if (products[i].get_id() == choice && products[i].get_category() == cat) {
 				Add_to_cart(products[i], products, sellers);
-				SetConsoleTextAttribute(hConsole, 10);
-				cout << "\"" << products[i].get_name() << "\"" << " has been added to your cart successfully \n";
-				SetConsoleTextAttribute(hConsole, 15);
 				isfound = true;
 				break;
-			}
+			}			
 		}
 		if (isfound == false) {
 			SetConsoleTextAttribute(hConsole, 4);
 			cout << "The product ID your have entered is not found\n";
 			SetConsoleTextAttribute(hConsole, 15);
 			system("pause");
-			show_all_products(products, sellers);
+			display_category_products(cat, products, sellers);
 		}
 		
 		break;
@@ -520,7 +486,7 @@ void Customer::display_category_products(string cat, vector<Product>&products, v
 void Customer::show_all_products(vector<Product>&products, vector<Seller>&sellers)
 {
 	system("cls");
-	int choice;
+	 
 	bool isFound = false;
 	int displayed_numbers=1;
 	for (int i = 0; i < products.size(); i++)
@@ -539,13 +505,11 @@ void Customer::show_all_products(vector<Product>&products, vector<Seller>&seller
 	cout << "Press-->2 to go back\n";
 	cout << "Press-->3 to Log Out\n";
 	
-	cin >> choice;
-	cin.ignore();
+	choice = Validation::isNumber();
 	switch (choice) {
 	case 1:
 		cout << "\nPlease enter the product ID to add it to your cart\n";
-		cin >> choice;
-		cin.ignore();
+		choice = Validation::isNumber();
 		for (int i = 0; i < products.size(); i++)
 		{
 			if (products[i].get_id() == choice) {
@@ -622,17 +586,6 @@ void Customer::display_Receipt(vector<Seller>&sellers)
 
 void Customer::Cancel(vector<Product>& products)
 {
-	//for (int i = 0; i < products.size(); i++)
-	//{
-	//	if (cart[i].pro.get_id() == products[i].get_id())
-	//	{
-	//		products[i].set_quantity(products[i].get_quantity() + cart[cart[i].pro.get_id()].Quantity);
-	//		cout << "\nproduct has been removed from your cart\n";
-	//		break;
-	//	}
-	//		
-	//	
-	//}
 	for (int j = 0; j < cart.size(); j++) {
 		for (int i = 0; i < products.size(); i++)
 		{
@@ -649,11 +602,3 @@ void Customer::Cancel(vector<Product>& products)
 	}
 	cout << "\nall products has been removed from your cart\n";
 }
-
-
-
-
-//Customer::~Customer()
-//{
-//	cin.ignore();
-//}
