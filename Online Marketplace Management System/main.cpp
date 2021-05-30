@@ -12,9 +12,9 @@ using namespace std;
 //------------------ global vars and vectors ------------------
 
 vector <Customer> customers; //all customers in system
-vector <Product> products; //all products in system
+ vector <Product> products; //all products in system
 vector <Seller> sellers; //all sellers in system
-Admin a("hadi","Admin@gmailcom");
+Admin admin("hadi","Admin2021@gmailcom");
 
 //-------------------------function declaration --------------------
 string password();
@@ -41,14 +41,14 @@ int main()
 				"Customer1@gmail.com",		  //Email
 				"Customer1 adress",			 //adress
 				"phone1",				    //phone
-				"pass1",products);				   //passwod
+				"pass1");				   //passwod
 	
 	//the information for the second customer
     Customer c2("Customer2",                 //Name
 				"Customer2@gmail.com", 	    //Email
 				"Customer1 adress",		   //adress
 				"phone2", 				  //phone
-				"pass2",products);				 //passwod
+				"pass2");				 //passwod
     //save the data
     customers.push_back(c1);
     customers.push_back(c2);
@@ -203,7 +203,7 @@ void Registration()
 			getline(cin, setPhone);
 			cout << "Enter your Address :  \n";
 			getline(cin, setAdd);
-			Customer tmpCustomer(setName, setEmail, setAdd, setPhone, setPass,products); //temparaory create for customer
+			Customer tmpCustomer(setName, setEmail, setAdd, setPhone, setPass); //temparaory create for customer
             cout << "************************************\n";
             cout << "Your ID is: " << tmpCustomer.get_id() << endl;
             cout << "\n\n\n";
@@ -249,7 +249,7 @@ void login()
 				person_password == sellers[i].get_password())
             {
                 cout << "\nhello , " << sellers[i].get_name() << endl;
-                sellers[i].seller_menu(a,products);
+                sellers[i].seller_menu(admin,products);
                 check = true;
                 break;
             }
@@ -270,7 +270,7 @@ void login()
 				person_password == customers[i].get_password())
             {
                 cout << "\nhello, " << customers[i].get_name() << endl;
-                customers[i].customer_menu();
+				customers[i].customer_menu(products);
                 check = true;
                 break;
             }
@@ -283,8 +283,8 @@ void login()
             // break;
         }
     }
-    else if (person_id == 100000 && person_password == "Admin1") {
-		a.Accept_or_Reject(products);
+	else if (person_id == admin.get_id() && person_email==admin.get_email() && person_password ==admin.get_password()) {
+		admin.Accept_or_Reject(products);
     }
 
 }

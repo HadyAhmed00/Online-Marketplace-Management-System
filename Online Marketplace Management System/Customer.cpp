@@ -8,7 +8,7 @@ Customer::Customer() {
 }
 
 
-Customer::Customer(string name, string email, string address, string phone, string password, vector <Product>& pros)
+Customer::Customer(string name, string email, string address, string phone, string password)
 {
     ID++;
     per_id = ID;
@@ -17,12 +17,11 @@ Customer::Customer(string name, string email, string address, string phone, stri
     this->address = address;
     this->phone_number = phone;
     per_password = password;
-	products = pros;
 }
 
 
 //add to cart function: add product to customer cart
-void Customer::Add_to_cart(Product& product)
+void Customer::Add_to_cart(Product& product,vector<Product>&products)
 {
 	system("cls");
 	int choice;
@@ -72,13 +71,13 @@ void Customer::Add_to_cart(Product& product)
 	cin.ignore();
 	switch (choice) {
 	case 1:
-		Add_to_cart(product);
+		Add_to_cart(product, products);
 		break;
 	case 2:
-		search_by_name();
+		search_by_name(products);
 		break;
 	case 3:
-		customer_menu();
+		customer_menu(products);
 		break;
 	case 4:
 		cout << "Logging out.........\n";
@@ -86,12 +85,12 @@ void Customer::Add_to_cart(Product& product)
 	default:
 		cout << "Invalid Entry...please try again!\n";
 		system("pause");
-		show_all_products();
+		show_all_products(products);
 	}
 	
 }
 
-void Customer::customer_menu()
+void Customer::customer_menu(vector<Product>&products)
 {
 	system("cls");
     int choice;
@@ -110,25 +109,25 @@ void Customer::customer_menu()
 	cin.ignore();
     switch (choice) {
     case 1:
-        display_cart_products();
+		display_cart_products(products);
         break;
     case 2:
-        display_category_products("A");
+		display_category_products("A", products);
         break;
     case 3:
-		display_category_products("B");
+		display_category_products("B", products);
         break;
     case 4:
-		display_category_products("C");
+		display_category_products("C",products);
         break;
     case 5:
-		display_category_products("D");
+		display_category_products("D", products);
         break;
     case 6:
-		show_all_products();
+		show_all_products(products);
         break;
     case 7:
-		search_by_name();
+		search_by_name(products);
         break;
     case 8:
         cout << "Logging out.......\n";
@@ -136,14 +135,14 @@ void Customer::customer_menu()
     default:
         cout << "Incorrect entry..Please try again!!!\n";
 		system("pause");
-		customer_menu();
+		customer_menu(products);
         break;
     }
     
 }
 
 // search for a product by entering its name
-void Customer::search_by_name() {
+void Customer::search_by_name(vector<Product>&products) {
 	system("cls");
     bool isFound = false;
     int index;
@@ -193,20 +192,20 @@ void Customer::search_by_name() {
 		cin.ignore();
 		switch (choice) {
 		case 1:
-			Add_to_cart(products[index]);
+			Add_to_cart(products[index], products);
 			break;
 		case 2:
-			search_by_name();
+			search_by_name(products);
 			break;
 		case 3:
-			customer_menu();
+			customer_menu(products);
 			break;
 		case 4:
 			cout << "Logging out.........\n";
 			break;
 		default:
 			cout << "Invalid Entry...please try again!\n";
-			display_cart_products();
+			display_cart_products(products);
 		}
         
     }
@@ -223,17 +222,17 @@ void Customer::search_by_name() {
 		cin.ignore();
 		switch (choice) {
 		case 1:
-			search_by_name();
+			search_by_name(products);
 			break;
 		case 2:
-			customer_menu();
+			customer_menu(products);
 			break;
 		case 3:
 			cout << "Logging out.........\n";
 			break;
 		default:
 			cout << "Invalid Entry...please try again!\n";
-			display_cart_products();
+			display_cart_products(products);
 		}
     }
 	/*cout << "\n\n";
@@ -264,7 +263,7 @@ void Customer::search_by_name() {
 
 }
 //remove from cart: remove product from customer cart
-void Customer::remove_from_cart(int ind)
+void Customer::remove_from_cart(int ind, vector<Product>&products)
 {
     bool isFound = false;
     int index;
@@ -290,21 +289,21 @@ void Customer::remove_from_cart(int ind)
 	cin.ignore();
 	switch (choice) {
 	case 1:
-		remove_from_cart(ind);
+		remove_from_cart(ind, products);
 		break;
 	case 2:
-		customer_menu();
+		customer_menu(products);
 		break;
 	case 3:
 		cout << "Logging out.........\n";
 		break;
 	default:
 		cout << "Invalid Entry...please try again!\n";
-		display_cart_products();
+		display_cart_products(products);
 	}
 }
 //display all elements in cart
-void Customer::display_cart_products()
+void Customer::display_cart_products(vector<Product>&products)
 {
 	system("cls");
     int choice;
@@ -318,10 +317,10 @@ void Customer::display_cart_products()
 		cin.ignore();
 		switch (choice) {
 		case 1:
-			search_by_name();
+			search_by_name(products);
 			break;
 		case 2:
-			customer_menu();
+			customer_menu(products);
 			break;
 		case 3:
 			cout << "Logging out.........\n";
@@ -329,7 +328,7 @@ void Customer::display_cart_products()
 		default:
 			cout << "Invalid Entry...please try again!\n";
 			system("pause");
-			display_cart_products();
+			display_cart_products(products);
 		}
     }
     else {
@@ -348,7 +347,7 @@ void Customer::display_cart_products()
 			cin.ignore();
 			switch (choice) {
 			case 1:
-				search_by_name();
+				search_by_name(products);
 				break;
 			case 2:
 				cout << "\nPlease enter the product number to remove it\n";
@@ -356,10 +355,10 @@ void Customer::display_cart_products()
 				cin >> n;
 				cin.ignore();
 				n = n - 1;
-				remove_from_cart(n);
+				remove_from_cart(n,products);
 				break;
 			case 3:
-				customer_menu();
+				customer_menu(products);
 				break;
 			case 4:
 				cout << "Logging out.........\n";
@@ -367,7 +366,7 @@ void Customer::display_cart_products()
 			default:
 				cout << "Invalid Entry...please try again!\n";
 				system("pause");
-				display_cart_products();
+				display_cart_products(products);
 			}
     }
 	///*cout << "Press-->1 to add products to your cart\n";*/
@@ -399,7 +398,7 @@ void Customer::display_cart_products()
    
 }
 
-void Customer::display_category_products( string cat)
+void Customer::display_category_products(string cat, vector<Product>&products)
 {
 	system("cls");
 	int choice;
@@ -440,10 +439,10 @@ void Customer::display_category_products( string cat)
 		cout << "\nPlease enter the product number to add it to your cart\n";
 		cin >> choice;
 		cin.ignore();
-		Add_to_cart(products[choice]);
+		Add_to_cart(products[choice], products);
 		break;
 	case 2:
-		customer_menu();
+		customer_menu(products);
 		break;
 	case 3:
 		cout << "Logging out.........\n";
@@ -451,12 +450,12 @@ void Customer::display_category_products( string cat)
 	default:
 		cout << "Invalid Entry...please try again!\n";
 		system("pause");
-		display_category_products(cat);
+		display_category_products(cat,products);
 	}
 
 }
 
-void Customer::show_all_products()
+void Customer::show_all_products(vector<Product>&products)
 {
 	system("cls");
 	int choice;
@@ -488,7 +487,7 @@ void Customer::show_all_products()
 		for (int i = 0; i < products.size(); i++)
 		{
 			if (products[i].get_id() == choice) {
-				Add_to_cart(products[i]);
+				Add_to_cart(products[i], products);
 				cout << "\"" << products[i].get_name() << "\"" << " has been added to your cart successfully \n";
 				isFound = true;
 				break;
@@ -497,11 +496,11 @@ void Customer::show_all_products()
 		if (isFound == false) {
 			cout << "The product ID your have entered is not found\n";
 			system("pause");
-			show_all_products();
+			show_all_products(products);
 		}
 		break;
 	case 2:
-		customer_menu();
+		customer_menu(products);
 		break;
 	case 3:
 		cout << "Logging out.........\n";
@@ -510,7 +509,7 @@ void Customer::show_all_products()
 	default:
 		cout << "Invalid Entry...please try again!\n";
 		system("pause");
-		show_all_products();
+		show_all_products(products);
 	}
 }
 
