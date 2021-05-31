@@ -154,6 +154,39 @@ string Validation::emailValidation()
 		}
 	}
 }
+
+string Validation::phoneValidation()
+{
+	string input;
+	bool done = false;
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	regex number_expression{ "[0-9]+" }; //here is the very simple expression for number search
+	do
+	{
+		/*cin.ignore();*/
+		getline(cin, input);
+		if (input.length() <= 11)
+		{
+			done = false;
+			SetConsoleTextAttribute(hConsole, 4);
+			cout << "Invalid entry...Try again\n\n";
+			SetConsoleTextAttribute(hConsole, 15);
+		}
+		if (regex_match(input, number_expression)) {
+			done = true;
+			return input;	
+			break;
+		}
+		else
+		{
+			done = false;
+			SetConsoleTextAttribute(hConsole, 4);
+			cout << "Invalid entry...Try again\n\n";
+			SetConsoleTextAttribute(hConsole, 15);
+		}
+	} while (!done);
+
+}
 Validation::~Validation()
 {
 }

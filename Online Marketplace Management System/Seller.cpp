@@ -32,9 +32,13 @@ void Seller::set_profit(float pro)
 
 void Seller::seller_menu(Admin & a,vector<Product> &allproducts,int user_index)
 {
+	system("cls");
 	string choice;
-	cout << "************** Seller Menu ****************" << endl;
-	cout << "Profit is " << profit <<" EGP" <<endl;
+	SetConsoleTextAttribute(hConsole, 1);
+	cout << "\t\t\t\t\t\t\tHello , " << per_name << endl;
+	SetConsoleTextAttribute(hConsole, 15);
+	cout << "\t\t\t\t\t************** Seller Menu ****************\n\n" << endl;
+	cout << "\tProfit is " << profit <<" EGP\n" <<endl;
 	cout << "Press-->1 To Add a new product" << endl;
 	cout << "Press-->2 to add quantity to an existing product" << endl;
 	cout << "Press-->3 To browse your Products" << endl;
@@ -186,10 +190,6 @@ void Seller::addPriduct(Admin&admin,vector<Product>allproducts,int user_index)
 			SetConsoleTextAttribute(hConsole, 15);
 			done = false;
 		}
-		
-			
-		
-		
 	} while (!done);
 
    //assign the user entered vals to the temp

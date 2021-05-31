@@ -239,7 +239,8 @@ void Registration()
 		if (number == "2")
 		{
 			cout << "Enter your Phone Number :  \n";
-			getline(cin, setPhone);
+			/*getline(cin, setPhone);*/
+			setPhone = Validation::phoneValidation();
 			cout << "Enter your Address :  \n";
 			getline(cin, setAdd);
 			Customer tmpCustomer(setName, setEmail, setAdd, setPhone, setPass); //temparaory create for customer
@@ -290,9 +291,7 @@ void login()
 				person_password == sellers[i].get_password())
             {
                 user_index = sellers[i].get_id();
-                SetConsoleTextAttribute(hConsole, 1);
-                cout << "\nHello , " << sellers[i].get_name() << endl;
-                SetConsoleTextAttribute(hConsole, 15);
+               
                 sellers[i].seller_menu(admin,products,user_index);
                 check = true;
                 break;
