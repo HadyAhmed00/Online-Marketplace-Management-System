@@ -34,7 +34,7 @@ void Seller::seller_menu(Admin & a,vector<Product> &allproducts,int user_index)
 {
 	string choice;
 	cout << "************** Seller Menu ****************" << endl;
-	cout << "Profit is " << profit <<" $" <<endl;
+	cout << "Profit is " << profit <<" EGP" <<endl;
 	cout << "Press-->1 To Add a new product" << endl;
 	cout << "Press-->2 to add quantity to an existing product" << endl;
 	cout << "Press-->3 To browse your Products" << endl;

@@ -1,2 +1,4 @@
-﻿  Product.cpp
-  Online Marketplace Management System.vcxproj -> C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
+﻿  main.cpp
+C:\Users\hyper\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(276,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\hyper\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(301,27): warning C4018: '<': signed/unsigned mismatch
+  Online Marketplace Management System.vcxproj -> C:\Users\hyper\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe

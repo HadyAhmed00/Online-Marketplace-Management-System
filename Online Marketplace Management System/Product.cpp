@@ -62,5 +62,5 @@ void Product::set_categry(string category)
 
 void Product::product_info()
 {
-    cout << "product Name: " << this->get_name() << "    product ID: " << this->get_id() << "    price: " << this->get_price() << " $     category: " << this->get_category() << "    quantity: " << this->get_quantity() << endl;
+    cout << "product Name: " << this->get_name() << "    product ID: " << this->get_id() << "    price: " << this->get_price() << " EGP     category: " << this->get_category() << "    quantity: " << this->get_quantity() << endl;
 }

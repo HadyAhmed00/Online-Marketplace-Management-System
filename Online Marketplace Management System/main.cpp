@@ -23,9 +23,11 @@ string password();
 void control();
 void Registration();
 void login();
-
+void initial_products();
 int main()
 {
+    initial_products();
+   /* 
     Product p1(101, 20, 17215, "Lenovo L340", "SmartPhones, Laptops and Accessories");
     Product p2(101, 30, 1400, "Dell E550", "SmartPhones, Laptops and Accessories");
     Product p3(102, 40, 19000, "iphone12 ", "SmartPhones, Laptops and Accessories");
@@ -60,7 +62,7 @@ int main()
     products.push_back(p14);
     products.push_back(p15);
     products.push_back(p16);
-    products.push_back(p17);
+    products.push_back(p17);*/
 
 	
     //customers
@@ -93,25 +95,25 @@ int main()
     sellers.push_back(s1);
     sellers.push_back(s2);
     //to display the data in seller and customer vector
-    for (int i = 0; i < sellers.size(); i++)
-        cout << sellers[i].get_name() << "\t\t" <<
-				sellers[i].get_password() << "\t\t" <<
-				sellers[i].get_id() <<"\t\t" << 
-				sellers[i].get_email() << "\t\t" << 
-				sellers[i].get_address() << "\t\t" << 
-				sellers[i].get_phoneNum() << endl;
+    //for (int i = 0; i < sellers.size(); i++)
+    //    cout << sellers[i].get_name() << "\t\t" <<
+				//sellers[i].get_password() << "\t\t" <<
+				//sellers[i].get_id() <<"\t\t" << 
+				//sellers[i].get_email() << "\t\t" << 
+				//sellers[i].get_address() << "\t\t" << 
+				//sellers[i].get_phoneNum() << endl;
 
-    for (int i = 0; i < customers.size(); i++)
-        cout << customers[i].get_name() << "\t" << 
-				customers[i].get_password() << "\t\t" << 
-				customers[i].get_id() << "\t\t" << 
-				customers[i].get_email() << "\t\t" <<
-				customers[i].get_address() << "\t" << 
-				customers[i].get_phoneNum() << endl;
+    //for (int i = 0; i < customers.size(); i++)
+    //    cout << customers[i].get_name() << "\t" << 
+				//customers[i].get_password() << "\t\t" << 
+				//customers[i].get_id() << "\t\t" << 
+				//customers[i].get_email() << "\t\t" <<
+				//customers[i].get_address() << "\t" << 
+				//customers[i].get_phoneNum() << endl;
 
 	
 
-    cout << "\n\n\n";
+    //cout << "\n\n\n";
     cout << "\t\t\t\t\tOnline Marketplace Management System\n";
     cout << "\t\t***************************Welcome to Our Marketplace! :)**************************\n";
     string N_num;
@@ -182,21 +184,21 @@ void control()
     {
         Registration();
 
-        for (int i = 0; i < sellers.size(); i++)
-            cout << sellers[i].get_name() << "\t\t" << 
-					sellers[i].get_password() << "\t\t" <<
-					sellers[i].get_id() << "\t\t" <<
-					sellers[i].get_email() << "\t\t" << 
-					sellers[i].get_address() << "\t\t" << 
-					sellers[i].get_phoneNum() << endl;
+     //   for (int i = 0; i < sellers.size(); i++)
+     //       cout << sellers[i].get_name() << "\t\t" << 
+					//sellers[i].get_password() << "\t\t" <<
+					//sellers[i].get_id() << "\t\t" <<
+					//sellers[i].get_email() << "\t\t" << 
+					//sellers[i].get_address() << "\t\t" << 
+					//sellers[i].get_phoneNum() << endl;
 
-        for (int i = 0; i < customers.size(); i++)
-            cout << customers[i].get_name() << "\t" << 
-					customers[i].get_password() << "\t\t" <<
-					customers[i].get_id() << "\t\t" <<
-					customers[i].get_email() << "\t\t" <<
-					customers[i].get_address() << "\t" << 
-					customers[i].get_phoneNum() << endl;
+     //   for (int i = 0; i < customers.size(); i++)
+     //       cout << customers[i].get_name() << "\t" << 
+					//customers[i].get_password() << "\t\t" <<
+					//customers[i].get_id() << "\t\t" <<
+					//customers[i].get_email() << "\t\t" <<
+					//customers[i].get_address() << "\t" << 
+					//customers[i].get_phoneNum() << endl;
     }
     else
     {
@@ -323,5 +325,43 @@ void login()
         SetConsoleTextAttribute(hConsole, 4);
         cout << "\n\nThe ID you have entered is not found \n\n";
         SetConsoleTextAttribute(hConsole, 15);
+    }
+}
+void initial_products() {
+    Product init_product[] = {
+        //SmartPhones, Laptops and Accessories
+        Product(101, 20, 17215, "Lenovo L340", "SmartPhones, Laptops and Accessories"),
+        Product(101, 30, 1400, "Dell E550", "SmartPhones, Laptops and Accessories"),
+        Product(102, 40, 19000, "iphone12 ", "SmartPhones, Laptops and Accessories"),
+        Product(102, 25, 20345.5, "iphone12 pro", "SmartPhones, Laptops and Accessories"),
+        Product(102, 8, 3000, "infinix10", "SmartPhones, Laptops and Accessories"),
+        //Food & Beverage
+        Product(101, 200, 10, "Doha Rice", "Food & Beverage"),
+        Product(102, 50, 8, "Heinze Vinegar", "Food & Beverage"),
+        Product(101, 250, 7.5, "Dream Cream Cramel", "Food & Beverage"),
+        Product(101, 210, 16, "Juhayna Milk", "Food & Beverage"),
+        Product(102, 150, 16, "Chips", "Food & Beverage"),
+        //books
+        Product(102, 50, 45, "The Land Of Zicoula", "Books"),
+        Product(102, 54, 55, "Qawa3ed Gartheen", "Books"),
+        Product(102, 50,20, "The Power Of Now", "Books"),
+        Product(102, 70, 43, "Kbar Dema8ak", "Books"),
+        Product(102, 80, 65, "The Blue Elephant", "Books"),
+        //Appliances
+        Product(102, 34, 8000, "LG Smart TV", "Appliances"),
+        Product(102, 89, 750, "Toshiba Fan", "Appliances"),
+        Product(101, 99, 6000, "Fresh Air Conditiner", "Appliances"),
+        Product(101, 50, 888, "Recever", "Appliances"),
+        Product(101, 150, 2000, "Microwave", "Appliances"),
+        //Fashion
+        Product(102, 34, 350, "T shirt", "Fashion"),
+        Product(102, 89, 300, "trouser", "Fashion"),
+        Product(101, 99, 555, "Shoes", "Fashion"),
+        Product(101, 50, 999, "dress", "Fashion"),
+        Product(101, 150, 2000, "handbag", "Fashion"),
+    };
+    for (int i = 0; i < 25; i++)
+    {
+        products.push_back(init_product[i]);
     }
 }

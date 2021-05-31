@@ -174,8 +174,8 @@ void Customer::search_by_name(vector<Product>&products, vector<Seller>&sellers) 
 	getline(cin, Name);
 	
 	//char arr[] = Name ;
-	for (int x = 0; x < Name.length(); x++)
-		Name[x] = tolower(Name[x]);
+	//for (int x = 0; x < Name.length(); x++)
+	//	Name[x] = tolower(Name[x]);
 	
 	
     for (int i = 0; i < products.size(); i++)
@@ -364,7 +364,7 @@ void Customer::display_cart_products(vector<Product>&products,vector<Seller>&sel
     else {
 		for (int i = 0; i < cart.size(); i++)
 		{
-			cout << i + 1 << "- " << "product name: " << cart[i].pro.get_name() << "\tproduct id: "<<cart[i].pro.get_id() <<"\tprice: "<< cart[i].pro.get_price()<<" $" << "\t\t quantity:  " << cart[i].Quantity <<"\t\ttotal: "<< cart[i].pro.get_price()* cart[i].Quantity <<" $" << endl;
+			cout << i + 1 << "- " << "product name: " << cart[i].pro.get_name() << "\tproduct id: "<<cart[i].pro.get_id() <<"\tprice: "<< cart[i].pro.get_price()<<" EGP" << "\t\t quantity:  " << cart[i].Quantity <<"\t\ttotal: "<< cart[i].pro.get_price()* cart[i].Quantity <<" EGP" << endl;
 			cout << "\n--------------------------------------------------------------------------------------------------------";
 			cout << endl;
 		}
@@ -591,11 +591,18 @@ void Customer::display_Receipt(vector<Seller>&sellers)
 
 	for (int i = 0; i < cart.size(); i++)
 	{
-		cout << i + 1 << "-  " << "product name: " << cart[i].pro.get_name() << "\t\tprice: " << cart[i].pro.get_price() << " $" << "\t\t quantity:  " << cart[i].Quantity << "\t\ttotal: " << cart[i].pro.get_price() * cart[i].Quantity << " $" << endl;
+		cout << i + 1 << "-  " << "product name: " << cart[i].pro.get_name() << "\t\tprice: " << cart[i].pro.get_price() << " EGP" << "\t\t quantity:  " << cart[i].Quantity << "\t\ttotal: " << cart[i].pro.get_price() * cart[i].Quantity << " EGP" << endl;
 		cout << "\n--------------------------------------------------------------------------------------------------------\n";
 		cout << endl;
 	}
-	cout << "total payment: " << totalPrice + receipt.get_shipment_price()<< " $\n";
+	if (totalPrice >= 1000)
+	{
+		cout << "Discount 5%: " << totalPrice * 0.05 << " EGP\n";
+		totalPrice -= (totalPrice*0.05);
+	  
+	}
+	cout << "Delivery Service: " << receipt.get_shipment_price() << " $\n";
+	cout << "total payment: " << totalPrice + receipt.get_shipment_price() << " $\n";
 	cout << "Have a nice day....."<<"\n";
 	while (!cart.empty())
 	{
