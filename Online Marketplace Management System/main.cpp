@@ -152,21 +152,32 @@ int main()
 //------------------- function Definition --------------------
 //password function
 string password() {
-	char pass[50];
-	int num = 0;
-	cout << "Enter the password: \n";
-	while (pass[num - 1] != '\r')
-	{
-		pass[num] = _getch();
-		if (pass[num - 1] != '\r')
-		{
-			cout << "*";
-		}
-		num++;
-	}
-	pass[num - 1] = '\0';
-	string s = pass;
-	return s;
+    string pass = "";
+    char ch;
+    cout << "Enter pass\n";
+    ch = _getch();
+    while (true)
+    {
+        if (ch == 13)//If the user presses enter --->break;
+        {
+            break;
+        }
+        if (ch == 127 || ch == 8)//If the user presses backspace  
+        {
+            if (!pass.empty())//such that the password is not empty
+            {
+                pass.pop_back();
+                cout << "\b \b";//delete the char
+            }
+        }
+        else 
+        {
+            pass.push_back(ch);
+            cout << '*';
+        }
+        ch = _getch();
+    }
+    return pass;
 }
 
 //for asking the user if he want to login or register

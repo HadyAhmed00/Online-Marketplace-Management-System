@@ -18,4 +18,8 @@ C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marke
 C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(601,34): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
 C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(615,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(616,21): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(287,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(312,27): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   Online Marketplace Management System.vcxproj -> C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe

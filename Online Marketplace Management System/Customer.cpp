@@ -601,8 +601,8 @@ void Customer::display_Receipt(vector<Seller>&sellers)
 		totalPrice -= (totalPrice*0.05);
 	  
 	}
-	cout << "Delivery Service: " << receipt.get_shipment_price() << " $\n";
-	cout << "Total payment: " << totalPrice + receipt.get_shipment_price() << " $\n";
+	cout << "Delivery Service: " << receipt.get_shipment_price() << " EGP\n";
+	cout << "Total payment: " << totalPrice + receipt.get_shipment_price() << " EGP\n";
 	cout << "Have a nice day....."<<"\n";
 	while (!cart.empty())
 	{
