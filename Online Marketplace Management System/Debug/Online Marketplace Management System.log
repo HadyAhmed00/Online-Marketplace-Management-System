@@ -1,4 +1,21 @@
-﻿  main.cpp
-C:\Users\hyper\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(276,27): warning C4018: '<': signed/unsigned mismatch
-C:\Users\hyper\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(301,27): warning C4018: '<': signed/unsigned mismatch
-  Online Marketplace Management System.vcxproj -> C:\Users\hyper\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
+﻿  Customer.cpp
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(43,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(181,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(183,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(288,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(273,9): warning C4101: 'index': unreferenced local variable
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(365,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(387,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(439,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(472,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(434,9): warning C4101: 'index': unreferenced local variable
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(436,6): warning C4101: 'quantity_check': unreferenced local variable
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(511,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(532,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(572,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(576,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(592,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(601,34): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(615,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(616,21): warning C4018: '<': signed/unsigned mismatch
+  Online Marketplace Management System.vcxproj -> C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe

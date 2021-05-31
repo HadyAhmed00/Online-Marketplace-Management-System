@@ -55,7 +55,7 @@ void Customer::Add_to_cart(Product& product, vector<Product>&products, vector<Se
 			cart[index].Quantity += quantity;
 			product.set_quantity(product.get_quantity() - quantity);
 			SetConsoleTextAttribute(hConsole, 10);
-			cout << "Now you have " << cart[index].Quantity << " " << product.get_name() << "s\n";
+			cout << "Now you have " << cart[index].Quantity << " of " << product.get_name() << "\n";
 			SetConsoleTextAttribute(hConsole, 15);
 		}
 		else
@@ -73,7 +73,7 @@ void Customer::Add_to_cart(Product& product, vector<Product>&products, vector<Se
 	cout << "Press-->1 to add more quantity of this product\n";
 	cout << "Press-->2 to search for another product\n";
 	cout << "Press-->3 to go to customer menu\n";
-	cout << "Press-->4 to Log Out\n";
+	cout << "Press-->4 to log out\n";
 	choice = Validation::isNumber();
 	
 	
@@ -114,14 +114,14 @@ void Customer::customer_menu(vector<Product>&products,vector<Seller>&sellers)
 	cout << "\n\t\t\t\t\t\t------------ Hello -------------\n\n" <<  endl;
 	SetConsoleTextAttribute(hConsole, 15);
     cout << "Press 1 to go to cart\n\n";
-    cout << "Press 2 to show Applianes products\n\n";
+    cout << "Press 2 to show Appliances products\n\n";
     cout << "Press 3 to show Books products\n\n";
     cout << "Press 4 to show Fashion products\n\n";
-    cout << "Press 5 to Food & Beverage products\n\n";
-    cout << "Press 6 to Smartphones, Laptops & Accessories products\n\n";
+    cout << "Press 5 to show Food & Beverage products\n\n";
+    cout << "Press 6 to show Smartphones, Laptops & Accessories products\n\n";
 	cout << "Press 7 to show all products\n\n";
     cout << "Press 8 to search for a product by its name\n\n";
-    cout << "Press 9 to Log Out\n\n";
+    cout << "Press 9 to log out\n\n";
 	choice = Validation::isNumber();
 
     switch (choice) {
@@ -208,7 +208,7 @@ void Customer::search_by_name(vector<Product>&products, vector<Seller>&sellers) 
 		cout << "Press-->1 to Add this product to cart\n";
 		cout << "Press-->2 to stay on this page\n";
 		cout << "Press-->3 to go back\n";
-		cout << "Press-->4 to Log Out\n";
+		cout << "Press-->4 to log out\n";
 
 		choice = Validation::isNumber();
 		switch (choice) {
@@ -241,7 +241,7 @@ void Customer::search_by_name(vector<Product>&products, vector<Seller>&sellers) 
 		 
 		cout << "Press-->1 to stay on this page\n";
 		cout << "Press-->2 to go back\n";
-		cout << "Press-->3 to Log Out\n";
+		cout << "Press-->3 to log out\n";
 
 		choice = Validation::isNumber();
 		switch (choice) {
@@ -308,7 +308,7 @@ void Customer::remove_from_cart(int ind, vector<Product>&products, vector<Seller
 	 
 	cout << "Press-->1 to stay on this page\n";
 	cout << "Press-->2 to go back\n";
-	cout << "Press-->3 to Log Out\n";
+	cout << "Press-->3 to log out\n";
 	choice = Validation::isNumber();
 	switch (choice) {
 	case 1:
@@ -340,7 +340,7 @@ void Customer::display_cart_products(vector<Product>&products,vector<Seller>&sel
 		SetConsoleTextAttribute(hConsole, 15);
 		cout << "Press-->1 to search for a product to add it to your cart\n";
 		cout << "Press-->2 to go back\n";
-		cout << "Press-->3 to Log Out\n";
+		cout << "Press-->3 to log out\n";
 
 		choice = Validation::isNumber();
 		switch (choice) {
@@ -364,7 +364,7 @@ void Customer::display_cart_products(vector<Product>&products,vector<Seller>&sel
     else {
 		for (int i = 0; i < cart.size(); i++)
 		{
-			cout << i + 1 << "- " << "product name: " << cart[i].pro.get_name() << "\tproduct id: "<<cart[i].pro.get_id() <<"\tprice: "<< cart[i].pro.get_price()<<" EGP" << "\t\t quantity:  " << cart[i].Quantity <<"\t\ttotal: "<< cart[i].pro.get_price()* cart[i].Quantity <<" EGP" << endl;
+			cout << i + 1 << "- " << "product name: " << cart[i].pro.get_name() << "\tproduct ID: "<<cart[i].pro.get_id() <<"\tprice: "<< cart[i].pro.get_price()<<" EGP" << "\t\t quantity:  " << cart[i].Quantity <<"\t\ttotal: "<< cart[i].pro.get_price()* cart[i].Quantity <<" EGP" << endl;
 			cout << "\n--------------------------------------------------------------------------------------------------------";
 			cout << endl;
 		}
@@ -373,7 +373,7 @@ void Customer::display_cart_products(vector<Product>&products,vector<Seller>&sel
 			cout << "Press-->3 to go back\n";
 			cout << "Press-->4 to confirm\n";
 			cout << "Press-->5 to remove all products\n";
-			cout << "Press-->6 to Log Out\n";
+			cout << "Press-->6 to log out\n";
 
 			choice = Validation::isNumber();
 			switch (choice) {
@@ -461,7 +461,7 @@ void Customer::display_category_products(string cat, vector<Product>&products, v
 	}
 	cout << "Press-->1 to Add product to cart\n";
 	cout << "Press-->2 to go back\n";
-	cout << "Press-->3 to Log Out\n";
+	cout << "Press-->3 to log out\n";
 	
 	choice = Validation::isNumber();
 	isfound = false;
@@ -522,7 +522,7 @@ void Customer::show_all_products(vector<Product>&products, vector<Seller>&seller
 	}
 	cout << "Press-->1 to Add product to cart\n";
 	cout << "Press-->2 to go back\n";
-	cout << "Press-->3 to Log Out\n";
+	cout << "Press-->3 to log out\n";
 	
 	choice = Validation::isNumber();
 	switch (choice) {
@@ -587,7 +587,7 @@ void Customer::display_Receipt(vector<Seller>&sellers)
 
 	
 	Receipt receipt(*this,totalPrice);
-	cout << "\t\t\t\t\t************ Wellcome! ************\n\n\n" << "Receipt Id: " << receipt.get_id() << "\n\n";
+	cout << "\t\t\t\t\t************ Welcome! ************\n\n\n" << "Receipt ID: " << receipt.get_id() << "\n\n";
 
 	for (int i = 0; i < cart.size(); i++)
 	{
@@ -602,7 +602,7 @@ void Customer::display_Receipt(vector<Seller>&sellers)
 	  
 	}
 	cout << "Delivery Service: " << receipt.get_shipment_price() << " $\n";
-	cout << "total payment: " << totalPrice + receipt.get_shipment_price() << " $\n";
+	cout << "Total payment: " << totalPrice + receipt.get_shipment_price() << " $\n";
 	cout << "Have a nice day....."<<"\n";
 	while (!cart.empty())
 	{

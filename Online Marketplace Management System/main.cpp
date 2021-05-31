@@ -350,12 +350,12 @@ void initial_products() {
         //Appliances
         Product(102, 34, 8000, "LG Smart TV", "Appliances"),
         Product(102, 89, 750, "Toshiba Fan", "Appliances"),
-        Product(101, 99, 6000, "Fresh Air Conditiner", "Appliances"),
-        Product(101, 50, 888, "Recever", "Appliances"),
+        Product(101, 99, 6000, "Fresh Air Conditioner", "Appliances"),
+        Product(101, 50, 888, "Receiver", "Appliances"),
         Product(101, 150, 2000, "Microwave", "Appliances"),
         //Fashion
         Product(102, 34, 350, "T shirt", "Fashion"),
-        Product(102, 89, 300, "trouser", "Fashion"),
+        Product(102, 89, 300, "Trousers", "Fashion"),
         Product(101, 99, 555, "Shoes", "Fashion"),
         Product(101, 50, 999, "dress", "Fashion"),
         Product(101, 150, 2000, "handbag", "Fashion"),

@@ -38,7 +38,7 @@ void Seller::seller_menu(Admin & a,vector<Product> &allproducts,int user_index)
 	cout << "Press-->1 To Add a new product" << endl;
 	cout << "Press-->2 to add quantity to an existing product" << endl;
 	cout << "Press-->3 To browse your Products" << endl;
-	cout << "Press-->4 To Log Out" << endl;
+	cout << "Press-->4 To log out" << endl;
 	
 	getline(cin ,choice);
 
@@ -102,7 +102,7 @@ void Seller::add_more_quantity(vector<Product>&products,int user_index,Admin &ad
 	{
 		cout << "Press-->1 to add more quantity to the product\n";
 		cout << "Press-->2 to go back\n";
-		cout << "Press-->3 to Log Out\n";
+		cout << "Press-->3 to log out\n";
 		getline(cin, choic);
 		if (choic == "1") {
 			done2 = true;
@@ -200,7 +200,7 @@ void Seller::addPriduct(Admin&admin,vector<Product>allproducts,int user_index)
 	{
 		cout << "Press-->1 to add another product\n";
 		cout << "Press-->2 to go back\n";
-		cout << "Press-->3 to Log Out\n";
+		cout << "Press-->3 to log out\n";
 		getline(cin, choic);
 		if (choic == "1") {
 			done2 = true;
@@ -255,7 +255,7 @@ void Seller::display_Seller_Products(vector<Product> allProducts, int sId,Admin 
 	do
 	{
 		cout << "Press-->1 to go back\n";
-		cout << "Press-->2 to Log Out\n";
+		cout << "Press-->2 to log out\n";
 		getline(cin, choice);
 		if (choice == "1") {
 			done = true;
