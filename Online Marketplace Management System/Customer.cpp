@@ -109,7 +109,7 @@ void Customer::customer_menu(vector<Product>&products,vector<Seller>&sellers)
 	system("cls");
      
     string cat = "no cat";
-    cout << "\t\t\t\t\t*******************Customer Menu*******************\n\n";
+    cout << "\t\t\t\t\t******************* Customer Menu *******************\n\n";
 	SetConsoleTextAttribute(hConsole, 1);
 	cout << "\n\t\t\t\t\t\t------------ Hello -------------\n\n" <<  endl;
 	SetConsoleTextAttribute(hConsole, 15);
