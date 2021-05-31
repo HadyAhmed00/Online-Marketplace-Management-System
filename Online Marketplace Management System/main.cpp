@@ -26,14 +26,42 @@ void login();
 
 int main()
 {
-    Product p1(101, 5, 15, "phone", "A");
-    Product p2(101, 5, 15, "android", "B");
-    Product p3(102, 5, 15, "mak", "B");
-    Product p4(102, 5, 15, "lenovo", "B");
+    Product p1(101, 20, 17215, "Lenovo L340", "SmartPhones, Laptops and Accessories");
+    Product p2(101, 30, 1400, "Dell E550", "SmartPhones, Laptops and Accessories");
+    Product p3(102, 40, 19000, "iphone12 ", "SmartPhones, Laptops and Accessories");
+    Product p4(102, 25, 20345.5, "iphone12 pro", "SmartPhones, Laptops and Accessories");
+    Product p5(102, 8, 3000, "infinix10", "SmartPhones, Laptops and Accessories");
+    Product p6(101, 200, 10, "Doha Rice", "Food & Beverage");
+    Product p7(102, 50, 8, "Heinze Vinegar", "Food & Beverage");
+    Product p8(101, 250, 7.5, "Dream Cream Cramel", "Food & Beverage");
+    Product p9(101, 210, 16, "Juhayna Milk", "Food & Beverage");
+    Product p10(102, 50, 45, "The Land Of Zicoula", "Books");
+    Product p11(102, 54, 55, "Qawa3ed Gartheen", "Books");
+    Product p12(102, 50,20, "The Power Of Now", "Books");
+    Product p13(102, 70, 43, "Kbar Dema8ak", "Books");
+    Product p14(102, 80, 65, "The Blue Elephant", "Books");
+    Product p15(102, 34, 8000, "LG Smart TV", "Appliances");
+    Product p16(102, 89, 750, "Toshiba Fan", "Appliances");
+    Product p17(101, 99, 6000, "Fresh Air Conditiner", "Appliances");
+
 	products.push_back(p1);
 	products.push_back(p2);
 	products.push_back(p3);
 	products.push_back(p4);
+    products.push_back(p5);
+    products.push_back(p6);
+    products.push_back(p7);
+    products.push_back(p8);
+    products.push_back(p9);
+    products.push_back(p10);
+    products.push_back(p11);
+    products.push_back(p12);
+    products.push_back(p13);
+    products.push_back(p14);
+    products.push_back(p15);
+    products.push_back(p16);
+    products.push_back(p17);
+
 	
     //customers
     //the information for the first customer

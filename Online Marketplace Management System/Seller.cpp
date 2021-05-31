@@ -30,7 +30,7 @@ void Seller::set_profit(float pro)
 	profit += pro;
 }
 
-void Seller::seller_menu(Admin & a,vector<Product> allproducts,int user_index)
+void Seller::seller_menu(Admin & a,vector<Product> &allproducts,int user_index)
 {
 	string choice;
 	cout << "************** Seller Menu ****************" << endl;
@@ -149,28 +149,35 @@ void Seller::addPriduct(Admin&admin,vector<Product>allproducts,int user_index)
 	do
 	{
 		cout << "Choose The Product Category :- \n";
-		cout << "1 --> Category A\n";
-		cout << "2 --> Category B\n";
-		cout << "3 --> Category C\n";
-		cout << "4 --> Category D\n";
+		cout << "1 --> Appliances \n";
+		cout << "2 --> Books \n";
+		cout << "3---> Fashion \n";
+		cout << "4 --> Food & Beverage \n";
+		cout << "5 --> SmartPhones, Laptops and Accessories \n";
+		/*cout << "4 --> Fashion \n";*/
 		getline(cin ,choic);
 		if (choic == "1") {
-			cato = "A";
+			cato = "Appliances";
 			done = true;
 		}else if (choic == "2")
 		{
-			cato = "B";
+			cato = "Books";
 			done = true; 
 		}
 		else if (choic == "3")
 		{
-			cato = "C";
+			cato = "Fashion";
 			done = true; 
 		}
 		else if (choic == "4")
 		{
-			cato = "D";
+			cato = "Food & Beverage";
 			done = true; 
+		}
+		else if (choic == "5")
+		{
+			cato = "SmartPhones, Laptops and Accessories";
+			done = true;
 		}
 		else
 		{

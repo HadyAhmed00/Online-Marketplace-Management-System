@@ -114,13 +114,14 @@ void Customer::customer_menu(vector<Product>&products,vector<Seller>&sellers)
 	cout << "\n\t\t\t\t\t\t------------ Hello -------------\n\n" <<  endl;
 	SetConsoleTextAttribute(hConsole, 15);
     cout << "Press 1 to go to cart\n\n";
-    cout << "Press 2 to show products of Category A\n\n";
-    cout << "Press 3 to show products of Category B\n\n";
-    cout << "Press 4 to show products of Category C\n\n";
-    cout << "Press 5 to show products of Category D\n\n";
-    cout << "Press 6 to show all products\n\n";
-    cout << "Press 7 to search for a product by its name\n\n";
-    cout << "Press 8 to Log Out\n\n";
+    cout << "Press 2 to show Applianes products\n\n";
+    cout << "Press 3 to show Books products\n\n";
+    cout << "Press 4 to show Fashion products\n\n";
+    cout << "Press 5 to Food & Beverage products\n\n";
+    cout << "Press 6 to Smartphones, Laptops & Accessories products\n\n";
+	cout << "Press 7 to show all products\n\n";
+    cout << "Press 8 to search for a product by its name\n\n";
+    cout << "Press 9 to Log Out\n\n";
 	choice = Validation::isNumber();
 
     switch (choice) {
@@ -128,24 +129,27 @@ void Customer::customer_menu(vector<Product>&products,vector<Seller>&sellers)
 		display_cart_products(products, sellers);
         break;
     case 2:
-		display_category_products("A", products, sellers);
+		display_category_products("Appliances", products, sellers);
         break;
     case 3:
-		display_category_products("B", products, sellers);
+		display_category_products("Books", products, sellers);
         break;
     case 4:
-		display_category_products("C", products, sellers);
+		display_category_products("Fashion", products, sellers);
         break;
     case 5:
-		display_category_products("D", products, sellers);
+		display_category_products("Food & Beverage", products, sellers);
         break;
-    case 6:
+	case 6:
+		display_category_products("SmartPhones, Laptops and Accessories", products, sellers);
+		break;
+    case 7:
 		show_all_products(products, sellers);
         break;
-    case 7:
+    case 8:
 		search_by_name(products, sellers);
         break;
-    case 8:
+    case 9:
         cout << "Logging out.......\n";
         break;
     default:
@@ -431,7 +435,7 @@ void Customer::display_category_products(string cat, vector<Product>&products, v
 	int pro_num = 1;
 	int quantity_check;
 	cout << "\n\n";
-	cout <<"\t\t\t---------- Category " << cat << " ----------\n\n";
+	cout <<"\t\t\t------------------ " << cat << " ------------------\n\n";
     for (int i = 0; i < products.size(); i++)
     {
 		if (cat == products[i].get_category() && products[i].get_quantity()!=0)
