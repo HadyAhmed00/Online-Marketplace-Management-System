@@ -91,6 +91,7 @@ void Customer::Add_to_cart(Product& product, vector<Product>&products, vector<Se
 	else if (choice == 4)
 	{
 		cout << "Logging out.........\n";
+		Cancel(products);
 	}
 	else
 	{
@@ -150,6 +151,7 @@ void Customer::customer_menu(vector<Product>&products,vector<Seller>&sellers)
         break;
     case 9:
         cout << "Logging out.......\n";
+		Cancel(products);
         break;
     default:
 		SetConsoleTextAttribute(hConsole, 4);
@@ -252,6 +254,7 @@ void Customer::search_by_name(vector<Product>&products, vector<Seller>&sellers) 
 			break;
 		case 3:
 			cout << "Logging out.........\n";
+			Cancel(products);
 			break;
 		default:
 			SetConsoleTextAttribute(hConsole, 4);
@@ -315,6 +318,7 @@ void Customer::remove_from_cart(int ind, vector<Product>&products, vector<Seller
 		break;
 	case 3:
 		cout << "Logging out.........\n";
+		Cancel(products);
 		break;
 	default:
 		SetConsoleTextAttribute(hConsole, 4);
@@ -348,6 +352,7 @@ void Customer::display_cart_products(vector<Product>&products,vector<Seller>&sel
 			break;
 		case 3:
 			cout << "Logging out.........\n";
+			Cancel(products);
 			break;
 		default:
 			SetConsoleTextAttribute(hConsole, 4);
@@ -411,6 +416,7 @@ void Customer::display_cart_products(vector<Product>&products,vector<Seller>&sel
 				break;
 			case 6:
 				cout << "Logging out.........\n";
+				Cancel(products);
 				break;
 			default:
 				SetConsoleTextAttribute(hConsole, 4);
@@ -483,6 +489,7 @@ void Customer::display_category_products(string cat, vector<Product>&products, v
 		break;
 	case 3:
 		cout << "Logging out.........\n";
+		Cancel(products);
 		break;
 	default:
 		SetConsoleTextAttribute(hConsole, 4);
@@ -541,6 +548,7 @@ void Customer::show_all_products(vector<Product>&products, vector<Seller>&seller
 		customer_menu(products, sellers);
 		break;
 	case 3:
+		Cancel(products);
 		cout << "Logging out.........\n";
 		break;
 	
