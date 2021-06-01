@@ -2,7 +2,7 @@
 Lenovo L340
 SmartPhones, Laptops and Accessories
 17215
-20
+19
 101
 10002
 Dell E550
@@ -68,7 +68,7 @@ Books
 Qawa3ed Gartheen
 Books
 55
-54
+53
 102
 10013
 The Power Of Now
@@ -134,7 +134,7 @@ Fashion
 Shoes
 Fashion
 555
-99
+97
 101
 10024
 dress

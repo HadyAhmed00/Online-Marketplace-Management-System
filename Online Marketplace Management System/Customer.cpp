@@ -25,7 +25,6 @@ Customer::Customer(string name, string email, string address, string phone, stri
 //add to cart function: add product to customer cart
 void Customer::Add_to_cart(Product& product, vector<Product>&products, vector<Seller>&sellers)
 {
-	 ;
 	int quantity;
 	
 	cout << "please enter quantity: ";
@@ -173,9 +172,9 @@ void Customer::search_by_name(vector<Product>&products, vector<Seller>&sellers) 
 	//cin.ignore();
 	getline(cin, Name);
 	
-	//char arr[] = Name ;
-	//for (int x = 0; x < Name.length(); x++)
-	//	Name[x] = tolower(Name[x]);
+	/*char arr[] = Name;
+	for (int x = 0; x < Name.length(); x++)
+		Name[x] = tolower(Name[x]);*/
 	
 	
     for (int i = 0; i < products.size(); i++)
@@ -282,9 +281,6 @@ void Customer::remove_from_cart(int ind, vector<Product>&products, vector<Seller
 	}
 	else
 	{
-
-
-
 		for (int i = 0; i < products.size(); i++)
 		{
 			if (id == products[i].get_id())
@@ -433,16 +429,12 @@ void Customer::display_category_products(string cat, vector<Product>&products, v
     bool isfound = false;
     int index;
 	int pro_num = 1;
-	int quantity_check;
 	cout << "\n\n";
 	cout <<"\t\t\t------------------ " << cat << " ------------------\n\n";
     for (int i = 0; i < products.size(); i++)
     {
 		if (cat == products[i].get_category() && products[i].get_quantity()!=0)
 		{
-			
-			/*quantity_check = products[i].get_quantity();*/
-
 			cout << "Product Number: " << pro_num <<" ";
 			products[i].product_info();
 			cout << "\n--------------------------------------------------------------------------------------------------------";
@@ -533,9 +525,6 @@ void Customer::show_all_products(vector<Product>&products, vector<Seller>&seller
 		{
 			if (products[i].get_id() == choice) {
 				Add_to_cart(products[i], products, sellers);
-				SetConsoleTextAttribute(hConsole, 10);
-				//cout << "\"" << products[i].get_name() << "\"" << " has been added to your cart successfully \n";
-				SetConsoleTextAttribute(hConsole, 15);
 				isFound = true;
 				break;
 			}
@@ -567,7 +556,6 @@ void Customer::show_all_products(vector<Product>&products, vector<Seller>&seller
 void Customer::display_Receipt(vector<Seller>&sellers)
 {
 	float totalPrice=0;
-	
 
 	for (int i = 0; i < cart.size(); i++)
 	{
@@ -584,7 +572,6 @@ void Customer::display_Receipt(vector<Seller>&sellers)
 		totalPrice += cart[i].pro.get_price() * cart[i].Quantity;
 		
 	}
-
 	
 	Receipt receipt(*this,totalPrice);
 	cout << "\t\t\t\t\t************ Welcome! ************\n\n\n" << "Receipt ID: " << receipt.get_id() << "\n\n";

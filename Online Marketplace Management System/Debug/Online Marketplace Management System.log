@@ -1,27 +1,22 @@
-﻿Build started 6/1/2021 7:43:43 PM.
-     1>Project "C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         E:\New folder\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
-     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(218): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(241): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(364): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(403): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(412): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(419): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\hadi\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(426): warning C4018: '<' : signed/unsigned mismatch
-       Link:
-         E:\New folder\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.lib" /MACHINE:X86 Debug\Admin.obj
-         Debug\Customer.obj
-         Debug\main.obj
-         Debug\Person.obj
-         Debug\Product.obj
-         Debug\Receipt.obj
-         Debug\Seller.obj
-         Debug\Validation.obj
-         Online Marketplace Management System.vcxproj -> C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe
-     1>Done Building Project "C:\Users\hadi\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:02.62
+﻿  Admin.cpp
+  Customer.cpp
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(42,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(180,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(182,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(284,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(272,9): warning C4101: 'index': unreferenced local variable
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(361,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(383,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(434,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(464,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(430,9): warning C4101: 'index': unreferenced local variable
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(503,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(524,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(560,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(564,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(579,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(588,34): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(602,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(603,21): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Online Marketplace Management System.vcxproj -> C:\Users\Haitham Mahmoud\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe

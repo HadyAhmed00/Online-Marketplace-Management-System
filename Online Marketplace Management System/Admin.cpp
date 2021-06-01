@@ -42,6 +42,4 @@ void Admin::Accept_or_Reject(vector <Product>& all_products) {
     SetConsoleTextAttribute(hConsole, 10);
     cout << "\n\n\nThere is no other requested product\n" << endl;
     SetConsoleTextAttribute(hConsole, 15);
-    //hana5od ra2y elnas kollaha law eladmin ye3mel 7aga tanya
-
 }

@@ -5,16 +5,16 @@
 #include "Seller.h"    
 #include "Person.h"
 #include <conio.h>
-#include<string>
+#include <string>
 #include <windows.h>
-#include"Validation.h"
+#include "Validation.h"
 #include <sstream>
 #include <fstream>
 using namespace std;
 //------------------ global vars and vectors ------------------
 
 vector <Customer> customers; //all customers in system
- vector <Product> products; //all products in system
+vector <Product> products; //all products in system
 vector <Seller> sellers; //all sellers in system
 Admin admin("hadi","Admin2021@gmail.com");
 HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -24,17 +24,12 @@ string password();
 void control();
 void Registration();
 void login();
-void initial_products();
 void load_from_file();
 void write_in_file();
 int main()
-{
-   
+{  
 	load_from_file();
   
-	
-
-    //cout << "\n\n\n";
     cout << "\t\t\t\t\tOnline Marketplace Management System\n";
     cout << "\t\t***************************Welcome to Our Marketplace! :)**************************\n";
     string N_num;
@@ -67,8 +62,6 @@ int main()
 	
     system("pause");
     return 0;
-
-
 }
 
 //------------------- function Definition --------------------
@@ -116,22 +109,6 @@ void control()
     else if (choice == "2")
     {
         Registration();
-
-     //   for (int i = 0; i < sellers.size(); i++)
-     //       cout << sellers[i].get_name() << "\t\t" << 
-					//sellers[i].get_password() << "\t\t" <<
-					//sellers[i].get_id() << "\t\t" <<
-					//sellers[i].get_email() << "\t\t" << 
-					//sellers[i].get_address() << "\t\t" << 
-					//sellers[i].get_phoneNum() << endl;
-
-     //   for (int i = 0; i < customers.size(); i++)
-     //       cout << customers[i].get_name() << "\t" << 
-					//customers[i].get_password() << "\t\t" <<
-					//customers[i].get_id() << "\t\t" <<
-					//customers[i].get_email() << "\t\t" <<
-					//customers[i].get_address() << "\t" << 
-					//customers[i].get_phoneNum() << endl;
     }
     else
     {
@@ -142,7 +119,7 @@ void control()
     }
 }
 
-//regestration function
+//registration function
 void Registration()
 {
 	string number;
@@ -161,7 +138,6 @@ void Registration()
 		if (number == "2")
 		{
 			
-			/*getline(cin, setPhone);*/
 			setPhone = Validation::phoneValidation();
 			cout << "Enter your Address :  \n";
 			getline(cin, setAdd);
@@ -242,8 +218,7 @@ void login()
         {
 			if (person_id == customers[i].get_id() && person_email == customers[i].get_email() &&
 				person_password == customers[i].get_password())
-            {
-				
+            {				
 				customers[i].customer_menu(products, sellers);
                 check = true;
                 break;
@@ -267,44 +242,7 @@ void login()
         SetConsoleTextAttribute(hConsole, 15);
     }
 }
-void initial_products() {
-    Product init_product[] = {
-        //SmartPhones, Laptops and Accessories
-        Product(101, 20, 17215, "Lenovo L340", "SmartPhones, Laptops and Accessories"),
-        Product(101, 30, 1400, "Dell E550", "SmartPhones, Laptops and Accessories"),
-        Product(102, 40, 19000, "iphone12 ", "SmartPhones, Laptops and Accessories"),
-        Product(102, 25, 20345.5, "iphone12 pro", "SmartPhones, Laptops and Accessories"),
-        Product(102, 8, 3000, "infinix10", "SmartPhones, Laptops and Accessories"),
-        //Food & Beverage
-        Product(101, 200, 10, "Doha Rice", "Food & Beverage"),
-        Product(102, 50, 8, "Heinze Vinegar", "Food & Beverage"),
-        Product(101, 250, 7.5, "Dream Cream Cramel", "Food & Beverage"),
-        Product(101, 210, 16, "Juhayna Milk", "Food & Beverage"),
-        Product(102, 150, 16, "Chips", "Food & Beverage"),
-        //books
-        Product(102, 50, 45, "The Land Of Zicoula", "Books"),
-        Product(102, 54, 55, "Qawa3ed Gartheen", "Books"),
-        Product(102, 50,20, "The Power Of Now", "Books"),
-        Product(102, 70, 43, "Kbar Dema8ak", "Books"),
-        Product(102, 80, 65, "The Blue Elephant", "Books"),
-        //Appliances
-        Product(102, 34, 8000, "LG Smart TV", "Appliances"),
-        Product(102, 89, 750, "Toshiba Fan", "Appliances"),
-        Product(101, 99, 6000, "Fresh Air Conditioner", "Appliances"),
-        Product(101, 50, 888, "Receiver", "Appliances"),
-        Product(101, 150, 2000, "Microwave", "Appliances"),
-        //Fashion
-        Product(102, 34, 350, "T shirt", "Fashion"),
-        Product(102, 89, 300, "Trousers", "Fashion"),
-        Product(101, 99, 555, "Shoes", "Fashion"),
-        Product(101, 50, 999, "dress", "Fashion"),
-        Product(101, 150, 2000, "handbag", "Fashion"),
-    };
-    for (int i = 0; i < 25; i++)
-    {
-        products.push_back(init_product[i]);
-    }
-}
+
 void load_from_file()
 {
 	ifstream products_file ,sellers_file,customers_file;
@@ -331,7 +269,6 @@ void load_from_file()
 	}
 	customers_file.close();
 	customer_size = customer_size / 6;
-	cout << customer_size << endl;
 ////////////////////////////////////////////
 	sellers_file.open("sellers data.txt");
 	while (!sellers_file.eof())
@@ -341,7 +278,6 @@ void load_from_file()
 	}
 	sellers_file.close();
 	seller_size = seller_size / 5;
-	cout << seller_size << endl;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ////////////////////////////////////////   opening the file to load data from it 
 	products_file.open("mydata.txt");
@@ -381,7 +317,6 @@ void load_from_file()
 		geek4 >> idd;
 		Customer c(cname, cemail, caddress, cphone, cpass);
 		customers.push_back(c);
-		cout << cname<<endl;
 		ca++;
 	}
 	customers_file.close();
@@ -428,6 +363,4 @@ void write_in_file()
 		seller_file << sellers[i].get_id() << "\n" << sellers[i].get_name() << "\n" << sellers[i].get_email() << "\n" << sellers[i].get_password() << endl<<sellers[i].get_profit()<<endl;
 	}
 	seller_file.close();
-
-
 }

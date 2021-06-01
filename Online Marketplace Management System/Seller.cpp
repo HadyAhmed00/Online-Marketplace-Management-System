@@ -62,9 +62,6 @@ void Seller::seller_menu(Admin & a,vector<Product> &allproducts,int user_index)
 		SetConsoleTextAttribute(hConsole, 15);
 		seller_menu(a, allproducts,user_index);
 	}
-		
-		
-	
 
 }
 
@@ -139,12 +136,11 @@ void Seller::addPriduct(Admin&admin,vector<Product>allproducts,int user_index)
 	string cato = "no cat";
 	int q;
 	float price;
-	string choic/*,choice2*/;
+	string choic;
 	bool done = false;
 	bool done2 = false;
 	cout << "************** Add Product form ********************\n";
 	cout << "Enter Product name: ";
-	/*cin.ignore();*/
 	getline(cin, name);
 	cout << "Enter The Product Price:";
 	price=Validation::isFloat();
@@ -158,7 +154,6 @@ void Seller::addPriduct(Admin&admin,vector<Product>allproducts,int user_index)
 		cout << "3---> Fashion \n";
 		cout << "4 --> Food & Beverage \n";
 		cout << "5 --> SmartPhones, Laptops and Accessories \n";
-		/*cout << "4 --> Fashion \n";*/
 		getline(cin ,choic);
 		if (choic == "1") {
 			cato = "Appliances";
@@ -248,7 +243,6 @@ void Seller::display_Seller_Products(vector<Product> allProducts, int sId,Admin 
 	cout << "----------------------------------\n";
 	for (int i = 0; i < tmp.size(); i++)
 	{
-		/*cout << tmp[i].get_id() << " \t\t" << tmp[i].get_name() << " \t\t" << tmp[i].get_quantity() << "\n";*/
 		tmp[i].product_info();
 		cout << "\n\n";
 	}
