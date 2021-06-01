@@ -1,0 +1,156 @@
+10001
+Lenovo L340
+SmartPhones, Laptops and Accessories
+17215
+20
+101
+10002
+Dell E550
+SmartPhones, Laptops and Accessories
+1400
+30
+101
+10003
+iphone12 
+SmartPhones, Laptops and Accessories
+19000
+40
+102
+10004
+iphone12 pro
+SmartPhones, Laptops and Accessories
+20345
+25
+102
+10005
+infinix10
+SmartPhones, Laptops and Accessories
+3000
+8
+102
+10006
+Doha Rice
+Food & Beverage
+10
+200
+101
+10007
+Heinze Vinegar
+Food & Beverage
+8
+50
+102
+10008
+Dream Cream Cramel
+Food & Beverage
+7
+250
+101
+10009
+Juhayna Milk
+Food & Beverage
+16
+210
+101
+10010
+Chips
+Food & Beverage
+16
+150
+102
+10011
+The Land Of Zicoula
+Books
+45
+50
+102
+10012
+Qawa3ed Gartheen
+Books
+55
+54
+102
+10013
+The Power Of Now
+Books
+20
+50
+102
+10014
+Kbar Dema8ak
+Books
+43
+70
+102
+10015
+The Blue Elephant
+Books
+65
+80
+102
+10016
+LG Smart TV
+Appliances
+8000
+34
+102
+10017
+Toshiba Fan
+Appliances
+750
+89
+102
+10018
+Fresh Air Conditioner
+Appliances
+6000
+99
+101
+10019
+Receiver
+Appliances
+888
+50
+101
+10020
+Microwave
+Appliances
+2000
+150
+101
+10021
+T shirt
+Fashion
+350
+34
+102
+10022
+Trousers
+Fashion
+300
+79
+102
+10023
+Shoes
+Fashion
+555
+99
+101
+10024
+dress
+Fashion
+999
+50
+101
+10025
+handbag
+Fashion
+2000
+150
+101
+10026
+al sa3y
+Books
+35
+9
+101

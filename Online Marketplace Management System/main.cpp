@@ -8,7 +8,8 @@
 #include<string>
 #include <windows.h>
 #include"Validation.h"
-
+#include <sstream>
+#include <fstream>
 using namespace std;
 //------------------ global vars and vectors ------------------
 
@@ -24,93 +25,13 @@ void control();
 void Registration();
 void login();
 void initial_products();
+void load_from_file();
+void write_in_file();
 int main()
 {
-    initial_products();
-   /* 
-    Product p1(101, 20, 17215, "Lenovo L340", "SmartPhones, Laptops and Accessories");
-    Product p2(101, 30, 1400, "Dell E550", "SmartPhones, Laptops and Accessories");
-    Product p3(102, 40, 19000, "iphone12 ", "SmartPhones, Laptops and Accessories");
-    Product p4(102, 25, 20345.5, "iphone12 pro", "SmartPhones, Laptops and Accessories");
-    Product p5(102, 8, 3000, "infinix10", "SmartPhones, Laptops and Accessories");
-    Product p6(101, 200, 10, "Doha Rice", "Food & Beverage");
-    Product p7(102, 50, 8, "Heinze Vinegar", "Food & Beverage");
-    Product p8(101, 250, 7.5, "Dream Cream Cramel", "Food & Beverage");
-    Product p9(101, 210, 16, "Juhayna Milk", "Food & Beverage");
-    Product p10(102, 50, 45, "The Land Of Zicoula", "Books");
-    Product p11(102, 54, 55, "Qawa3ed Gartheen", "Books");
-    Product p12(102, 50,20, "The Power Of Now", "Books");
-    Product p13(102, 70, 43, "Kbar Dema8ak", "Books");
-    Product p14(102, 80, 65, "The Blue Elephant", "Books");
-    Product p15(102, 34, 8000, "LG Smart TV", "Appliances");
-    Product p16(102, 89, 750, "Toshiba Fan", "Appliances");
-    Product p17(101, 99, 6000, "Fresh Air Conditiner", "Appliances");
-
-	products.push_back(p1);
-	products.push_back(p2);
-	products.push_back(p3);
-	products.push_back(p4);
-    products.push_back(p5);
-    products.push_back(p6);
-    products.push_back(p7);
-    products.push_back(p8);
-    products.push_back(p9);
-    products.push_back(p10);
-    products.push_back(p11);
-    products.push_back(p12);
-    products.push_back(p13);
-    products.push_back(p14);
-    products.push_back(p15);
-    products.push_back(p16);
-    products.push_back(p17);*/
-
-	
-    //customers
-    //the information for the first customer
-    Customer c1("Customer1",			       //Name
-				"Customer1@gmail.com",		  //Email
-				"Customer1 adress",			 //adress
-				"phone1",				    //phone
-				"pass1");				   //passwod
-	
-	//the information for the second customer
-    Customer c2("Customer2",                 //Name
-				"Customer2@gmail.com", 	    //Email
-				"Customer1 adress",		   //adress
-				"phone2", 				  //phone
-				"pass2");				 //passwod
-    //save the data
-    customers.push_back(c1);
-    customers.push_back(c2);
-    //sellers
-
-    //the information for the first seller
-    Seller s1("Seller1", //Name
-			  "Seller1@gmail.com","pass3"); //NO NEED TO THIS IN SELLER
-
-    //the information for the second seller
-    Seller s2("Seller2",  //Name
-			  "Seller2@gmail.com","pass4");	//NO NEED TO THIS IN SELLER
-    //save the data
-    sellers.push_back(s1);
-    sellers.push_back(s2);
-    //to display the data in seller and customer vector
-    //for (int i = 0; i < sellers.size(); i++)
-    //    cout << sellers[i].get_name() << "\t\t" <<
-				//sellers[i].get_password() << "\t\t" <<
-				//sellers[i].get_id() <<"\t\t" << 
-				//sellers[i].get_email() << "\t\t" << 
-				//sellers[i].get_address() << "\t\t" << 
-				//sellers[i].get_phoneNum() << endl;
-
-    //for (int i = 0; i < customers.size(); i++)
-    //    cout << customers[i].get_name() << "\t" << 
-				//customers[i].get_password() << "\t\t" << 
-				//customers[i].get_id() << "\t\t" << 
-				//customers[i].get_email() << "\t\t" <<
-				//customers[i].get_address() << "\t" << 
-				//customers[i].get_phoneNum() << endl;
-
+   
+	load_from_file();
+  
 	
 
     //cout << "\n\n\n";
@@ -132,6 +53,7 @@ int main()
         }
         else if (N_num == "2")
         {
+			write_in_file();
             return 0;
         }
         else
@@ -295,7 +217,7 @@ void login()
     {
         for (int i = 0; i < sellers.size(); i++)
         {
-            if (person_email == sellers[i].get_email() && 
+            if (person_id==sellers[i].get_id() && person_email == sellers[i].get_email() && 
 				person_password == sellers[i].get_password())
             {
                 user_index = sellers[i].get_id();
@@ -318,7 +240,7 @@ void login()
     {
         for (int i = 0; i < customers.size(); i++)
         {
-            if (person_email == customers[i].get_email() && 
+			if (person_id == customers[i].get_id() && person_email == customers[i].get_email() &&
 				person_password == customers[i].get_password())
             {
 				
@@ -382,4 +304,130 @@ void initial_products() {
     {
         products.push_back(init_product[i]);
     }
+}
+void load_from_file()
+{
+	ifstream products_file ,sellers_file,customers_file;
+	int i = 0,ca=0,se=0, j = 0,seller_size=0,customer_size=0;
+	string pname, pcat, pid, pprice, pquantity, sellerid;
+	string cid,cemail,caddress,cphone,cpass,cname;
+	string sid, semail, spass, sname, sprofit;
+	int idd, pricee, quantityy, selleridd,sprofitt;
+	//opening the file to know its file
+	products_file.open("mydata.txt");
+	while (!products_file.eof())
+	{
+		getline(products_file, pid);
+		j++;
+	}
+	products_file.close();
+	j = j / 6;
+//////////////////////////////////////////
+	customers_file.open("customers data.txt");
+	while (!customers_file.eof())
+	{
+		getline(customers_file, cid);
+		customer_size++;
+	}
+	customers_file.close();
+	customer_size = customer_size / 6;
+	cout << customer_size << endl;
+////////////////////////////////////////////
+	sellers_file.open("sellers data.txt");
+	while (!sellers_file.eof())
+	{
+		getline(sellers_file, sid);
+		seller_size++;
+	}
+	sellers_file.close();
+	seller_size = seller_size / 5;
+	cout << seller_size << endl;
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ////////////////////////////////////////   opening the file to load data from it 
+	products_file.open("mydata.txt");
+	while (i<j)
+	{
+		getline(products_file, pid);
+		getline(products_file, pname);
+		getline(products_file, pcat);
+		getline(products_file, pprice);
+		getline(products_file, pquantity);
+		getline(products_file, sellerid);
+		stringstream  geek1(pid);
+		geek1 >> idd;
+		stringstream  geek2(pprice);
+		geek2 >> pricee;
+		stringstream  geek3(pquantity);
+		geek3 >> quantityy;
+		stringstream  geek(sellerid);
+		geek >> selleridd;
+		Product p(selleridd, quantityy, pricee, pname, pcat);
+		products.push_back(p);
+		i++;
+	}
+	products_file.close();
+////////////////////////////////////////////////////////////////////////////////////
+
+	customers_file.open("customers data.txt");
+	while (ca<customer_size)
+	{
+		getline(customers_file, cid);
+		getline(customers_file, cname);
+		getline(customers_file,cemail );
+		getline(customers_file, caddress);
+		getline(customers_file,cphone);
+		getline(customers_file,cpass);
+		stringstream  geek4(cid);
+		geek4 >> idd;
+		Customer c(cname, cemail, caddress, cphone, cpass);
+		customers.push_back(c);
+		cout << cname<<endl;
+		ca++;
+	}
+	customers_file.close();
+	////////////////////////////////////////////////////////
+	sellers_file.open("sellers data.txt");
+	while (se<seller_size)
+	{
+		getline(sellers_file, sid);
+		getline(sellers_file, sname);
+		getline(sellers_file, semail);
+		getline(sellers_file, spass);
+		getline(sellers_file, sprofit);
+		stringstream  geek5(sid);
+		geek5 >> idd;
+		stringstream  geek6(sprofit);
+		geek6 >> sprofitt;
+		Seller s(sname, semail, spass);
+		sellers.push_back(s);
+		sellers[se].set_profit(sprofitt);
+		se++;
+	}
+	sellers_file.close();
+}
+void write_in_file()
+{
+	ofstream file1, customer_file, seller_file;
+	file1.open("mydata.txt");
+	for (int i = 0; i < products.size(); i++)
+	{
+		file1 << products[i].get_id() << "\n" << products[i].get_name() << "\n" << products[i].get_category() << "\n" << products[i].get_price() << "\n" << products[i].get_quantity() << "\n" << products[i].get_sellerId() << endl;
+	}
+	file1.close();
+	////////////////////////////////////////////////////////////////
+	customer_file.open("customers data.txt");
+	for (int i = 0; i < customers.size(); i++)
+	{
+		customer_file << customers[i].get_id() << "\n" << customers[i].get_name() << "\n" << customers[i].get_email() << "\n" << customers[i].get_address() << "\n" << customers[i].get_phoneNum() << "\n" << customers[i].get_password() << endl;
+	}
+	customer_file.close();
+	////////////////////////////////////////////////////////////////
+	seller_file.open("sellers data.txt");
+	for (int i = 0; i < sellers.size(); i++)
+	{
+		seller_file << sellers[i].get_id() << "\n" << sellers[i].get_name() << "\n" << sellers[i].get_email() << "\n" << sellers[i].get_password() << endl<<sellers[i].get_profit()<<endl;
+	}
+	seller_file.close();
+
+
 }

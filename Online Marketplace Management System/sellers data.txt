@@ -1,0 +1,10 @@
+101
+Seller1
+Seller1@gmail.com
+pass3
+700
+102
+Seller2
+Seller2@gmail.com
+pass4
+1500

@@ -18,6 +18,7 @@ void Admin::Add_to_requested_products(Product newproduct) {
 }
 
 void Admin::Accept_or_Reject(vector <Product>& all_products) {
+	system("cls");
     string choice;
     while (!requested_products.empty()) {
 		cout << "\t\t\t\t\t************ Admin page ************\t\n\n";

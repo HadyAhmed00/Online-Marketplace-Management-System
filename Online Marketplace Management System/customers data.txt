@@ -1,0 +1,18 @@
+1001
+Customer1
+Customer1@gmail.com
+Customer1 adress
+phone1
+pass1
+1002
+Customer2
+Customer2@gmail.com
+Customer1 adress
+phone2
+pass2
+1003
+adi atef
+hadiatef@gmail.com
+cairo
+01280568893
+88888888@H
