@@ -1,12 +1,10 @@
-﻿Build started 5/31/2021 11:36:37 PM.
+﻿Build started 6/1/2021 11:47:01 AM.
      1>Project "C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Online Marketplace Management System.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Validation.cpp
-         Validation.cpp
-     1>c:\users\hady ahmed\documents\github\online-marketplace-management-system\online marketplace management system\validation.cpp(189): warning C4715: 'Validation::phoneValidation' : not all control paths return a value
-     1>c:\users\hady ahmed\documents\github\online-marketplace-management-system\online marketplace management system\validation.cpp(132): warning C4715: 'Validation::isFloat' : not all control paths return a value
-     1>c:\users\hady ahmed\documents\github\online-marketplace-management-system\online marketplace management system\validation.cpp(108): warning C4715: 'Validation::isNumber' : not all control paths return a value
-     1>c:\users\hady ahmed\documents\github\online-marketplace-management-system\online marketplace management system\validation.cpp(82): warning C4715: 'Validation::passwordValidation' : not all control paths return a value
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\hady ahmed\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(296): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\hady ahmed\documents\github\online-marketplace-management-system\online marketplace management system\main.cpp(319): warning C4018: '<' : signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Hady Ahmed\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.lib" /MACHINE:X86 Debug\Admin.obj
          Debug\Customer.obj
@@ -21,4 +19,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.39
+Time Elapsed 00:00:03.23

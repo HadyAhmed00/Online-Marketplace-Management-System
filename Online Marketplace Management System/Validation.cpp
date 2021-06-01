@@ -163,27 +163,33 @@ string Validation::phoneValidation()
 	regex number_expression{ "[0-9]+" }; //here is the very simple expression for number search
 	do
 	{
+		cout << "Enter your Phone Number :  ";
 		/*cin.ignore();*/
 		getline(cin, input);
-		if (input.length() <= 11)
+		if (input.length() <= 10)
 		{
 			done = false;
 			SetConsoleTextAttribute(hConsole, 4);
-			cout << "Invalid entry...Try again\n\n";
+			cout << "Invalid entry... Too short Try again\n\n";
 			SetConsoleTextAttribute(hConsole, 15);
-		}
-		if (regex_match(input, number_expression)) {
-			done = true;
-			return input;	
-			break;
 		}
 		else
 		{
-			done = false;
-			SetConsoleTextAttribute(hConsole, 4);
-			cout << "Invalid entry...Try again\n\n";
-			SetConsoleTextAttribute(hConsole, 15);
+			if (regex_match(input, number_expression)) 
+			{
+				done = true;
+				return input;
+				break;
+			}
+			else
+			{
+				done = false;
+				SetConsoleTextAttribute(hConsole, 4);
+				cout << "Invalid entry...Try again\n\n";
+				SetConsoleTextAttribute(hConsole, 15);
+			}
 		}
+		
 	} while (!done);
 
 }

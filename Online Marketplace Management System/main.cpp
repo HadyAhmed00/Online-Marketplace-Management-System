@@ -238,11 +238,19 @@ void Registration()
 
 		if (number == "2")
 		{
-			cout << "Enter your Phone Number :  \n";
+			
 			/*getline(cin, setPhone);*/
 			setPhone = Validation::phoneValidation();
 			cout << "Enter your Address :  \n";
 			getline(cin, setAdd);
+			while (setAdd == "")
+			{
+				SetConsoleTextAttribute(hConsole, 4);
+				cout << "Invalid entry... \n";
+				SetConsoleTextAttribute(hConsole, 15);
+				cout << "Enter your Address :  ";
+				getline(cin, setAdd);
+			}
 			Customer tmpCustomer(setName, setEmail, setAdd, setPhone, setPass); //temparaory create for customer
             cout << "************************************\n";
             cout << "Your ID is: " << tmpCustomer.get_id() << endl;
