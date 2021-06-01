@@ -166,104 +166,103 @@ void Customer::customer_menu(vector<Product>&products,vector<Seller>&sellers)
 
 // search for a product by entering its name
 void Customer::search_by_name(vector<Product>&products, vector<Seller>&sellers) {
+	
 	system("cls");
-    bool isFound = false;
-    int index;
-	string Name;
-	cout << "\nPlease enter product name: \n\n";
-	//cin.ignore();
-	getline(cin, Name);
-	
-	/*char arr[] = Name;
-	for (int x = 0; x < Name.length(); x++)
-		Name[x] = tolower(Name[x]);*/
-	
-	
-    for (int i = 0; i < products.size(); i++)
-    {
-		for (int x = 0; x < products[i].get_name().length(); x++)
+	bool found = false;
+	bool isFound = false;
+	string aim;
+	vector<Product> tmp;
+	cout << "enter the string you want  sot serch :\n";
+	getline(cin, aim);
+	for (int i = 0; i < products.size(); i++)
+	{
+		if (regex_search(products[i].get_name(), regex(aim + "(.*)")))
 		{
-
-			products[i].get_name()[x] = tolower(products[i].get_name()[x]);
+			found = true;
+			tmp.push_back(products[i]);
 		}
+		else
+		{
+			found == false;
+		}
+	}
+	if (!found)
+	{
+		cout << "Ther is no Product wit that Name in the markt :(" << endl;
+	}
+	else
+	{
+		for (int i = 0; i < tmp.size(); i++)
+		{
+			tmp[i].product_info();
+			cout << "\n\n--------------------------------------------------------\n\n\n";
+		}
+	}
+	cout << "Press-->1 to Add product to cart\n";
+	cout << "Press-->2 to stay on this page\n";
+	cout << "Press-->3 to go back\n";
+	cout << "Press-->4 to log out\n";
 
-		if (Name== products[i].get_name())
-        {
-            isFound = true;
-            index = i;
-            break;
-        }
-        else
-        {
-            isFound = false;
-            continue;
-        }
-
-    }
-    if (isFound)
-    {
-        products[index].product_info();
-        cout << endl;
-		cout << "\n\n";
-		 
-		cout << "Press-->1 to Add this product to cart\n";
-		cout << "Press-->2 to stay on this page\n";
-		cout << "Press-->3 to go back\n";
-		cout << "Press-->4 to log out\n";
-
+	choice = Validation::isNumber();
+	bool fId = false;
+	switch (choice) {
+	case 1:
+		cout << "\nPlease enter the product ID to add it to your cart\n";
 		choice = Validation::isNumber();
-		switch (choice) {
-		case 1:
-			Add_to_cart(products[index], products, sellers);
-			break;
-		case 2:
-			search_by_name(products, sellers);
-			break;
-		case 3:
-			customer_menu(products, sellers);
-			break;
-		case 4:
-			cout << "Logging out.........\n";
-			break;
-		default:
-			SetConsoleTextAttribute(hConsole, 4);
-			cout << "Invalid Entry...please try again!\n";
-			SetConsoleTextAttribute(hConsole, 15);
-			display_cart_products(products, sellers);
+		for (int i = 0; i < tmp.size(); i++)
+		{
+			if (choice == tmp[i].get_id())
+			{
+				fId = true;
+				break;
+			}
+			else
+			{
+				fId = false;
+			}
 		}
-        
-    }
-    else
-    {
+		if (fId)
+		{
+			for (int i = 0; i < products.size(); i++)
+			{
+				if (products[i].get_id() == choice)
+				{
+					Add_to_cart(products[i], products, sellers);
+					isFound = true;
+					break;
+				}
+			}
+			if (isFound == false) {
+				SetConsoleTextAttribute(hConsole, 4);
+				cout << "The product ID your have entered is not found\n";
+				SetConsoleTextAttribute(hConsole, 15);
+				system("pause");
+				show_all_products(products, sellers);
+			}
+
+		}
+		else
+		{
+			cout << "the id is not found :(\n";
+			search_by_name(products, sellers);
+		}
+		break;
+	case 2:
+		search_by_name(products, sellers);
+		break;
+	case 3:
+		customer_menu(products, sellers);
+		break;
+	case 4:
+		cout << "Logging out.........\n";
+		Cancel(products);
+		break;
+	default:
 		SetConsoleTextAttribute(hConsole, 4);
-        cout << "Product is not found\n";
+		cout << "Invalid Entry...please try again!\n";
 		SetConsoleTextAttribute(hConsole, 15);
-		cout << "\n\n";
-		 
-		cout << "Press-->1 to stay on this page\n";
-		cout << "Press-->2 to go back\n";
-		cout << "Press-->3 to log out\n";
-
-		choice = Validation::isNumber();
-		switch (choice) {
-		case 1:
-			search_by_name(products, sellers);
-			break;
-		case 2:
-			customer_menu(products, sellers);
-			break;
-		case 3:
-			cout << "Logging out.........\n";
-			Cancel(products);
-			break;
-		default:
-			SetConsoleTextAttribute(hConsole, 4);
-			cout << "Invalid Entry...please try again!\n";
-			SetConsoleTextAttribute(hConsole, 15);
-			display_cart_products(products, sellers);
-		}
-    }
-	
+		display_cart_products(products, sellers);
+	}
 
 }
 //remove from cart: remove product from customer cart
