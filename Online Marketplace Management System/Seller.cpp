@@ -34,7 +34,7 @@ void Seller::seller_menu(Admin & a,vector<Product> &allproducts,int user_index)
 {
 	system("cls");
 	string choice;
-	SetConsoleTextAttribute(hConsole, 1);
+	SetConsoleTextAttribute(hConsole, 11);
 	cout << "\t\t\t\t\t\t\tHello , " << per_name << endl;
 	SetConsoleTextAttribute(hConsole, 15);
 	cout << "\t\t\t\t\t************** Seller Menu ****************\n\n" << endl;
@@ -235,16 +235,25 @@ vector<Product> Seller::getSellerProducts(vector<Product> allProducts, int sId)
 	return tmp;
 }
 
-void Seller::display_Seller_Products(vector<Product> allProducts, int sId,Admin &admin,int user_index)
+void Seller::display_Seller_Products(vector<Product> allProducts, int sId, Admin& admin, int user_index)
 {
 	string choice;
 	bool done = false;
 	vector<Product> tmp = getSellerProducts(allProducts, sId);
 	cout << "----------------------------------\n";
-	for (int i = 0; i < tmp.size(); i++)
-	{
-		tmp[i].product_info();
-		cout << "\n\n";
+	if (tmp.size() != 0){
+		for (int i = 0; i < tmp.size(); i++)
+		{
+			tmp[i].product_info();
+			cout << "\n\n";
+		}
+    }
+
+	else {
+		
+		SetConsoleTextAttribute(hConsole, 11);
+		cout << "You haven't added any products yet\n";
+		SetConsoleTextAttribute(hConsole, 15);
 	}
 	do
 	{

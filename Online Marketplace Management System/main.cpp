@@ -130,7 +130,6 @@ void Registration()
 	if (number == "1" || number == "2")
 	{
 		cout << "Enter your Name :  \n";
-		cin.ignore();
 		getline(cin, setName);
         setEmail = Validation::emailValidation();
 		setPass = Validation::passwordValidation();		

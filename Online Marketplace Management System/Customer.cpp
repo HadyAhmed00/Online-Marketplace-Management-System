@@ -110,7 +110,7 @@ void Customer::customer_menu(vector<Product>&products,vector<Seller>&sellers)
      
     string cat = "no cat";
     cout << "\t\t\t\t\t******************* Customer Menu *******************\n\n";
-	SetConsoleTextAttribute(hConsole, 1);
+	SetConsoleTextAttribute(hConsole, 11);
 	cout << "\n\t\t\t\t\t\t------------ Hello -------------\n\n" <<  endl;
 	SetConsoleTextAttribute(hConsole, 15);
     cout << "Press 1 to go to cart\n\n";
@@ -334,7 +334,7 @@ void Customer::display_cart_products(vector<Product>&products,vector<Seller>&sel
 	bool isfound=false;
 	int n;
     if (cart.size() == 0) {
-		SetConsoleTextAttribute(hConsole, 1);
+		SetConsoleTextAttribute(hConsole, 11);
         cout << "Your cart is empty now \n\n\n";
 		SetConsoleTextAttribute(hConsole, 15);
 		cout << "Press-->1 to search for a product to add it to your cart\n";

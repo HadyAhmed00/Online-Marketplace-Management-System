@@ -11,7 +11,7 @@ Admin::Admin(string name, string email) {
 
 void Admin::Add_to_requested_products(Product newproduct) {
     requested_products.push(newproduct);
-    SetConsoleTextAttribute(hConsole, 1);
+    SetConsoleTextAttribute(hConsole, 11);
 	cout << "Waiting for admin approval......\n\n";
     SetConsoleTextAttribute(hConsole, 15);
 	cout << "******\n";
