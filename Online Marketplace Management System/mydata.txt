@@ -2,7 +2,7 @@
 Lenovo L340
 SmartPhones, Laptops and Accessories
 17215
-19
+30
 101
 10002
 Dell E550
@@ -164,5 +164,17 @@ Food & Beverage
 infinix smart
 SmartPhones, Laptops and Accessories
 1500
+4
+101
+10029
+ganzabil
+Food & Beverage
+24
+40
+101
+10030
+relame
+SmartPhones, Laptops and Accessories
+2500
 4
 101

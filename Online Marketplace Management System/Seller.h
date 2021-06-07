@@ -31,7 +31,7 @@ public:
 	Seller(string, string,string);
 	void seller_menu(Admin&,vector<Product>&,int);
 	void add_more_quantity(vector<Product>&,int,Admin&);
-	void addPriduct(Admin&, vector<Product>,int);
+	void addPriduct(Admin&, vector<Product>&,int);
 	vector<Product> getSellerProducts(vector<Product>, int);
 	void display_Seller_Products(vector<Product>, int,Admin&,int);
 	~Seller();

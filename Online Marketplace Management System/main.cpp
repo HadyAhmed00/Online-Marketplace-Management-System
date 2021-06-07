@@ -26,6 +26,7 @@ void Registration();
 void login();
 void load_from_file();
 void write_in_file();
+int exitt();
 int main()
 {  
 	
@@ -55,9 +56,7 @@ int main()
         else if (N_num == "2")
         {
 			write_in_file();
-			
-
-            return 0;
+			return 0;
         }
         else
         {
@@ -108,7 +107,7 @@ void control()
 {
     string choice;   //this variable is entered by the user to choose his navigation 
     cout << "please enter number :\n";
-    cout << "1-Login\t" << "2-Registration\n";
+    cout << "1- Login\t" << "2- Registration\t\t"<<"3- exit\n";
     getline(cin, choice);
     if (choice == "1")
     {
@@ -118,6 +117,10 @@ void control()
     {
         Registration();
     }
+	else if (choice == "3")
+	{
+		exitt();
+	}
     else
     {
         SetConsoleTextAttribute(hConsole, 4);
@@ -411,4 +414,9 @@ void write_in_file()
 		admin.requested_products.pop();
 	}
 	admin_file.close();
+}
+
+int exitt()
+{
+	return 0;
 }

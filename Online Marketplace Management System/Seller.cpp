@@ -130,7 +130,7 @@ void Seller::add_more_quantity(vector<Product>&products,int user_index,Admin &ad
 }
 
 // add the new product to the list of all products and to the list of the seller products
-void Seller::addPriduct(Admin&admin,vector<Product>allproducts,int user_index)
+void Seller::addPriduct(Admin&admin,vector<Product>&allproducts,int user_index)
 {
 	string name = "unNamed";
 	string cato = "no cat";
