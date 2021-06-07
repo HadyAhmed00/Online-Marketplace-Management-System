@@ -28,6 +28,12 @@ void load_from_file();
 void write_in_file();
 int main()
 {  
+	
+
+
+	
+
+
 	load_from_file();
   
     cout << "\t\t\t\t\tOnline Marketplace Management System\n";
@@ -49,6 +55,8 @@ int main()
         else if (N_num == "2")
         {
 			write_in_file();
+			
+
             return 0;
         }
         else
@@ -244,12 +252,13 @@ void login()
 
 void load_from_file()
 {
-	ifstream products_file ,sellers_file,customers_file;
-	int i = 0,ca=0,se=0, j = 0,seller_size=0,customer_size=0;
+	ifstream products_file, sellers_file, customers_file, admin_file;
+	int i = 0,ca=0,se=0, j = 0,ad=0,seller_size=0,customer_size=0,admin_size=0;
 	string pname, pcat, pid, pprice, pquantity, sellerid;
 	string cid,cemail,caddress,cphone,cpass,cname;
 	string sid, semail, spass, sname, sprofit;
 	int idd, pricee, quantityy, selleridd,sprofitt;
+	string adid;
 	//opening the file to know its file
 	products_file.open("mydata.txt");
 	while (!products_file.eof())
@@ -259,6 +268,15 @@ void load_from_file()
 	}
 	products_file.close();
 	j = j / 6;
+	///////////////////////////////////////////////
+	admin_file.open("Admin data.txt");
+	while (!admin_file.eof())
+	{
+		getline(admin_file, adid);
+		admin_size++;
+	}
+	admin_file.close();
+	admin_size = admin_size / 6;
 //////////////////////////////////////////
 	customers_file.open("customers data.txt");
 	while (!customers_file.eof())
@@ -338,10 +356,33 @@ void load_from_file()
 		se++;
 	}
 	sellers_file.close();
+	///////////////////////////////////////////////////////////////////
+	admin_file.open("Admin data.txt");
+	while (ad<admin_size)
+	{
+		getline(admin_file, pid);
+		getline(admin_file, pname);
+		getline(admin_file, pcat);
+		getline(admin_file, pprice);
+		getline(admin_file, pquantity);
+		getline(admin_file, sellerid);
+		stringstream  geek11(pid);
+		geek11 >> idd;
+		stringstream  geek122(pprice);
+		geek122 >> pricee;
+		stringstream  geek3(pquantity);
+		geek3 >> quantityy;
+		stringstream  geek(sellerid);
+		geek >> selleridd;
+		Product p(selleridd, quantityy, pricee, pname, pcat);
+		admin.requested_products.push(p);
+		ad++;
+	}
+	admin_file.close();
 }
 void write_in_file()
 {
-	ofstream file1, customer_file, seller_file;
+	ofstream file1, customer_file, seller_file, admin_file;
 	file1.open("mydata.txt");
 	for (int i = 0; i < products.size(); i++)
 	{
@@ -362,4 +403,12 @@ void write_in_file()
 		seller_file << sellers[i].get_id() << "\n" << sellers[i].get_name() << "\n" << sellers[i].get_email() << "\n" << sellers[i].get_password() << endl<<sellers[i].get_profit()<<endl;
 	}
 	seller_file.close();
+	////////////////////////////////////////////////////////////
+	admin_file.open("Admin data.txt");
+	while (!admin.requested_products.empty())
+	{
+		admin_file << admin.requested_products.front().get_id() << "\n" << admin.requested_products.front().get_name() << "\n" << admin.requested_products.front().get_category() << "\n" << admin.requested_products.front().get_price() << "\n" << admin.requested_products.front().get_quantity() << "\n" << admin.requested_products.front().get_sellerId() << endl;
+		admin.requested_products.pop();
+	}
+	admin_file.close();
 }
