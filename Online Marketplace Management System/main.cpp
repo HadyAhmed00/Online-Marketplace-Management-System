@@ -26,19 +26,16 @@ void Registration();
 void login();
 void load_from_file();
 void write_in_file();
-int exitt();
+int exit();
 int main()
 {  
 	
 
 
-	
-
-
 	load_from_file();
   
-    cout << "\t\t\t\t\tOnline Marketplace Management System\n";
-    cout << "\t\t***************************Welcome to Our Marketplace! :)**************************\n";
+    cout << "\t\t\t\t\t\t\tOnline Marketplace Management System\n";
+    cout << "\t\t\t\t***************************Welcome to Our Marketplace! :)**************************\n\n";
     string N_num;
     bool isValid=true;
     while (true) {
@@ -76,7 +73,7 @@ int main()
 string password() {
     string pass = "";
     char ch;
-    cout << "Enter pass\n";
+    cout << "Enter your password\n";
     ch = _getch();
     while (true)
     {
@@ -119,7 +116,7 @@ void control()
     }
 	else if (choice == "3")
 	{
-		exitt();
+		exit();
 	}
     else
     {
@@ -161,8 +158,9 @@ void Registration()
 			}
 			Customer tmpCustomer(setName, setEmail, setAdd, setPhone, setPass); //temparaory create for customer
             cout << "************************************\n";
+			cout << "\n";
             cout << "Your ID is: " << tmpCustomer.get_id() << endl;
-            cout << "\n\n\n";
+            cout << "\n";
             cout << "************************************\n";
 			customers.push_back(tmpCustomer);
 		}
@@ -170,8 +168,9 @@ void Registration()
 		{
 			Seller tmpSeller(setName, setEmail,setPass);//temparaory creat for seller
             cout << "************************************\n";
+			cout << "\n";
             cout << "Your ID is: " << tmpSeller.get_id() << endl;
-            cout << "\n\n\n";
+            cout << "\n";
             cout << "************************************\n";
 			sellers.push_back(tmpSeller);
 		}
@@ -179,7 +178,7 @@ void Registration()
 	else
 	{
         SetConsoleTextAttribute(hConsole, 4);
-		cout << "Invalid input\n";
+		cout << "Invalid input...Try again\n";
         SetConsoleTextAttribute(hConsole, 15);
 		Registration();
 	}
@@ -195,7 +194,7 @@ void login()
     string person_password;
     cout << "Enter your ID" << endl;
     person_id = Validation::isNumber();
-    cout << "Enter your Email :  \n";
+    cout << "Enter your Email address:  \n";
     getline(cin,person_email);
 
     person_password = password();
@@ -217,7 +216,7 @@ void login()
         if (check == false)
         {
             SetConsoleTextAttribute(hConsole, 4);
-            cout << "\nYour Email or Password is Invalid \nPlease try again\n";
+            cout << "\nYour Email or Password is invalid \nPlease try again\n";
             SetConsoleTextAttribute(hConsole, 15);
             login();
         }
@@ -416,7 +415,7 @@ void write_in_file()
 	admin_file.close();
 }
 
-int exitt()
+int exit()
 {
 	return 0;
 }

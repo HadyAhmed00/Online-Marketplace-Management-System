@@ -21,7 +21,7 @@ void Admin::Accept_or_Reject(vector <Product>& all_products) {
 	system("cls");
     string choice;
     while (!requested_products.empty()) {
-		cout << "\t\t\t\t\t************ Admin page ************\t\n\n";
+		cout << "\t\t\t\t\t************ Admin Page ************\t\n\n";
         requested_products.front().product_info();
 		cout << "------------------------------------------------------------------------------------------------------------\n";
         cout << "Press-->1 to accept the product\n\n";

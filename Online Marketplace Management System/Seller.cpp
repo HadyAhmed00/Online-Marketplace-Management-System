@@ -34,14 +34,15 @@ void Seller::seller_menu(Admin & a,vector<Product> &allproducts,int user_index)
 {
 	system("cls");
 	string choice;
+	cout << "\t\t\t\t\t\t************** Seller Menu ****************\n";
 	SetConsoleTextAttribute(hConsole, 11);
-	cout << "\t\t\t\t\t\t\tHello , " << per_name << endl;
+	cout << "\t\t\t\t\t\t\t"<<"    "<<"Hello, " << per_name << " :)";
 	SetConsoleTextAttribute(hConsole, 15);
-	cout << "\t\t\t\t\t************** Seller Menu ****************\n\n" << endl;
+	cout << "\n\n";
 	cout << "\tProfit is " << profit <<" EGP\n" <<endl;
-	cout << "Press-->1 To Add a new product" << endl;
-	cout << "Press-->2 to add quantity to an existing product" << endl;
-	cout << "Press-->3 To browse your Products" << endl;
+	cout << "Press-->1 To add a new product" << endl;
+	cout << "Press-->2 To add quantity to an existing product" << endl;
+	cout << "Press-->3 To browse your products" << endl;
 	cout << "Press-->4 To log out" << endl;
 	
 	getline(cin ,choice);
@@ -58,7 +59,7 @@ void Seller::seller_menu(Admin & a,vector<Product> &allproducts,int user_index)
 	else
 	{
 		SetConsoleTextAttribute(hConsole, 4);
-		cout << "Incorrect entry..Please try again!!!\n";
+		cout << "Incorrect entry..Please try again\n";
 		SetConsoleTextAttribute(hConsole, 15);
 		seller_menu(a, allproducts,user_index);
 	}
@@ -91,7 +92,7 @@ void Seller::add_more_quantity(vector<Product>&products,int user_index,Admin &ad
 	{
 		products[index].set_quantity(products[index].get_quantity() + quantity);
 		SetConsoleTextAttribute(hConsole, 10);
-		cout << "The quantity has been added to the product successfully\n\n";
+		cout << "The quantity has been added to this product successfully\n\n";
 		SetConsoleTextAttribute(hConsole, 15);
 	}
 	else{
@@ -121,7 +122,7 @@ void Seller::add_more_quantity(vector<Product>&products,int user_index,Admin &ad
 		}
 		else {
 			SetConsoleTextAttribute(hConsole, 4);
-			cout << "Invalid entry....try again\n";
+			cout << "Invalid entry....Try again\n";
 			SetConsoleTextAttribute(hConsole, 15);
 			done2 = false;
 		}
@@ -139,8 +140,8 @@ void Seller::addPriduct(Admin&admin,vector<Product>&allproducts,int user_index)
 	string choic;
 	bool done = false;
 	bool done2 = false;
-	cout << "************** Add Product form ********************\n";
-	cout << "Enter Product name: ";
+	cout << "************** Add Product Form ********************\n";
+	cout << "Enter Product Name: ";
 	getline(cin, name);
 	cout << "Enter The Product Price:";
 	price=Validation::isFloat();
@@ -181,7 +182,7 @@ void Seller::addPriduct(Admin&admin,vector<Product>&allproducts,int user_index)
 		else
 		{
 			SetConsoleTextAttribute(hConsole, 4);
-			cout << "Invalid Choice!!....try again!!";
+			cout << "Invalid choice....Try again";
 			SetConsoleTextAttribute(hConsole, 15);
 			done = false;
 		}
@@ -213,7 +214,7 @@ void Seller::addPriduct(Admin&admin,vector<Product>&allproducts,int user_index)
 		}
 		else {
 			SetConsoleTextAttribute(hConsole, 4);
-			cout << "Invalid entry....try again\n";
+			cout << "Invalid entry....Try again\n";
 			SetConsoleTextAttribute(hConsole, 15);
 			done2 = false;
 		}
@@ -252,7 +253,7 @@ void Seller::display_Seller_Products(vector<Product> allProducts, int sId, Admin
 	else {
 		
 		SetConsoleTextAttribute(hConsole, 11);
-		cout << "You haven't added any products yet\n";
+		cout << "You haven't added any product yet\n";
 		SetConsoleTextAttribute(hConsole, 15);
 	}
 	do
@@ -271,7 +272,7 @@ void Seller::display_Seller_Products(vector<Product> allProducts, int sId, Admin
 		}
 		else {
 			SetConsoleTextAttribute(hConsole, 4);
-			cout << "Invalid entry....try again\n";
+			cout << "Invalid entry....Try again\n";
 			SetConsoleTextAttribute(hConsole, 15);
 			done = false;
 		}

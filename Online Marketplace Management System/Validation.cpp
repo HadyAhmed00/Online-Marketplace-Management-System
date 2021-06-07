@@ -22,9 +22,9 @@ string Validation::passwordValidation() {
 
 	bool done = false; //let's assume we're not done
 	SetConsoleTextAttribute(hConsole, 5);
-	cout << "Note:1-Your password must be at least 9 characters\n" <<
+	cout << "Note:1-Your password must contain at least 9 characters \n" <<
 		"    2-Must contain at least one special character('#','&','@',..etc)\n" <<
-		"    3-Must contain at least one uppercase character \n" <<
+		"    3-Must contain at least one uppercase letter \n" <<
 		"    4-Must contain at least one number    \n";
 	SetConsoleTextAttribute(hConsole, 15);
 	do
@@ -37,7 +37,7 @@ string Validation::passwordValidation() {
 		getline(cin, pass); //get input
 		if (pass.length() <= 8) { //too short!
 			SetConsoleTextAttribute(hConsole, 4);
-			cout << "Invalid password too short!! Try again . . .\n";
+			cout << "This password is too short!! Try again . . .\n";
 			SetConsoleTextAttribute(hConsole, 15);
 		}
 		else
@@ -54,19 +54,19 @@ string Validation::passwordValidation() {
 				cout << "Invalid password! Because:\n";
 				if (!upper_case)
 				{
-					cout << "\t***Your password dont have a uper case\n";
+					cout << "\t***Your password doesn't contain an uppercase letter\n";
 				}
 				if (!lower_case)
 				{
-					cout << "\t***Your password dont have a lower case\n";
+					cout << "\t***Your password doesn't contain a lowercase letter\n";
 				}
 				if (!number_case)
 				{
-					cout << "\t***Your password dont have a number case\n";
+					cout << "\t***Your password doesn't contain a number\n";
 				}
 				if (!special_char)
 				{
-					cout << "\t***Your password dont have a special char\n";
+					cout << "\t***Your password doesn't contain a special character\n";
 				}
 				SetConsoleTextAttribute(hConsole, 15);
 			}
@@ -136,12 +136,12 @@ string Validation::emailValidation()
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	while (true)
 	{
-		cout << "Enter your Email-Id:" << endl;
+		cout << "Enter your Email address:" << endl;
 		getline(cin, email);
 		if (Email_check(email))
 		{
 			SetConsoleTextAttribute(hConsole, 10);
-			cout << "Your Email-Id is valid" << endl;
+			cout << "Your Email address is valid" << endl;
 			SetConsoleTextAttribute(hConsole, 15);
 			return email;
 			break;
@@ -149,7 +149,7 @@ string Validation::emailValidation()
 		else
 		{
 			SetConsoleTextAttribute(hConsole, 4);
-			cout << "Your Email-Id is invalid" << endl;
+			cout << "Your Email address is invalid" << endl;
 			SetConsoleTextAttribute(hConsole, 15);
 		}
 	}
@@ -170,7 +170,7 @@ string Validation::phoneValidation()
 		{
 			done = false;
 			SetConsoleTextAttribute(hConsole, 4);
-			cout << "Invalid entry... Too short Try again\n\n";
+			cout << "Invalid entry... Too short, try again\n\n";
 			SetConsoleTextAttribute(hConsole, 15);
 		}
 		else

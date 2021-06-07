@@ -155,7 +155,7 @@ Books
 9
 101
 10027
-al sa3a rise
+al sa3a rice
 Food & Beverage
 15
 14
@@ -173,8 +173,14 @@ Food & Beverage
 40
 101
 10030
-relame
+realme
 SmartPhones, Laptops and Accessories
 2500
 4
 101
+10031
+Pizza
+Food & Beverage
+80
+205
+103
