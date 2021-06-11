@@ -49,7 +49,7 @@ void Customer::Add_to_cart(Product& product, vector<Product>&products, vector<Se
 			}
 			
 		}
-		if (found)
+		if (found) //if the product is already in the cart
 		{
 			cart[index].Quantity += quantity;
 			product.set_quantity(product.get_quantity() - quantity);

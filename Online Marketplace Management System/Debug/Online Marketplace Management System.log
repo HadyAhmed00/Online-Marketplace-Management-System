@@ -20,4 +20,19 @@ C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marke
 C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(602,34): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
 C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(616,20): warning C4018: '<': signed/unsigned mismatch
 C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Customer.cpp(617,21): warning C4018: '<': signed/unsigned mismatch
+  Receipt.cpp
+  Seller.cpp
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Seller.cpp(81,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Seller.cpp(229,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\Seller.cpp(246,21): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(203,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(226,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(319,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(357,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(379,35): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(389,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(396,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Online Marketplace Management System\main.cpp(403,20): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   Online Marketplace Management System.vcxproj -> C:\Users\User\Documents\GitHub\Online-Marketplace-Management-System\Debug\Online Marketplace Management System.exe

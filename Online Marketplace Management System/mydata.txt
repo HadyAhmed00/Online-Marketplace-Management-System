@@ -32,7 +32,7 @@ SmartPhones, Laptops and Accessories
 Doha Rice
 Food & Beverage
 10
-200
+193
 101
 10007
 Heinze Vinegar
@@ -182,5 +182,11 @@ SmartPhones, Laptops and Accessories
 Pizza
 Food & Beverage
 80
-205
+208
 103
+10032
+Sausage
+Food & Beverage
+80
+100
+105

@@ -223,7 +223,7 @@ void Seller::addPriduct(Admin&admin,vector<Product>&allproducts,int user_index)
 }
 
 //return the seller product list
-vector<Product> Seller::getSellerProducts(vector<Product> allProducts, int sId)
+vector<Product> Seller::getSellerProducts(vector<Product>& allProducts, int sId)
 {
 	vector<Product> tmp;
 	for (int i = 0; i < allProducts.size(); i++)
@@ -236,7 +236,7 @@ vector<Product> Seller::getSellerProducts(vector<Product> allProducts, int sId)
 	return tmp;
 }
 
-void Seller::display_Seller_Products(vector<Product> allProducts, int sId, Admin& admin, int user_index)
+void Seller::display_Seller_Products(vector<Product>& allProducts, int sId, Admin& admin, int user_index)
 {
 	string choice;
 	bool done = false;

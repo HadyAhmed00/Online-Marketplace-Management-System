@@ -2,7 +2,7 @@
 Seller1
 Seller1@gmail.com
 pass3
-19025
+19095
 102
 Seller2
 Seller2@gmail.com
@@ -17,4 +17,9 @@ Haytham@7777
 hady ahmed
 hadyahmed@gmail.com
 77777777@A
+0
+105
+Hadi
+Hadi@gmail.com
+Hadi@12345
 0
